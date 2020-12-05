@@ -7,8 +7,8 @@
 }
 
 .profile-head {
-  background: url("/profile-card-component-main/images/bg-pattern-card.svg")
-    no-repeat center center/ cover;
+  background: url("../images/bg-pattern-card.svg") no-repeat center center/
+    cover;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   min-height: 150px;
@@ -27,41 +27,41 @@
   }
 }
 
-.profile-info{
-    font-size: 18px;
-    text-align: center;
-    padding-top: 4rem;;
-    .name{
-        font-weight: 700;
-    }
-    .age{
-        color:hsl(0, 0%, 59%);
-        font-weight: 400;
-    }
-    .city{
-        padding: .8rem 0;
-        color:hsl(0, 0%, 59%);
-    }
+.profile-info {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 4rem;
+  .name {
+    font-weight: 700;
+  }
+  .age {
+    color: hsl(0, 0%, 59%);
+    font-weight: 400;
+  }
+  .city {
+    padding: 0.8rem 0;
+    color: hsl(0, 0%, 59%);
+  }
 }
 
-.profile-divider{
-    width:100%;
-    border:1px solid hsl(0, 0%, 85%);
+.profile-divider {
+  width: 100%;
+  border: 1px solid hsl(0, 0%, 85%);
 }
 
-.profile-stats{
-    display:flex;
-    justify-content: space-between;
-    text-align: center;
-    margin:2rem 2rem;
+.profile-stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 2rem 2rem;
 
-    .stat{
-        flex-basis: 55px;
-    }
+  .stat {
+    flex-basis: 55px;
+  }
 
-    .count-type{
-        font-weight: regular;
-        font-size: .8rem;
-        color:hsl(0, 0%, 59%)
-    }
+  .count-type {
+    font-weight: regular;
+    font-size: 0.8rem;
+    color: hsl(0, 0%, 59%);
+  }
 }
