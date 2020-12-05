@@ -1,0 +1,80 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background: url("../images/bg-pattern-top.svg") top -600px left -700px no-repeat fixed, url("../images/bg-pattern-bottom.svg") bottom -600px right -700px no-repeat fixed;
+  background-color: #19a2ae;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  height: 100vh; }
+  @media screen and (min-width: 1000px) {
+    body {
+      background-position: top -400px left -150px, bottom -400px right -150px; } }
+
+.profile-card {
+  width: 90%;
+  max-width: 375px;
+  background-color: white;
+  border-radius: 20px; }
+
+.profile-head {
+  background: url("/profile-card-component-main/images/bg-pattern-card.svg") no-repeat center center/cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  min-height: 150px;
+  position: relative; }
+  .profile-head .user-icon {
+    width: 100px;
+    border: 5px solid white;
+    border-radius: 100%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: -50px; }
+
+.profile-info {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 4rem; }
+  .profile-info .name {
+    font-weight: 700; }
+  .profile-info .age {
+    color: #969696;
+    font-weight: 400; }
+  .profile-info .city {
+    padding: .8rem 0;
+    color: #969696; }
+
+.profile-divider {
+  width: 100%;
+  border: 1px solid #d9d9d9; }
+
+.profile-stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 2rem 2rem; }
+  .profile-stats .stat {
+    flex-basis: 55px; }
+  .profile-stats .count-type {
+    font-weight: regular;
+    font-size: .8rem;
+    color: #969696; }
+
+.attribution {
+  font-size: 11px;
+  text-align: center; }
+
+.attribution a {
+  color: #3e52a3; }
