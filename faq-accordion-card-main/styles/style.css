@@ -1,0 +1,129 @@
+:root {
+  --dark-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --soft-violet: hsl(273, 75%, 65%);
+  --soft-blue: hsl(240, 73%, 65%);
+  --white-color: #fff;
+
+  --text-very-dark-gray-blue: hsl(237, 12%, 33%);
+  --text-dark-gray-blue: hsl(240, 6%, 50%);
+
+  --line-divider-color: hsl(240, 5%, 91%);
+
+  font-size: 12px;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* General Classes and styling */
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* FAQ Card */
+.faq-card {
+  background-color: var(--white-color);
+  width: 80%;
+  max-width: 1440px;
+  border-radius: 15px;
+  padding: 3em 2em;
+  margin-top: 9rem;
+  position: relative;
+}
+
+/* Card Image */
+.faq-image {
+  position: relative;
+}
+
+.faq-image .image {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  right: 0;
+  width: 300px;
+}
+
+.faq-image .image img:nth-of-type(2) {
+  transform: translate(25px, -90px);
+}
+
+/* Card Title */
+.faq-info {
+  margin-top: 9rem;
+}
+
+.faq-info h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+/* Question List */
+.faq-questions {
+  list-style: none;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.05rem;
+}
+
+.question-item {
+  border-bottom: 1px solid var(--line-divider-color);
+}
+
+.question-text {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0.8em 0;
+}
+
+.question {
+  transition: font-weight 0.4s, color 0.2s ease;
+}
+
+.question:hover {
+  color: var(--soft-red);
+  cursor: pointer;
+}
+
+.question-text .question.selected {
+  font-weight: 700;
+}
+
+.answer-text {
+  display: none;
+  transition: display 0.4s ease;
+}
+
+.answer-text.show {
+  display: block;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  margin: 2rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
