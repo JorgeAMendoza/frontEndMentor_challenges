@@ -95,28 +95,38 @@ img {
   padding: 0.8em 0;
 }
 
-.question {
-  transition: font-weight 0.4s, color 0.2s ease;
-}
-
-.question:hover {
+.question-text:hover {
   color: var(--soft-red);
   cursor: pointer;
+}
+
+.question {
+  transition: font-weight 0.5s, color 0.15s ease;
+}
+
+.question-text img {
+  transition: transform 0.5s ease;
 }
 
 .question-text .question.selected {
   font-weight: 700;
 }
 
+.question-text img.rotate {
+  transform: rotate(180deg);
+}
+
 .answer-text {
-  display: none;
-  transition: display 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
 }
 
 .answer-text.show {
-  display: block;
+  max-height: 70px;
 }
 
+/* Front End Mentor Code */
 .attribution {
   font-size: 11px;
   text-align: center;
