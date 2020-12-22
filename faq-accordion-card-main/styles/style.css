@@ -20,7 +20,6 @@
   margin: 0;
   box-sizing: border-box;
   line-height: 1.5;
-  font-size: 12px;
 }
 
 /* General Classes and styling */
@@ -41,45 +40,87 @@ img {
 /* FAQ Card */
 .faq-card {
   background-color: var(--white-color);
-  width: 80%;
-  max-width: 1200px;
+  width: 85%;
+  max-width: 1000px;
   border-radius: 15px;
   padding: 3em 2em;
-  margin-top: 9rem;
-  position: relative;
+  margin-top: 8.5rem;
 }
 
 /* Card Image */
-.faq-image {
+.faq-card .faq-image {
   position: relative;
 }
 
 .faq-image .mobile-image {
   position: absolute;
-  top: -120px;
   left: 0;
   right: 0;
-  margin-left:  auto;
   margin-right: auto;
-  width: 300px;
+  margin-left: auto;
+  top: -140px;
+  transform: translateX(-10px);
 }
 
-.faq-image .desktop-image{
-  display:none;
+.faq-image .mobile-image img {
+  display: block;
+  margin: 0 auto;
 }
 
 .faq-image .mobile-image img:nth-of-type(2) {
-  transform: translate(25px, -90px);
+  transform: translate(12px, -90px);
 }
 
-/* Card Title */
+/* Desktop Image */
+.faq-image .desktop-image {
+  height: 100%;
+  position: relative;
+  display: none;
+}
+
+.faq-image .desktop-image .desktop-woman {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.faq-image .desktop-image .desktop-woman .woman {
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -100px;
+}
+
+.faq-image .desktop-image .desktop-woman .pattern {
+  z-index: 0;
+  position: absolute;
+  top: 35%;
+  left: -300px;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%) scale(1.8);
+}
+
+.faq-image .desktop-image .desktop-box {
+  z-index: 1;
+  position: absolute;
+  top: 63%;
+  left: -100px;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Card Text */
 .faq-info {
-  margin-top: 9rem;
+  margin-top: 7rem;
 }
 
 .faq-info h1 {
   font-size: 2.5rem;
-  margin: 2rem 0;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -99,7 +140,7 @@ img {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 10px;
-  padding: 0.8em 0;
+  padding: 0.9em 0;
 }
 
 .question-text:hover {
@@ -108,11 +149,11 @@ img {
 }
 
 .question {
-  transition: font-weight 0.5s, color 0.15s ease;
+  transition: font-weight 0.3s, color 0.15s ease;
 }
 
 .question-text img {
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .question-text .question.selected {
@@ -126,67 +167,67 @@ img {
 .answer-text {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.3s ease;
+}
+
+.answer-text .answer {
+  transition: padding-bottom 0.3s ease;
 }
 
 .answer-text.show {
-  max-height: 70px;
+  max-height: 80px;
+}
+
+.answer-text.show .answer {
+  padding-bottom: 1em;
 }
 
 /* Front End Mentor Code */
 .attribution {
-  font-size: 11px;
+  font-size: 1rem;
   text-align: center;
   color: white;
   font-weight: 700;
   margin: 2rem;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: hsl(0, 0%, 99%);
 }
 
-@media(min-width:750px){
-
-  .faq-card{
-    display:flex;
-    gap:20px;
-    padding: 6em 2em;
+@media (min-width: 1000px) {
+  :root {
+    font-size: 15px;
+  }
+  .faq-card {
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    min-height: 500px;
+    margin: 0;
   }
 
-  .faq-card > *{
-    width:50%;
-  }
-
-  .faq-image .desktop-image{
-    display:block;
-    border:1px solid black;
-    height: 100%;
-  }
-
-  .faq-image .desktop-image > *{
-    position: absolute;
-  }
-
-  .faq-image .desktop-image img:last-child{
-    transform: translate(-100px, 150px);
-  }
-
-  .faq-image .desktop-image img:nth-of-type(2){
-    transform: translateY(-20px);
-  }
-  .mobile-image{
-    display:none;
-  }
-
-  .faq-info{
-    border:1px solid black;
-    align-self: center;
-    margin: auto 0;
-  }
-
-  .faq-info h1{
+  .faq-info {
     margin-top: 0;
+    padding: 0.7em 7em 0 0;
+  }
+
+  .faq-info h1 {
     text-align: left;
   }
 
+  .faq-card > * {
+    width: 50%;
+  }
+
+  .faq-card .faq-info {
+    align-self: center;
+  }
+
+  .faq-image .mobile-image {
+    display: none;
+  }
+
+  .faq-image .desktop-image {
+    display: block;
+  }
 }
