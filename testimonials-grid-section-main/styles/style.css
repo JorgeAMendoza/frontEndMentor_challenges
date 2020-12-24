@@ -1,0 +1,22 @@
+/* Style Resets */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 13px;
+}
+
+/* General Styling */
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
