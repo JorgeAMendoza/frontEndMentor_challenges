@@ -5,9 +5,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.2;
 }
 
 :root {
+  --moderate-violate: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: #fff;
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+
   font-size: 13px;
 }
 
@@ -19,4 +27,96 @@ img {
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--light-grayish-blue);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.testimonial-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.testimonial-grid .testimonial {
+  border-radius: 10px;
+  padding: 1.5em 2em;
+}
+
+/* general testimonial card styling */
+.testimonial > * {
+  padding: 0.6em 0;
+}
+
+.testimonial .user {
+  display: flex;
+  gap: 20px;
+}
+
+.testimonial .user .user-image img {
+  border-radius: 100%;
+  border: 2px solid var(--light-gray);
+  width: 3rem;
+}
+
+.testimonial .user .user-name .status {
+  opacity: 0.5;
+}
+
+.testimonial .user .user-name {
+  align-self: center;
+}
+
+.testimonial .main-comment {
+  font-size: 1.8rem;
+}
+
+.testimonial .side-comment {
+  font-size: 1.15rem;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Main card */
+.testimonial-grid .main-testimonial {
+  background: url("/images/bg-pattern-quotation.svg") no-repeat 90% 10%,
+    var(--moderate-violate);
+  color: white;
+}
+
+/* Light Bluish Card */
+.light-blue-testimonial {
+  background-color: var(--very-dark-grayish-blue);
+  color: white;
+}
+
+/* White Testinmonial Card */
+.white-testimonial {
+  background-color: white;
+  color: var(--very-dark-blackish-blue);
+}
+
+.dark-blue-testimonial {
+  background-color: var(--very-dark-blackish-blue);
+  color: var(--light-grayish-blue);
+}
+
+/* Front End Mentor Attirbution */
+.attribution {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.attribution a {
+  text-decoration: none;
+  color: var(--moderate-violate);
 }
