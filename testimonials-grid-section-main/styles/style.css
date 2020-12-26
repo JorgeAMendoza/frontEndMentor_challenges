@@ -37,13 +37,13 @@ body {
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 2rem auto;
 }
 
 .testimonial-grid {
   display: grid;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .testimonial-grid .testimonial {
@@ -53,7 +53,7 @@ body {
 
 /* general testimonial card styling */
 .testimonial > * {
-  padding: 0.6em 0;
+  padding: 0.7em 0;
 }
 
 .testimonial .user {
@@ -107,6 +107,46 @@ body {
 .dark-blue-testimonial {
   background-color: var(--very-dark-blackish-blue);
   color: var(--light-grayish-blue);
+}
+
+/* Tablet Design */
+@media (min-width: 736px) {
+  :root {
+    font-size: 14px;
+  }
+  .testimonial-grid {
+    grid-template-areas:
+      "main light-blue"
+      "white dark-blue"
+      "white-tall white-tall";
+  }
+
+  .main-testimonial {
+    grid-area: main;
+  }
+  .light-blue-testimonial {
+    grid-area: light-blue;
+  }
+  .white-testimonial {
+    grid-area: white;
+  }
+
+  .dark-blue-testimonial {
+    grid-area: dark-blue;
+  }
+
+  .tall-testimonial {
+    grid-area: white-tall;
+  }
+}
+
+/* Desktop Design */
+@media (min-width: 1100px) {
+  .testimonial-grid {
+    grid-template-areas:
+      "main main light-blue white-tall"
+      "white dark-blue dark-blue white-tall";
+  }
 }
 
 /* Front End Mentor Attirbution */
