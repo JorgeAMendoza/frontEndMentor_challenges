@@ -143,6 +143,7 @@ body {
 /* Desktop Design */
 @media (min-width: 1100px) {
   .testimonial-grid {
+    /* grid-template-rows: repeat(2, 350px); */
     grid-template-areas:
       "main main light-blue white-tall"
       "white dark-blue dark-blue white-tall";
