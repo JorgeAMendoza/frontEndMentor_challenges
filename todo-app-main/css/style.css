@@ -18,8 +18,10 @@
 
   /* Page Color Variables */
   --page-background: var(--lighttheme-very-light-grayish-blue);
-  --task-background-color:var(--lighttheme-very-light-gray);
+  --task-background-color: var(--lighttheme-very-light-gray);
   --task-text-color: var(--lighttheme-very-dark-grayish-blue);
+  --task-text-color-new: var(--lighttheme-dark-grayish-blue);
+  --status-border-color: var(--lighttheme-light-grayish-blue);
 
   font-size: 18px;
 }
@@ -36,7 +38,8 @@
 /* General Classes and Styling */
 body {
   min-height: 100vh;
-  background: url("../images/bg-mobile-light.jpg") no-repeat, var(--page-background);
+  background: url("../images/bg-mobile-light.jpg") no-repeat,
+    var(--page-background);
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -48,17 +51,61 @@ body {
 
 /* Page Title */
 .page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.page-title h1 {
   color: hsl(0, 0%, 98%);
   font-size: 1.6rem;
   letter-spacing: 10px;
   margin-bottom: 1rem;
 }
 
+.page-title img:hover{
+  cursor: pointer;
+}
 /* Task Styling */
 .task {
   background-color: var(--task-background-color);
+  color: var(--task-text-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.6em 0.8em;
+  font-size: 0.85rem;
 }
 
+.task .task-status {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 1px solid var(--status-border-color);
+}
+
+.task .task-delete {
+  display: inline-block;
+  margin-left: auto;
+  height: 15px;
+}
+
+/* New Task */
+.task.new-task {
+  margin-bottom: 0.8rem;
+  border-radius: 5px;
+}
+
+.task.new-task .task-input input {
+  color: var(--task-text-color-new);
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  padding: 0.2em;
+  background-color: var(--task-background-color);
+}
+
+/* Front end mentor Styling */
 .attribution {
   font-size: 11px;
   text-align: center;

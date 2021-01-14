@@ -21,9 +21,12 @@
   </head>
   <body>
     <main class="container">
-      <h1 class="page-title">TODO</h1>
-      <div class="new-task">
-        <div class="task-completed"></div>
+      <div class="page-title">
+        <h1>TODO</h1>
+        <img src="images/icon-moon.svg" alt="Dark Theme Toggle">
+      </div>
+      <div class="task new-task">
+        <div class="task-status"></div>
         <div class="task-input">
           <label for="newTask"></label>
           <input id="newTask" type="text" placeholder="Create a new todo..." />
@@ -32,9 +35,9 @@
 
       <div class="task-list">
         <div class="task">
-          <div class="task-completed"></div>
-          <div class="task-name"></div>
-          <img src="images/icon-cross.svg" alt="Delete Task Button" />
+          <div class="task-status"></div>
+          <div class="task-name">Hello</div>
+          <img class="task-delete" src="images/icon-cross.svg" alt="Delete Task Button" />
         </div>
 
         <div class="task-list-status">
@@ -48,6 +51,7 @@
           <button class="task-type">Completed</button>
         </div>
       </div>
+
 
       <p class="instructions">Drag and drop to reorder list</p>
       -->
