@@ -1,0 +1,68 @@
+/* Style Resets */
+:root {
+  /* Light Theme Colors */
+  --lighttheme-very-light-gray: hsl(0, 0%, 98%);
+  --lighttheme-very-light-grayish-blue: hsl(236, 33%, 92%);
+  --lighttheme-light-grayish-blue: hsl(233, 11%, 84%);
+  --lighttheme-dark-grayish-blue: hsl(236, 9%, 61%);
+  --lighttheme-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  /* Dark Theme Colors */
+  --darktheme-very-dark-blue: hsl(235, 21%, 11%);
+  --darktheme-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --darktheme-light-grayish-blue: hsl(234, 39%, 85%);
+  --darktheme-light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --darktheme-dark-grayish-blue: hsl(234, 11%, 52%);
+  --darktheme-very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --darktheme-very-dark-grayish-blue-ligher: hsl(237, 14%, 26%);
+
+  /* Page Color Variables */
+  --page-background: var(--lighttheme-very-light-grayish-blue);
+  --task-background-color:var(--lighttheme-very-light-gray);
+  --task-text-color: var(--lighttheme-very-dark-grayish-blue);
+
+  font-size: 18px;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+
+/* General Classes and Styling */
+body {
+  min-height: 100vh;
+  background: url("../images/bg-mobile-light.jpg") no-repeat, var(--page-background);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 2.4rem auto;
+}
+
+/* Page Title */
+.page-title {
+  color: hsl(0, 0%, 98%);
+  font-size: 1.6rem;
+  letter-spacing: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Task Styling */
+.task {
+  background-color: var(--task-background-color);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
