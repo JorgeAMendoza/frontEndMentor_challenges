@@ -23,10 +23,13 @@
     <main class="container">
       <div class="page-title">
         <h1>TODO</h1>
-        <img src="images/icon-moon.svg" alt="Dark Theme Toggle">
+        <img src="images/icon-moon.svg" alt="Dark Theme Toggle" />
       </div>
       <div class="task new-task">
-        <div class="task-status"></div>
+        <label class="task-status">
+          <input type="checkbox" checked="checked" />
+          <span class="checkmark"></span>
+        </label>
         <div class="task-input">
           <label for="newTask"></label>
           <input id="newTask" type="text" placeholder="Create a new todo..." />
@@ -35,9 +38,16 @@
 
       <div class="task-list">
         <div class="task">
-          <div class="task-status"></div>
-          <div class="task-name">Hello</div>
-          <img class="task-delete" src="images/icon-cross.svg" alt="Delete Task Button" />
+          <label class="task-status">
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+          <span class="task-name">Take the dog for a walk</span>
+          <img
+            class="task-delete"
+            src="images/icon-cross.svg"
+            alt="Delete Task Button"
+          />
         </div>
 
         <div class="task-list-status">
@@ -51,7 +61,6 @@
           <button class="task-type">Completed</button>
         </div>
       </div>
-
 
       <p class="instructions">Drag and drop to reorder list</p>
       -->

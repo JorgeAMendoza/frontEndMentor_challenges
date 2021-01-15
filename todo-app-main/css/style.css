@@ -63,7 +63,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.page-title img:hover{
+.page-title img:hover {
   cursor: pointer;
 }
 /* Task Styling */
@@ -73,21 +73,81 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0.6em 0.8em;
-  font-size: 0.85rem;
+  min-height: 50px;
+  padding: 0 0.8em;
+  font-size: 0.8rem;
 }
 
+/* Task checkbox */
 .task .task-status {
-  width: 20px;
-  height: 20px;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.task .task-status input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.task .task-status .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid var(--lighttheme-light-grayish-blue);
   border-radius: 100%;
-  border: 1px solid var(--status-border-color);
+}
+
+.task .task-status:hover input ~ .checkmark {
+  background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task .task-status input:checked ~ .checkmark {
+  background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task .task-status .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.task .task-status input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.task .task-status .checkmark::after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Task name and deletion button */
+.task .task-name {
+  margin-top: 0.2rem;
 }
 
 .task .task-delete {
   display: inline-block;
   margin-left: auto;
   height: 15px;
+  cursor: pointer;
 }
 
 /* New Task */
@@ -103,6 +163,11 @@ body {
   border: none;
   padding: 0.2em;
   background-color: var(--task-background-color);
+  margin-top: 0.15rem;
+}
+
+/* Task List */
+.task-list {
 }
 
 /* Front end mentor Styling */
