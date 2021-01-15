@@ -21,7 +21,12 @@
   --task-background-color: var(--lighttheme-very-light-gray);
   --task-text-color: var(--lighttheme-very-dark-grayish-blue);
   --task-text-color-new: var(--lighttheme-dark-grayish-blue);
+  --task-bottom-border-color: var(--lighttheme-very-light-grayish-blue);
   --status-border-color: var(--lighttheme-light-grayish-blue);
+  --status-text-color: var(--lighttheme-dark-grayish-blue);
+  --task-selection-text:var(--lighttheme-dark-grayish-blue);
+  --task-selective-text-active:hsl(220, 98%, 61%);
+  --instruction-text-color: var(--lighttheme-dark-grayish-blue);
 
   font-size: 18px;
 }
@@ -40,6 +45,7 @@ body {
   min-height: 100vh;
   background: url("../images/bg-mobile-light.jpg") no-repeat,
     var(--page-background);
+  background-size: 100%;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -73,9 +79,9 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 50px;
+  min-height: 55px;
   padding: 0 0.8em;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 /* Task checkbox */
@@ -167,9 +173,63 @@ body {
 }
 
 /* Task List */
-.task-list {
+.task-list .task {
+  border-bottom: 1px solid var(--task-bottom-border-color);
 }
 
+.task-list .task:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+/* Task List Stats */
+.task-section .stats {
+  background-color: var(--task-background-color);
+  border-radius: 0 0 5px 5px;
+  font-size: 0.7rem;
+  color: var(--status-text-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.8em;
+}
+
+/* Task Type Selection */
+.task-section .task-selection {
+  background-color: var(--task-background-color);
+  padding: .7rem 0.8em;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.task-section .task-selection .task-type{
+  background:transparent;
+  color:var(--task-selection-text);
+  border:none;
+  font-family: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.task-section .task-selection .task-type:hover{
+  color: var(--task-selective-text-active);
+}
+
+.task-section .task-selection .task-type.type-active{
+  color: var(--task-selective-text-active);
+}
+
+.task-section .task-selection .task-type + .task-type{
+  margin-left:.8rem;
+}
+
+/* Page Instructions */
+.instructions{
+  text-align: center;
+  font-size:.75rem;
+  margin-top: 2rem;
+  color: var(--instruction-text-color);
+}
 /* Front end mentor Styling */
 .attribution {
   font-size: 11px;
