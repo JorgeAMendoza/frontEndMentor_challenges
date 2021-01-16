@@ -25,7 +25,8 @@
   --status-border-color: var(--lighttheme-light-grayish-blue);
   --status-text-color: var(--lighttheme-dark-grayish-blue);
   --task-selection-text: var(--lighttheme-dark-grayish-blue);
-  --task-selective-text-active: hsl(220, 98%, 61%);
+  --task-selection-text-active: hsl(220, 98%, 61%);
+  --task-selection-text-hover: var(--lighttheme-very-dark-grayish-blue);
   --instruction-text-color: var(--lighttheme-dark-grayish-blue);
 
   font-size: 18px;
@@ -150,6 +151,7 @@ body {
 /* Task name and deletion button */
 .task .task-name {
   margin-top: 0.2rem;
+  cursor: pointer;
 }
 
 .task .task-delete {
@@ -214,16 +216,31 @@ body {
   cursor: pointer;
 }
 
+.task-section .stats .task-selection.desktop {
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.task-section .stats .task-selection.desktop .task-type {
+  font-size: 0.8rem;
+}
+
 .task-section .task-selection .task-type:hover {
-  color: var(--task-selective-text-active);
+  color: var(--task-selection-text-hover);
 }
 
 .task-section .task-selection .task-type.type-active {
-  color: var(--task-selective-text-active);
+  color: var(--task-selection-text-active);
 }
 
 .task-section .task-selection .task-type + .task-type {
   margin-left: 0.8rem;
+}
+
+.task-section .stats .task-cleared:hover {
+  color: var(--task-selection-text-hover);
+  cursor: pointer;
 }
 
 /* Page Instructions */
@@ -246,8 +263,9 @@ body {
 /* Desktop Styling */
 @media (min-width: 600px) {
   body {
-    background: url("../images/bg-desktop-light.jpg") no-repeat;
-    background-size: 100%;
+    background: url("../images/bg-desktop-light.jpg") no-repeat,
+      var(--page-background);
+    background-size: 100% 200px;
   }
 }
 
@@ -255,7 +273,29 @@ body {
   :root {
     font-size: 20px;
   }
+}
+
+@media (min-width: 1200px) {
+  body {
+    background-size: 100% 250px;
+  }
   .container {
     margin-top: 4rem;
+  }
+
+  .task .task-delete {
+    display: none;
+  }
+
+  .task:hover .task-delete {
+    display: block;
+  }
+
+  .task-section .task-selection.mobile {
+    display: none;
+  }
+
+  .task-section .stats .task-selection.desktop {
+    display: block;
   }
 }
