@@ -45,6 +45,7 @@ const domController = (function () {
 
   function switchToLightTheme() {
     themeToggle.setAttribute("src", "images/icon-moon.svg");
+    staticDOM.pageBody.classList.remove("dark");
     document.documentElement.style.setProperty(
       "--page-background",
       "var(--lighttheme-very-light-grayish-blue)"
