@@ -14,7 +14,7 @@
   --darktheme-light-grayish-blue-hover: hsl(236, 33%, 92%);
   --darktheme-dark-grayish-blue: hsl(234, 11%, 52%);
   --darktheme-very-dark-grayish-blue: hsl(233, 14%, 35%);
-  --darktheme-very-dark-grayish-blue-ligher: hsl(237, 14%, 26%);
+  --darktheme-very-dark-grayish-blue-lighter: hsl(237, 14%, 26%);
 
   /* Page Color Variables */
   --page-background: var(--lighttheme-very-light-grayish-blue);
@@ -114,7 +114,7 @@ body {
   left: 0;
   height: 25px;
   width: 25px;
-  border: 1px solid var(--lighttheme-light-grayish-blue);
+  border: 1px solid var(--status-border-color);
   border-radius: 100%;
 }
 
