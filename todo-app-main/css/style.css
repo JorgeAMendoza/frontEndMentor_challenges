@@ -22,7 +22,7 @@
   --task-text-color: var(--lighttheme-very-dark-grayish-blue);
   --task-text-color-new: var(--lighttheme-dark-grayish-blue);
   --task-bottom-border-color: var(--lighttheme-very-light-grayish-blue);
-  --status-border-color: var(--lighttheme-light-grayish-blue);
+  --check-border-color: var(--lighttheme-light-grayish-blue);
   --status-text-color: var(--lighttheme-dark-grayish-blue);
   --task-selection-text: var(--lighttheme-dark-grayish-blue);
   --task-selection-text-active: hsl(220, 98%, 61%);
@@ -94,6 +94,11 @@ body.dark {
   font-size: 0.75rem;
 }
 
+.task.dark {
+  /* background-color: ;
+  color:var(--darktheme-very-dark-desaturated-blue); */
+}
+
 /* Task checkbox */
 .task .task-status {
   position: relative;
@@ -120,7 +125,7 @@ body.dark {
   left: 0;
   height: 25px;
   width: 25px;
-  border: 1px solid var(--status-border-color);
+  border: 1px solid var(--check-border-color);
   border-radius: 100%;
 }
 
@@ -320,4 +325,16 @@ body.dark {
   .task-section .stats .task-selection.desktop {
     display: block;
   }
+}
+
+/* Dark Theme Variable Change */
+body[data-theme="dark"] {
+  --page-background: var(--darktheme-very-dark-blue);
+  --task-background-color: var(--darktheme-very-dark-desaturated-blue);
+  --task-text-color: var(--darktheme-light-grayish-blue);
+  --task-bottom-border-color: var(--darktheme-very-dark-grayish-blue-lighter);
+  --check-border-color: var(--darktheme-very-dark-grayish-blue-lighter);
+  --task-selection-text-hover: var(--darktheme-light-grayish-blue-hover);
+  --task-selection-text: var(--darktheme-dark-grayish-blue);
+  --instruction-text-color: var(--darktheme-dark-grayish-blue);
 }
