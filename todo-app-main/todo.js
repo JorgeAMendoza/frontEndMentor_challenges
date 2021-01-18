@@ -2,10 +2,13 @@
 const domController = (function () {
   const staticDOM = {
     themeToggle: document.querySelector("#themeToggle"),
+    pageBody: document.querySelector("body"),
   };
 
   function switchToDarkTheme() {
     themeToggle.setAttribute("src", "images/icon-sun.svg");
+    staticDOM.pageBody.classList.add("dark");
+
     document.documentElement.style.setProperty(
       "--page-background",
       "var(--darktheme-very-dark-blue)"
