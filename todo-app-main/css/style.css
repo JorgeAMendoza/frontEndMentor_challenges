@@ -160,6 +160,11 @@ body.dark {
   cursor: pointer;
 }
 
+.task.checked .task-name {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
 .task .task-delete {
   display: inline-block;
   margin-left: auto;
@@ -181,6 +186,10 @@ body.dark {
   padding: 0.2em;
   background-color: var(--task-background-color);
   margin-top: 0.15rem;
+}
+
+.task.new-task .task-input input:focus {
+  color: var(--task-text-color);
 }
 
 /* Task List */
