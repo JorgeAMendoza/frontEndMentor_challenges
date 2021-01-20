@@ -16,18 +16,8 @@
   --darktheme-very-dark-grayish-blue: hsl(233, 14%, 35%);
   --darktheme-very-dark-grayish-blue-lighter: hsl(237, 14%, 26%);
 
-  /* Page Color Variables */
-  --page-background: var(--lighttheme-very-light-grayish-blue);
-  --task-background-color: var(--lighttheme-very-light-gray);
-  --task-text-color: var(--lighttheme-very-dark-grayish-blue);
-  --task-text-color-new: var(--lighttheme-dark-grayish-blue);
-  --task-bottom-border-color: var(--lighttheme-very-light-grayish-blue);
-  --check-border-color: var(--lighttheme-light-grayish-blue);
-  --status-text-color: var(--lighttheme-dark-grayish-blue);
-  --task-selection-text: var(--lighttheme-dark-grayish-blue);
+  /* Static CSS Colors */
   --task-selection-text-active: hsl(220, 98%, 61%);
-  --task-selection-text-hover: var(--lighttheme-very-dark-grayish-blue);
-  --instruction-text-color: var(--lighttheme-dark-grayish-blue);
 
   font-size: 18px;
 }
@@ -327,13 +317,27 @@ body.dark {
   }
 }
 
-/* Dark Theme Variable Change */
+/* Light/Dark Theme attribute toggle */
+body[data-theme="light"] {
+  --page-background: var(--lighttheme-very-light-grayish-blue);
+  --task-background-color: var(--lighttheme-very-light-gray);
+  --task-text-color: var(--lighttheme-very-dark-grayish-blue);
+  --task-text-color-new: var(--lighttheme-dark-grayish-blue);
+  --task-bottom-border-color: var(--lighttheme-very-light-grayish-blue);
+  --check-border-color: var(--lighttheme-light-grayish-blue);
+  --status-text-color: var(--lighttheme-dark-grayish-blue);
+  --task-selection-text: var(--lighttheme-dark-grayish-blue);
+  --task-selection-text-hover: var(--lighttheme-very-dark-grayish-blue);
+  --instruction-text-color: var(--lighttheme-dark-grayish-blue);
+}
+
 body[data-theme="dark"] {
   --page-background: var(--darktheme-very-dark-blue);
   --task-background-color: var(--darktheme-very-dark-desaturated-blue);
   --task-text-color: var(--darktheme-light-grayish-blue);
   --task-bottom-border-color: var(--darktheme-very-dark-grayish-blue-lighter);
   --check-border-color: var(--darktheme-very-dark-grayish-blue-lighter);
+  --status-text-color: var(--darktheme-dark-grayish-blue);
   --task-selection-text-hover: var(--darktheme-light-grayish-blue-hover);
   --task-selection-text: var(--darktheme-dark-grayish-blue);
   --instruction-text-color: var(--darktheme-dark-grayish-blue);
