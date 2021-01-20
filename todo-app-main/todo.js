@@ -6,13 +6,15 @@ const domController = (function () {
   };
 
   function switchToDarkTheme() {
-    themeToggle.setAttribute("src", "images/icon-sun.svg");
+    staticDOM.themeToggle.setAttribute("src", "images/icon-sun.svg");
     staticDOM.pageBody.classList.add("dark");
+    staticDOM.pageBody.dataset.theme = "dark";
   }
 
   function switchToLightTheme() {
-    themeToggle.setAttribute("src", "images/icon-moon.svg");
+    staticDOM.themeToggle.setAttribute("src", "images/icon-moon.svg");
     staticDOM.pageBody.classList.remove("dark");
+    staticDOM.pageBody.dataset.theme = "light";
   }
 
   //   Set Static Event Listeners
