@@ -20,23 +20,18 @@ const domController = (function () {
     staticDOM.pageBody.dataset.theme = "light";
   }
 
-  function insertNewTask(taskName, taskStatus) {
-    console.log(taskName, taskStatus);
-    const newTask = `
-    <div class="task">
-      <label class="task-status">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-      </label>
-      <span class="task-name">${taskName}</span>
-      <img
-      class="task-delete"
-      src="images/icon-cross.svg"
-      alt="Delete Task Button"
-      />
-    </div>
-    `;
+  function insertTask(e) {
+    e.preventDefault();
+    taskDataModule.insertNewTask(
+      staticDOM.inputName.value,
+      (staticDOM.inputStatus.checked = "false")
+    );
+
+    staticDOM.inputName.value = "";
+    staticDOM.inputStatus.checked = false;
   }
+
+  function _writeTaskList() {}
 
   //   Set Static Event Listeners
   staticDOM.themeToggle.addEventListener("click", function (e) {
@@ -44,10 +39,18 @@ const domController = (function () {
     else switchToLightTheme();
   });
 
-  staticDOM.inputNewTask.addEventListener("submit", function (e) {
-    e.preventDefault();
-    insertNewTask(staticDOM.inputName.value, staticDOM.inputStatus.checked);
-    staticDOM.inputName.value = "";
-    staticDOM.inputStatus.checked = false;
-  });
+  staticDOM.inputNewTask.addEventListener("submit", insertTask);
+})();
+
+const taskDataModule = (function () {
+  const _taskData = [];
+
+  function _insertNewTask(name, status) {
+    _taskData.push({ taskName: name, taskStatus: status });
+    console.table(_taskData);
+  }
+
+  return {
+    insertNewTask: _insertNewTask,
+  };
 })();
