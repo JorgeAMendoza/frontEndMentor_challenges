@@ -84,11 +84,6 @@ body.dark {
   font-size: 0.75rem;
 }
 
-.task.dark {
-  /* background-color: ;
-  color:var(--darktheme-very-dark-desaturated-blue); */
-}
-
 /* Task checkbox */
 .task .task-status {
   position: relative;
@@ -173,6 +168,10 @@ body.dark {
   border-radius: 5px;
 }
 
+.task-input form {
+  display: flex;
+}
+
 .task.new-task .task-input input {
   color: var(--task-text-color-new);
   font-family: inherit;
@@ -181,6 +180,7 @@ body.dark {
   padding: 0.2em;
   background-color: var(--task-background-color);
   margin-top: 0.15rem;
+  margin-left: 0.5rem;
 }
 
 .task.new-task .task-input input:focus {

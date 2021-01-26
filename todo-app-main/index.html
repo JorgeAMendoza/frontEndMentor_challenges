@@ -26,13 +26,19 @@
         <img id="themeToggle" src="images/icon-moon.svg" alt="Theme Toggle" />
       </div>
       <div class="task new-task">
-        <label class="task-status">
-          <input type="checkbox" checked="checked" />
-          <span class="checkmark"></span>
-        </label>
         <div class="task-input">
-          <label for="newTask"></label>
-          <input id="newTask" type="text" placeholder="Create a new todo..." />
+          <form id="inputNewTask">
+            <label class="task-status">
+              <input type="checkbox" checked="checked" />
+              <span class="checkmark"></span>
+            </label>
+            <label for="newTask"
+              ><input
+                id="newTask"
+                type="text"
+                placeholder="Create a new todo..."
+            /></label>
+          </form>
         </div>
       </div>
 
