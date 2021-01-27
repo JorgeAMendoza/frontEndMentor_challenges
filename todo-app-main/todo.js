@@ -27,11 +27,10 @@ const domController = (function () {
       staticDOM.inputName.value,
       staticDOM.inputStatus.checked
     );
-
-    _writeTaskList();
-
     staticDOM.inputName.value = "";
     staticDOM.inputStatus.checked = false;
+
+    _writeTaskList();
   }
 
   function _writeTaskList() {
