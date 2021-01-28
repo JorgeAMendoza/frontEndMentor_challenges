@@ -35,8 +35,9 @@ const domController = (function () {
 
   function _writeTaskList() {
     const taskData = taskDataModule.getTaskData();
-    const taskHTML = taskData.map((task) => {
-      return `
+    staticDOM.taskList.innerHTML = taskData
+      .map((task) => {
+        return `
       <div class="task">
         <label class="task-status">
             <input type="checkbox" ${task.taskStatus ? "checked" : ""}/>
@@ -50,9 +51,18 @@ const domController = (function () {
           />
       </div>
       `;
-    });
+      })
+      .join("");
 
-    staticDOM.taskList.innerHTML = taskHTML.join("");
+    // Insert event listeners for deletion button for each task DOM
+    const deleteButtons = document.querySelectorAll(".task-delete");
+    deleteButtons.forEach((button) =>
+      button.addEventListener("click", deleteTask)
+    );
+  }
+
+  function deleteTask() {
+    console.log(this.parentElement);
   }
 
   //   Set Static Event Listeners
