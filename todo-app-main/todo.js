@@ -75,7 +75,7 @@ const domController = (function () {
 })();
 
 const taskDataModule = (function () {
-  const _taskData = [];
+  let _taskData = [];
 
   function _insertNewTask(name, status) {
     console.clear();
