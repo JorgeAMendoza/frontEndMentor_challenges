@@ -38,7 +38,7 @@ const domController = (function () {
     staticDOM.taskList.innerHTML = taskData
       .map((task) => {
         return `
-      <div class="task">
+      <div class="task" data-position="${task.taskPosition}">
         <label class="task-status">
             <input type="checkbox" ${task.taskStatus ? "checked" : ""}/>
             <span class="checkmark"></span>
@@ -78,7 +78,13 @@ const taskDataModule = (function () {
   const _taskData = [];
 
   function _insertNewTask(name, status) {
-    _taskData.push({ taskName: name, taskStatus: status });
+    console.clear();
+    _taskData.push({
+      taskName: name,
+      taskStatus: status,
+      taskPosition: _taskData.length,
+    });
+    console.table(_taskData);
   }
 
   function _getTaskData() {
