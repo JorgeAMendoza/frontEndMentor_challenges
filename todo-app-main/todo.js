@@ -57,12 +57,14 @@ const domController = (function () {
     // Insert event listeners for deletion button for each task DOM
     const deleteButtons = document.querySelectorAll(".task-delete");
     deleteButtons.forEach((button) =>
-      button.addEventListener("click", deleteTask)
+      button.addEventListener("click", _deleteTask)
     );
   }
 
-  function deleteTask() {
-    console.log(this.parentElement);
+  function _deleteTask() {
+    const taskPosition = this.parentElement.dataset.position;
+    taskDataModule.deleteTask(taskPosition);
+    _writeTaskList();
   }
 
   //   Set Static Event Listeners
@@ -75,24 +77,35 @@ const domController = (function () {
 })();
 
 const taskDataModule = (function () {
-  let _taskData = [];
+  const _taskData = [];
 
   function _insertNewTask(name, status) {
-    console.clear();
     _taskData.push({
       taskName: name,
       taskStatus: status,
       taskPosition: _taskData.length,
     });
-    console.table(_taskData);
   }
 
   function _getTaskData() {
     return [..._taskData];
   }
 
+  function _deleteTask(postition) {
+    _taskData.splice(postition, 1);
+    _sortTask();
+    console.table(_taskData);
+  }
+
+  function _sortTask() {
+    _taskData.map((task, index) => {
+      task.taskPosition = index;
+    });
+  }
+
   return {
     insertNewTask: _insertNewTask,
     getTaskData: _getTaskData,
+    deleteTask: _deleteTask,
   };
 })();
