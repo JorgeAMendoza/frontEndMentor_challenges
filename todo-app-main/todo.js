@@ -59,12 +59,25 @@ const domController = (function () {
     deleteButtons.forEach((button) =>
       button.addEventListener("click", _deleteTask)
     );
+
+    // Event Listeners for when a user changes the status of a task.
+    const taskCheckboxes = document.querySelectorAll(".task-status input");
+    taskCheckboxes.forEach((check) =>
+      check.addEventListener("click", _changeStatus)
+    );
   }
 
   function _deleteTask() {
     const taskPosition = this.parentElement.dataset.position;
     taskDataModule.deleteTask(taskPosition);
     _writeTaskList();
+  }
+
+  function _changeStatus() {
+    const taskPosition = this.parentElement.parentElement.dataset.position;
+    const newStatus = this.checked;
+    console.log(newStatus);
+    taskDataModule.changeTaskStatus(taskPosition, newStatus);
   }
 
   //   Set Static Event Listeners
@@ -76,6 +89,7 @@ const domController = (function () {
   staticDOM.inputNewTask.addEventListener("submit", insertTask);
 })();
 
+// Module to hold and change task Data.
 const taskDataModule = (function () {
   const _taskData = [];
 
@@ -91,8 +105,8 @@ const taskDataModule = (function () {
     return [..._taskData];
   }
 
-  function _deleteTask(postition) {
-    _taskData.splice(postition, 1);
+  function _deleteTask(position) {
+    _taskData.splice(position, 1);
     _sortTask();
     console.table(_taskData);
   }
@@ -103,9 +117,14 @@ const taskDataModule = (function () {
     });
   }
 
+  function _changeTaskStatus(index, status) {
+    _taskData[index].taskStatus = status;
+  }
+
   return {
     insertNewTask: _insertNewTask,
     getTaskData: _getTaskData,
     deleteTask: _deleteTask,
+    changeTaskStatus: _changeTaskStatus,
   };
 })();
