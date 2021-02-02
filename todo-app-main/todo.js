@@ -32,7 +32,7 @@ const domController = (function () {
     staticDOM.inputName.value = "";
     staticDOM.inputStatus.checked = false;
 
-    _writeTaskList();
+    _writeAllTask();
   }
 
   function _createTaskDOM(taskData) {
@@ -56,7 +56,7 @@ const domController = (function () {
     return listDOM.join("");
   }
 
-  function _writeTaskList() {
+  function _writeAllTask() {
     const taskData = taskDataModule.getTaskData();
     staticDOM.taskList.innerHTML = _createTaskDOM(taskData);
 
@@ -76,13 +76,12 @@ const domController = (function () {
   function _deleteTask() {
     const taskPosition = this.parentElement.dataset.position;
     taskDataModule.deleteTask(taskPosition);
-    _writeTaskList();
+    _writeAllTask();
   }
 
   function _changeStatus() {
     const taskPosition = this.parentElement.parentElement.dataset.position;
     const newStatus = this.checked;
-    console.log(newStatus);
     taskDataModule.changeTaskStatus(taskPosition, newStatus);
   }
 
@@ -125,7 +124,6 @@ const taskDataModule = (function () {
   function _deleteTask(position) {
     _taskData.splice(position, 1);
     _sortTask();
-    console.table(_taskData);
   }
 
   function _sortTask() {
