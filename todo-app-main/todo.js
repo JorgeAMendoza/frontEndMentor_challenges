@@ -7,6 +7,8 @@ const domController = (function () {
     inputName: document.querySelector("#newTask"),
     inputStatus: document.querySelector("#inputStatus"),
     taskList: document.querySelector(".task-list"),
+    activeTaskButton: document.querySelector("#activeTask"),
+    completedTaskButton: document.querySelector("#completedTask"),
   };
 
   function switchToDarkTheme() {
@@ -80,6 +82,14 @@ const domController = (function () {
     taskDataModule.changeTaskStatus(taskPosition, newStatus);
   }
 
+  function _writeActiveTask() {
+    console.log("Hello");
+  }
+
+  function _writeCompletedTask() {
+    console.log("Goodbye");
+  }
+
   //   Set Static Event Listeners
   staticDOM.themeToggle.addEventListener("click", function (e) {
     if (this.getAttribute("src").includes("moon")) switchToDarkTheme();
@@ -87,6 +97,9 @@ const domController = (function () {
   });
 
   staticDOM.inputNewTask.addEventListener("submit", insertTask);
+
+  staticDOM.activeTaskButton.addEventListener("click", _writeActiveTask);
+  staticDOM.completedTaskButton.addEventListener("click", _writeCompletedTask);
 })();
 
 // Module to hold and change task Data.
