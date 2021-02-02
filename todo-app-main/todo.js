@@ -60,13 +60,18 @@ const domController = (function () {
     const taskData = taskDataModule.getTaskData();
     staticDOM.taskList.innerHTML = _createTaskDOM(taskData);
 
-    // Insert event listeners for deletion button for each task DOM
+    _setDeleteButtons();
+    _setTaskCheckboxes();
+  }
+
+  function _setDeleteButtons() {
     const deleteButtons = document.querySelectorAll(".task-delete");
     deleteButtons.forEach((button) =>
       button.addEventListener("click", _deleteTask)
     );
+  }
 
-    // Event Listeners for when a user changes the status of a task.
+  function _setTaskCheckboxes() {
     const taskCheckboxes = document.querySelectorAll(".task-status input");
     taskCheckboxes.forEach((check) =>
       check.addEventListener("click", _changeStatus)
