@@ -35,11 +35,9 @@ const domController = (function () {
     _writeTaskList();
   }
 
-  function _writeTaskList() {
-    const taskData = taskDataModule.getTaskData();
-    staticDOM.taskList.innerHTML = taskData
-      .map((task) => {
-        return `
+  function _createTaskDOM(taskData) {
+    const listDOM = taskData.map((task) => {
+      return `
       <div class="task" data-position="${task.taskPosition}">
         <label class="task-status">
             <input type="checkbox" ${task.taskStatus ? "checked" : ""}/>
@@ -53,8 +51,14 @@ const domController = (function () {
           />
       </div>
       `;
-      })
-      .join("");
+    });
+
+    return listDOM.join("");
+  }
+
+  function _writeTaskList() {
+    const taskData = taskDataModule.getTaskData();
+    staticDOM.taskList.innerHTML = _createTaskDOM(taskData);
 
     // Insert event listeners for deletion button for each task DOM
     const deleteButtons = document.querySelectorAll(".task-delete");
