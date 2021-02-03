@@ -7,6 +7,7 @@ const domController = (function () {
     inputName: document.querySelector("#newTask"),
     inputStatus: document.querySelector("#inputStatus"),
     taskList: document.querySelector(".task-list"),
+    allTaskButton: document.querySelector("#allTask"),
     activeTaskButton: document.querySelector("#activeTask"),
     completedTaskButton: document.querySelector("#completedTask"),
   };
@@ -57,11 +58,15 @@ const domController = (function () {
   }
 
   function _writeAllTask() {
-    const taskData = taskDataModule.getTaskData();
-    staticDOM.taskList.innerHTML = _createTaskDOM(taskData);
+    const allTaskData = taskDataModule.getTaskData();
+    staticDOM.taskList.innerHTML = _createTaskDOM(allTaskData);
 
     _setDeleteButtons();
     _setTaskCheckboxes();
+
+    staticDOM.allTaskButton.classList.add("type-active");
+    staticDOM.activeTaskButton.classList.remove("type-active");
+    staticDOM.completedTaskButton.classList.remove("type-active");
   }
 
   function _setDeleteButtons() {
@@ -72,7 +77,9 @@ const domController = (function () {
   }
 
   function _setTaskCheckboxes() {
-    const taskCheckboxes = document.querySelectorAll(".task-status input");
+    const taskCheckboxes = document.querySelectorAll(
+      ".task > .task-status input"
+    );
     taskCheckboxes.forEach((check) =>
       check.addEventListener("click", _changeStatus)
     );
@@ -91,7 +98,17 @@ const domController = (function () {
   }
 
   function _writeActiveTask() {
-    console.log("Hello");
+    const activeTaskData = taskDataModule.getActiveTask();
+
+    staticDOM.taskList.innerHTML = _createTaskDOM(activeTaskData);
+
+    _setDeleteButtons();
+    _setTaskCheckboxes();
+
+    // insert active class and remove class form other buttons.
+    staticDOM.activeTaskButton.classList.add("type-active");
+    staticDOM.allTaskButton.classList.remove("type-active");
+    staticDOM.completedTaskButton.classList.remove("type-active");
   }
 
   function _writeCompletedTask() {
@@ -106,6 +123,7 @@ const domController = (function () {
 
   staticDOM.inputNewTask.addEventListener("submit", insertTask);
 
+  staticDOM.allTaskButton.addEventListener("click", _writeAllTask);
   staticDOM.activeTaskButton.addEventListener("click", _writeActiveTask);
   staticDOM.completedTaskButton.addEventListener("click", _writeCompletedTask);
 })();
@@ -126,6 +144,10 @@ const taskDataModule = (function () {
     return [..._taskData];
   }
 
+  function _getActiveTask() {
+    return _taskData.filter((task) => !task.taskStatus);
+  }
+
   function _deleteTask(position) {
     _taskData.splice(position, 1);
     _sortTask();
@@ -144,6 +166,7 @@ const taskDataModule = (function () {
   return {
     insertNewTask: _insertNewTask,
     getTaskData: _getTaskData,
+    getActiveTask: _getActiveTask,
     deleteTask: _deleteTask,
     changeTaskStatus: _changeTaskStatus,
   };
