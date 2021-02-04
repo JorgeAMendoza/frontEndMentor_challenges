@@ -44,8 +44,9 @@ const domController = (function () {
   }
 
   function _createTaskDOM(taskData) {
-    const listDOM = taskData.map((task) => {
-      return `
+    staticDOM.taskList.innerHTML = taskData
+      .map((task) => {
+        return `
       <div class="task" data-position="${task.taskPosition}">
         <label class="task-status">
             <input type="checkbox" ${task.taskStatus ? "checked" : ""}/>
@@ -59,21 +60,16 @@ const domController = (function () {
           />
       </div>
       `;
-    });
+      })
+      .join("");
 
-    return listDOM.join("");
+    _setDeleteButtons();
+    _setTaskCheckboxes();
   }
 
   function _writeAllTask() {
     const allTaskData = taskDataModule.getTaskData();
-    staticDOM.taskList.innerHTML = _createTaskDOM(allTaskData);
-
-    _setDeleteButtons();
-    _setTaskCheckboxes();
-
-    staticDOM.allTaskButton.classList.add("type-active");
-    staticDOM.activeTaskButton.classList.remove("type-active");
-    staticDOM.completedTaskButton.classList.remove("type-active");
+    _createTaskDOM(allTaskData);
   }
 
   function _setDeleteButtons() {
@@ -95,7 +91,10 @@ const domController = (function () {
   function _deleteTask() {
     const taskPosition = this.parentElement.dataset.position;
     taskDataModule.deleteTask(taskPosition);
-    _writeAllTask();
+
+    if (pageStatus.active) _writeActiveTask();
+    else if (pageStatus.completed) _writeCompletedTask();
+    else _writeAllTask();
   }
 
   function _changeStatus() {
@@ -106,10 +105,7 @@ const domController = (function () {
 
   function _writeActiveTask() {
     const activeTaskData = taskDataModule.getActiveTask();
-    staticDOM.taskList.innerHTML = _createTaskDOM(activeTaskData);
-
-    _setDeleteButtons();
-    _setTaskCheckboxes();
+    _createTaskDOM(activeTaskData);
   }
 
   function _writeCompletedTask() {
