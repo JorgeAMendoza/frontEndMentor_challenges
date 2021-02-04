@@ -109,7 +109,8 @@ const domController = (function () {
   }
 
   function _writeCompletedTask() {
-    console.log("Goodbye");
+    const completedTaskData = taskDataModule.getCompletedTask();
+    _createTaskDOM(completedTaskData);
   }
 
   // Set Page Event Listeners
@@ -170,13 +171,17 @@ const taskDataModule = (function () {
     return [..._taskData];
   }
 
+  function _deleteTask(position) {
+    _taskData.splice(position, 1);
+    _sortTask();
+  }
+
   function _getActiveTask() {
     return _taskData.filter((task) => !task.taskStatus);
   }
 
-  function _deleteTask(position) {
-    _taskData.splice(position, 1);
-    _sortTask();
+  function _getCompletedTask() {
+    return _taskData.filter((task) => task.taskStatus);
   }
 
   function _sortTask() {
@@ -193,6 +198,7 @@ const taskDataModule = (function () {
     insertNewTask: _insertNewTask,
     getTaskData: _getTaskData,
     getActiveTask: _getActiveTask,
+    getCompletedTask: _getCompletedTask,
     deleteTask: _deleteTask,
     changeTaskStatus: _changeTaskStatus,
   };
