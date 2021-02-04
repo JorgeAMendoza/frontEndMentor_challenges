@@ -12,6 +12,11 @@ const domController = (function () {
     completedTaskButton: document.querySelector("#completedTask"),
   };
 
+  const pageStatus = {
+    active: false,
+    completed: false,
+  };
+
   function switchToDarkTheme() {
     staticDOM.themeToggle.setAttribute("src", "images/icon-sun.svg");
     staticDOM.pageBody.classList.add("dark");
@@ -33,7 +38,9 @@ const domController = (function () {
     staticDOM.inputName.value = "";
     staticDOM.inputStatus.checked = false;
 
-    _writeAllTask();
+    if (pageStatus.active) _writeActiveTask();
+    else if (pageStatus.completed) _writeCompletedTask(0);
+    else _writeAllTask();
   }
 
   function _createTaskDOM(taskData) {
@@ -99,23 +106,17 @@ const domController = (function () {
 
   function _writeActiveTask() {
     const activeTaskData = taskDataModule.getActiveTask();
-
     staticDOM.taskList.innerHTML = _createTaskDOM(activeTaskData);
 
     _setDeleteButtons();
     _setTaskCheckboxes();
-
-    // insert active class and remove class form other buttons.
-    staticDOM.activeTaskButton.classList.add("type-active");
-    staticDOM.allTaskButton.classList.remove("type-active");
-    staticDOM.completedTaskButton.classList.remove("type-active");
   }
 
   function _writeCompletedTask() {
     console.log("Goodbye");
   }
 
-  //   Set Static Event Listeners
+  // Set Page Event Listeners
   staticDOM.themeToggle.addEventListener("click", function (e) {
     if (this.getAttribute("src").includes("moon")) switchToDarkTheme();
     else switchToLightTheme();
@@ -123,9 +124,38 @@ const domController = (function () {
 
   staticDOM.inputNewTask.addEventListener("submit", insertTask);
 
-  staticDOM.allTaskButton.addEventListener("click", _writeAllTask);
-  staticDOM.activeTaskButton.addEventListener("click", _writeActiveTask);
-  staticDOM.completedTaskButton.addEventListener("click", _writeCompletedTask);
+  staticDOM.allTaskButton.addEventListener("click", () => {
+    staticDOM.allTaskButton.classList.add("type-active");
+    staticDOM.activeTaskButton.classList.remove("type-active");
+    staticDOM.completedTaskButton.classList.remove("type-active");
+
+    pageStatus.active = false;
+    pageStatus.completed = false;
+
+    _writeAllTask();
+  });
+
+  staticDOM.activeTaskButton.addEventListener("click", () => {
+    staticDOM.allTaskButton.classList.remove("type-active");
+    staticDOM.activeTaskButton.classList.add("type-active");
+    staticDOM.completedTaskButton.classList.remove("type-active");
+
+    pageStatus.active = true;
+    pageStatus.completed = false;
+
+    _writeActiveTask();
+  });
+
+  staticDOM.completedTaskButton.addEventListener("click", () => {
+    staticDOM.allTaskButton.classList.remove("type-active");
+    staticDOM.activeTaskButton.classList.remove("type-active");
+    staticDOM.completedTaskButton.classList.add("type-active");
+
+    pageStatus.active = false;
+    pageStatus.completed = true;
+
+    _writeCompletedTask();
+  });
 })();
 
 // Module to hold and change task Data.
