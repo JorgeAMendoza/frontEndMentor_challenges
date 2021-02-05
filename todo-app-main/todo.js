@@ -7,6 +7,7 @@ const domController = (function () {
     inputName: document.querySelector("#newTask"),
     inputStatus: document.querySelector("#inputStatus"),
     taskList: document.querySelector(".task-list"),
+    taskCount: document.querySelector("#taskCount"),
     allTaskButton: document.querySelector("#allTask"),
     activeTaskButton: document.querySelector("#activeTask"),
     completedTaskButton: document.querySelector("#completedTask"),
@@ -41,6 +42,8 @@ const domController = (function () {
     if (pageStatus.active) _writeActiveTask();
     else if (pageStatus.completed) _writeCompletedTask(0);
     else _writeAllTask();
+
+    _updateTaskCount();
   }
 
   function _createTaskDOM(taskData) {
@@ -65,6 +68,7 @@ const domController = (function () {
 
     _setDeleteButtons();
     _setTaskCheckboxes();
+    _updateTaskCount();
   }
 
   function _writeAllTask() {
@@ -95,12 +99,19 @@ const domController = (function () {
     if (pageStatus.active) _writeActiveTask();
     else if (pageStatus.completed) _writeCompletedTask();
     else _writeAllTask();
+
+    _updateTaskCount();
   }
 
   function _changeStatus() {
     const taskPosition = this.parentElement.parentElement.dataset.position;
     const newStatus = this.checked;
     taskDataModule.changeTaskStatus(taskPosition, newStatus);
+  }
+
+  function _updateTaskCount() {
+    const count = staticDOM.taskList.children.length;
+    staticDOM.taskCount.textContent = count;
   }
 
   function _writeActiveTask() {
