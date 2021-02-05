@@ -8,10 +8,9 @@ const domController = (function () {
     inputStatus: document.querySelector("#inputStatus"),
     taskList: document.querySelector(".task-list"),
     taskCount: document.querySelector("#taskCount"),
-    allTaskButton: document.querySelector("#allTask"),
-    activeTaskButton: document.querySelector("#activeTask"),
-    completedTaskButton: document.querySelector("#completedTask"),
     clearCompletedButton: document.querySelector("#clearCompleted"),
+    mobileTaskSelectionButton: document.querySelector("#mobileTaskSelection"),
+    desktopTaskSelectionButton: document.querySelector("#desktopTaskSelection"),
   };
 
   const pageStatus = {
@@ -114,50 +113,68 @@ const domController = (function () {
     else _writeAllTask();
   }
 
+  function _changeTaskPage(e) {
+    if (e.target.nodeName !== "BUTTON") return;
+
+    document
+      .querySelectorAll("#mobileTaskSelection button")
+      .forEach((button) => button.classList.remove("type-active"));
+
+    document
+      .querySelectorAll("#desktopTaskSelection button")
+      .forEach((button) => button.classList.remove("type-active"));
+
+    switch (e.target.textContent) {
+      case "All":
+        document
+          .querySelectorAll("#mobileTaskSelection button")[0]
+          .classList.add("type-active");
+        document
+          .querySelectorAll("#desktopTaskSelection button")[0]
+          .classList.add("type-active");
+        _writeAllTask();
+        break;
+      case "Active":
+        document
+          .querySelectorAll("#mobileTaskSelection button")[1]
+          .classList.add("type-active");
+        document
+          .querySelectorAll("#desktopTaskSelection button")[1]
+          .classList.add("type-active");
+        _writeActiveTask();
+        break;
+      case "Completed":
+        document
+          .querySelectorAll("#mobileTaskSelection button")[2]
+          .classList.add("type-active");
+        document
+          .querySelectorAll("#desktopTaskSelection button")[2]
+          .classList.add("type-active");
+        _writeCompletedTask();
+        break;
+    }
+  }
+
   // Set Page Event Listeners
+  staticDOM.inputNewTask.addEventListener("submit", insertTask);
+
+  staticDOM.clearCompletedButton.addEventListener("click", _clearCompletedTask);
+
+  staticDOM.mobileTaskSelectionButton.addEventListener(
+    "click",
+    _changeTaskPage
+  );
+
+  staticDOM.desktopTaskSelectionButton.addEventListener(
+    "click",
+    _changeTaskPage
+  );
+
   staticDOM.themeToggle.addEventListener("click", function (e) {
     if (this.getAttribute("src").includes("moon")) switchToDarkTheme();
     else switchToLightTheme();
   });
 
-  staticDOM.inputNewTask.addEventListener("submit", insertTask);
-
-  staticDOM.allTaskButton.addEventListener("click", () => {
-    staticDOM.allTaskButton.classList.add("type-active");
-    staticDOM.activeTaskButton.classList.remove("type-active");
-    staticDOM.completedTaskButton.classList.remove("type-active");
-
-    pageStatus.active = false;
-    pageStatus.completed = false;
-
-    _writeAllTask();
-  });
-
-  staticDOM.activeTaskButton.addEventListener("click", () => {
-    staticDOM.allTaskButton.classList.remove("type-active");
-    staticDOM.activeTaskButton.classList.add("type-active");
-    staticDOM.completedTaskButton.classList.remove("type-active");
-
-    pageStatus.active = true;
-    pageStatus.completed = false;
-
-    _writeActiveTask();
-  });
-
-  staticDOM.completedTaskButton.addEventListener("click", () => {
-    staticDOM.allTaskButton.classList.remove("type-active");
-    staticDOM.activeTaskButton.classList.remove("type-active");
-    staticDOM.completedTaskButton.classList.add("type-active");
-
-    pageStatus.active = false;
-    pageStatus.completed = true;
-
-    _writeCompletedTask();
-  });
-
-  staticDOM.clearCompletedButton.addEventListener("click", _clearCompletedTask);
-
-  // Set up event delegation for tasks within task list
   staticDOM.taskList.addEventListener("click", (e) => {
     if (e.target.getAttribute("class") === "task-delete") _deleteTask(e);
     else if (e.target.getAttribute("type") === "checkbox") _changeStatus(e);
