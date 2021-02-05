@@ -67,8 +67,6 @@ const domController = (function () {
       })
       .join("");
 
-    _setDeleteButtons();
-    _setTaskCheckboxes();
     _updateTaskCount();
   }
 
@@ -77,24 +75,8 @@ const domController = (function () {
     _createTaskDOM(allTaskData);
   }
 
-  function _setDeleteButtons() {
-    const deleteButtons = document.querySelectorAll(".task-delete");
-    deleteButtons.forEach((button) =>
-      button.addEventListener("click", _deleteTask)
-    );
-  }
-
-  function _setTaskCheckboxes() {
-    const taskCheckboxes = document.querySelectorAll(
-      ".task > .task-status input"
-    );
-    taskCheckboxes.forEach((check) =>
-      check.addEventListener("click", _changeStatus)
-    );
-  }
-
-  function _deleteTask() {
-    const taskPosition = this.parentElement.dataset.position;
+  function _deleteTask(e) {
+    const taskPosition = e.target.parentElement.dataset.position;
     taskDataModule.deleteTask(taskPosition);
 
     if (pageStatus.active) _writeActiveTask();
@@ -104,9 +86,9 @@ const domController = (function () {
     _updateTaskCount();
   }
 
-  function _changeStatus() {
-    const taskPosition = this.parentElement.parentElement.dataset.position;
-    const newStatus = this.checked;
+  function _changeStatus(e) {
+    const taskPosition = e.target.parentElement.parentElement.dataset.position;
+    const newStatus = e.target.checked;
     taskDataModule.changeTaskStatus(taskPosition, newStatus);
   }
 
@@ -174,6 +156,12 @@ const domController = (function () {
   });
 
   staticDOM.clearCompletedButton.addEventListener("click", _clearCompletedTask);
+
+  // Set up event delegation for tasks within task list
+  staticDOM.taskList.addEventListener("click", (e) => {
+    if (e.target.getAttribute("class") === "task-delete") _deleteTask(e);
+    else if (e.target.getAttribute("type") === "checkbox") _changeStatus(e);
+  });
 })();
 
 // Module to hold and change task Data.
