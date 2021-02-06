@@ -132,6 +132,10 @@ const domController = (function () {
         document
           .querySelectorAll("#desktopTaskSelection button")[0]
           .classList.add("type-active");
+
+        pageStatus.active = false;
+        pageStatus.completed = false;
+
         _writeAllTask();
         break;
       case "Active":
@@ -141,6 +145,10 @@ const domController = (function () {
         document
           .querySelectorAll("#desktopTaskSelection button")[1]
           .classList.add("type-active");
+
+        pageStatus.active = true;
+        pageStatus.completed = false;
+
         _writeActiveTask();
         break;
       case "Completed":
@@ -150,6 +158,9 @@ const domController = (function () {
         document
           .querySelectorAll("#desktopTaskSelection button")[2]
           .classList.add("type-active");
+
+        pageStatus.active = false;
+        pageStatus.completed = true;
         _writeCompletedTask();
         break;
     }
