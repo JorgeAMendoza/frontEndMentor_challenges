@@ -18,6 +18,9 @@ const domController = (function () {
     completed: false,
   };
 
+  //Variables to hold dragged data attributes value
+  let draggedTaskPosition, targetTaskPosition;
+
   function switchToDarkTheme() {
     staticDOM.themeToggle.setAttribute("src", "images/icon-sun.svg");
     staticDOM.pageBody.classList.add("dark");
@@ -50,7 +53,7 @@ const domController = (function () {
     staticDOM.taskList.innerHTML = taskData
       .map((task) => {
         return `
-      <div class="task" data-position="${task.taskPosition}">
+      <div class="task" data-position="${task.taskPosition}" draggable="true">
         <label class="task-status">
             <input type="checkbox" ${task.taskStatus ? "checked" : ""}/>
             <span class="checkmark"></span>
@@ -67,6 +70,48 @@ const domController = (function () {
       .join("");
 
     _updateTaskCount();
+    _setDragEvents();
+  }
+
+  // Function to start drag event.
+  function _setDragEvents() {
+    const allTask = document.querySelectorAll(".task-list .task");
+    allTask.forEach((task) => {
+      task.addEventListener("dragstart", _startDraggingTask);
+      task.addEventListener("dragover", _dragOverTask);
+      task.addEventListener("dragleave", _dragOutOfTask);
+      task.addEventListener("dragend", _stopDraggingTask);
+      task.addEventListener("drop", _dropDraggedTask);
+    });
+  }
+
+  function _startDraggingTask() {
+    this.classList.add("dragged");
+    draggedTaskPosition = this.dataset.position;
+  }
+
+  function _dragOverTask(e) {
+    e.preventDefault();
+    this.classList.add("dragged-over");
+  }
+
+  function _dragOutOfTask(e) {
+    e.preventDefault();
+    this.classList.remove("dragged-over");
+  }
+
+  function _stopDraggingTask() {
+    this.classList.remove("dragged");
+  }
+
+  function _dropDraggedTask() {
+    this.classList.remove("dragged-over");
+    targetTaskPosition = this.dataset.position;
+    taskDataModule.moveTask(draggedTaskPosition, targetTaskPosition);
+
+    if (pageStatus.active) _writeActiveTask();
+    else if (pageStatus.completed) _writeCompletedTask();
+    else _writeAllTask();
   }
 
   function _writeAllTask() {
@@ -247,6 +292,12 @@ const taskDataModule = (function () {
     _sortTask();
   }
 
+  function _moveTask(dropped, target) {
+    const [droppedTask] = _taskData.splice(dropped, 1);
+    _taskData.splice(target, 0, droppedTask);
+    _sortTask();
+  }
+
   return {
     insertNewTask: _insertNewTask,
     getTaskData: _getTaskData,
@@ -255,5 +306,6 @@ const taskDataModule = (function () {
     deleteTask: _deleteTask,
     changeTaskStatus: _changeTaskStatus,
     clearCompletedTask: _clearCompletedTask,
+    moveTask: _moveTask,
   };
 })();
