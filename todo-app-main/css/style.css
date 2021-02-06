@@ -190,6 +190,15 @@ body.dark {
 /* Task List */
 .task-list .task {
   border-bottom: 1px solid var(--task-bottom-border-color);
+  transition: opacity 300ms ease;
+}
+
+.task-list .task.dragged-over {
+  transform: scale(1.15);
+}
+
+.task-list .task.dragged {
+  opacity: 0.6;
 }
 
 .task-list .task:first-child {
