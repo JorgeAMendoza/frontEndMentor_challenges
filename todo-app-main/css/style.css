@@ -89,6 +89,8 @@ body.dark {
   position: relative;
   width: 25px;
   height: 25px;
+  border-radius: 100%;
+  z-index: 0;
   cursor: pointer;
   display: block;
   -webkit-user-select: none;
@@ -96,26 +98,35 @@ body.dark {
   -ms-user-select: none;
   user-select: none;
 }
+
+.task .task-status:hover {
+  background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
 .task .task-status input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
   height: 0;
   width: 0;
+  z-index: 1;
 }
 
 .task .task-status .checkmark {
+  background-color: var(--task-background-color);
   position: absolute;
   top: 0;
   left: 0;
   height: 25px;
   width: 25px;
-  border: 1px solid var(--check-border-color);
+  background-clip: padding-box;
+  border: solid 1px var(--check-border-color);
   border-radius: 100%;
+  z-index: 1;
 }
 
 .task .task-status:hover input ~ .checkmark {
-  background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-color: transparent;
 }
 
 .task .task-status input:checked ~ .checkmark {
@@ -163,6 +174,10 @@ body.dark {
 }
 
 /* New Task */
+.task-input {
+  width: 100%;
+}
+
 .task.new-task {
   margin-bottom: 0.8rem;
   border-radius: 5px;
@@ -170,6 +185,7 @@ body.dark {
 
 .task-input form {
   display: flex;
+  width: 100%;
 }
 
 .task.new-task .task-input input {
@@ -177,14 +193,16 @@ body.dark {
   font-family: inherit;
   font-size: inherit;
   border: none;
+  width: 100%;
   padding: 0.2em;
   background-color: var(--task-background-color);
-  margin-top: 0.15rem;
+  margin-top: 0.13rem;
   margin-left: 0.5rem;
 }
 
 .task.new-task .task-input input:focus {
   color: var(--task-text-color);
+  outline: none;
 }
 
 /* Task List */
@@ -203,6 +221,10 @@ body.dark {
 
 .task-list .task:first-child {
   border-radius: 5px 5px 0 0;
+}
+
+.task-list:empty ~ .stats {
+  border-radius: 5px 5px 5px 5px;
 }
 
 /* Task List Stats */
