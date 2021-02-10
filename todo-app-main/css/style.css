@@ -373,3 +373,10 @@ body[data-theme="dark"] {
   --task-selection-text: var(--darktheme-dark-grayish-blue);
   --instruction-text-color: var(--darktheme-dark-grayish-blue);
 }
+
+/* Disable Instructions for drag and drop if on mobile device */
+@media screen and (hover: none) {
+  .instructions {
+    display: none;
+  }
+}
