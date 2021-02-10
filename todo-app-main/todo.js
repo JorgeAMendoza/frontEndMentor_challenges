@@ -235,11 +235,14 @@ const domController = (function () {
     if (e.target.getAttribute("class") === "task-delete") _deleteTask(e);
     else if (e.target.getAttribute("type") === "checkbox") _changeStatus(e);
   });
+
+  // write all tasks when page is done loading.
+  window.addEventListener("load", _writeAllTask);
 })();
 
 // Module to hold and change task Data.
 const taskDataModule = (function () {
-  const _taskData = [];
+  const _taskData = JSON.parse(localStorage.getItem("tasks")) || [];
 
   function _insertNewTask(name, status) {
     _taskData.push({
@@ -247,6 +250,8 @@ const taskDataModule = (function () {
       taskStatus: status,
       taskPosition: _taskData.length,
     });
+
+    localStorage.setItem("tasks", JSON.stringify(_taskData));
   }
 
   function _getTaskData() {
@@ -270,10 +275,13 @@ const taskDataModule = (function () {
     _taskData.map((task, index) => {
       task.taskPosition = index;
     });
+
+    localStorage.setItem("tasks", JSON.stringify(_taskData));
   }
 
   function _changeTaskStatus(index, status) {
     _taskData[index].taskStatus = status;
+    localStorage.setItem("tasks", JSON.stringify(_taskData));
   }
 
   function _clearCompletedTask() {
