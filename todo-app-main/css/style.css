@@ -188,7 +188,12 @@ body.dark {
   width: 100%;
 }
 
+label[for="newTask"] {
+  width: 100%;
+}
+
 .task.new-task .task-input input {
+  display: inline-block;
   color: var(--task-text-color-new);
   font-family: inherit;
   font-size: inherit;
