@@ -1,0 +1,53 @@
+@import "../abstracts/variables";
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color:$neutral-color-dark;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  min-width: 15ch;
+  padding: 1em 2em;
+  font-family: inherit;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-size: 1.6rem;
+  color: $dark-gray;
+}
+
+// Front End Mentor Attributeion
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

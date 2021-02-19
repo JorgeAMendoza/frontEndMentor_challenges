@@ -1,0 +1,90 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  min-width: 15ch;
+  padding: 1em 2em;
+  font-family: inherit;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-size: 1.6rem;
+  color: #7a7a7a;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+.btn {
+  background-color: #3cb4ac;
+  color: white;
+  font-weight: bold;
+  border-radius: 100px;
+}
+
+.backer-reward {
+  padding: 2rem;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+  margin-bottom: 2.4rem;
+}
+
+.backer-reward .reward-title .name {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.backer-reward .reward-title .pledge-amount {
+  color: #3cb4ac;
+  font-weight: bold;
+}
+
+.backer-reward .reward-description {
+  margin: 1.5rem 0;
+}
+
+.backer-reward .reward-option .amount-left span {
+  font-weight: bold;
+  color: black;
+  font-size: 3rem;
+}
+
+.backer-reward button {
+  margin-top: 1.5rem;
+}
+/*# sourceMappingURL=style.css.map */
