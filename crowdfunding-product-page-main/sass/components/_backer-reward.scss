@@ -2,9 +2,10 @@
 
 .backer-reward {
   padding: 2rem;
-  border: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
+  border: 1px solid lighten($color: $neutral-color-light, $amount: 40%);
   border-radius: 10px;
   margin-bottom: 2.4rem;
+  background-color: #fff;
 
   .reward-title {
     .name {

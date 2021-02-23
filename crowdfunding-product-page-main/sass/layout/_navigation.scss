@@ -1,0 +1,41 @@
+@import "../abstracts/variables";
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  padding-top: 2rem;
+  position: relative;
+
+  .site-logo {
+    height: 20px;
+  }
+
+  .mobile-navigation-list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 10vh;
+    left: 0;
+    background-color: #fff;
+    border-radius: 10px;
+
+    li {
+      padding: 1.5em;
+      &:not(:last-child) {
+        border-bottom: 1px solid
+          lighten($color: $neutral-color-light, $amount: 40%);
+      }
+    }
+
+    li a {
+      color: $neutral-color-dark;
+      font-weight: 500;
+    }
+
+    // Class to toggle view
+    &.toggle-view {
+      display: block;
+    }
+  }
+}

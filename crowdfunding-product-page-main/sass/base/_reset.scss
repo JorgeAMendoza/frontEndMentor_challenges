@@ -17,7 +17,7 @@ h1,
 h2,
 h3 {
   line-height: 1.2;
-  color:$neutral-color-dark;
+  color: $neutral-color-dark;
 }
 
 a {
@@ -32,15 +32,30 @@ button {
   justify-content: center;
   align-items: center;
   height: 44px;
-  min-width: 15ch;
-  padding: 1em 2em;
+  min-width: 20ch;
+  padding: 1.7em;
   font-family: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+section {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  padding: 1.6em;
 }
 
 body {
   font-family: "Commissioner", sans-serif;
   font-size: 1.6rem;
   color: $dark-gray;
+  background: url("./images/image-hero-mobile.jpg") no-repeat,
+    darken($color: #fff, $amount: 3%);
+  background-size: 100%;
 }
 
 // Front End Mentor Attributeion

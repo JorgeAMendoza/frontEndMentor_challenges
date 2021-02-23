@@ -1,0 +1,60 @@
+#project-header {
+  margin-top: 20rem;
+  text-align: center;
+  position: relative;
+
+  .project-logo {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: -2em;
+    left: 0;
+    right: 0;
+  }
+
+  .title {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .options {
+    display: flex;
+    justify-content: center;
+
+    button {
+      flex-grow: 1;
+      margin-right: 0.5rem;
+    }
+    label[for="bookmarked"] {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      input {
+        position: absolute;
+        opacity: 0;
+
+        &:checked ~ .bookmark-icon {
+          //   background: url("./images/icon-check.svg");
+        }
+      }
+
+      .bookmark-icon {
+        // background: url(./images/icon-bookmark.svg) no-repeat center
+        //   center/cover;
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+      }
+    }
+  }
+}
