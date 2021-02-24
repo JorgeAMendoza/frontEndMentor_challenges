@@ -32,4 +32,12 @@
   button {
     margin-top: 1.5rem;
   }
+
+  &.no-stock {
+    opacity: 0.4;
+    button {
+      background-color: $neutral-color-light;
+      cursor: initial;
+    }
+  }
 }

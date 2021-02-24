@@ -1,3 +1,5 @@
+@import "../abstracts/variables";
+
 #project-header {
   margin-top: 20rem;
   text-align: center;
@@ -42,19 +44,57 @@
       input {
         position: absolute;
         opacity: 0;
-
-        &:checked ~ .bookmark-icon {
-          //   background: url("./images/icon-check.svg");
-        }
       }
 
       .bookmark-icon {
-        // background: url(./images/icon-bookmark.svg) no-repeat center
-        //   center/cover;
+        background: url(./images/icon-bookmark.svg) no-repeat center
+          center/cover;
         display: inline-block;
         height: 44px;
         width: 44px;
       }
     }
+  }
+}
+
+#project-status {
+  .stats {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 15rem);
+    gap: 2rem;
+    justify-content: center;
+
+    .stat {
+      &:not(:last-child) {
+        border-bottom: 1px solid
+          lighten($color: $neutral-color-light, $amount: 30%);
+      }
+      padding-bottom: 1rem;
+      &-amount {
+        font-size: 2.8rem;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+
+  .status-bar {
+    background-color: lighten($color: $neutral-color-light, $amount: 45%);
+    height: 15px;
+    border-radius: 100px;
+    margin-top: 1rem;
+
+    div {
+      width: 89%;
+      height: 100%;
+      background-color: $primary-color-light;
+      border-radius: inherit;
+    }
+  }
+}
+
+#project-description {
+  *:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
 }

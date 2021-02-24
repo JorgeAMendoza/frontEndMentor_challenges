@@ -103,6 +103,15 @@ body {
   margin-top: 1.5rem;
 }
 
+.backer-reward.no-stock {
+  opacity: 0.4;
+}
+
+.backer-reward.no-stock button {
+  background-color: #7a7a7a;
+  cursor: initial;
+}
+
 #project-header {
   margin-top: 20rem;
   text-align: center;
@@ -151,9 +160,49 @@ body {
 }
 
 #project-header .options label[for="bookmarked"] .bookmark-icon {
+  background: url(./images/icon-bookmark.svg) no-repeat center center/cover;
   display: inline-block;
   height: 44px;
   width: 44px;
+}
+
+#project-status .stats {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15rem);
+  gap: 2rem;
+  justify-content: center;
+}
+
+#project-status .stats .stat {
+  padding-bottom: 1rem;
+}
+
+#project-status .stats .stat:not(:last-child) {
+  border-bottom: 1px solid #c7c7c7;
+}
+
+#project-status .stats .stat-amount {
+  font-size: 2.8rem;
+  margin-bottom: 0.8rem;
+}
+
+#project-status .status-bar {
+  background-color: #ededed;
+  height: 15px;
+  border-radius: 100px;
+  margin-top: 1rem;
+}
+
+#project-status .status-bar div {
+  width: 89%;
+  height: 100%;
+  background-color: #3cb4ac;
+  border-radius: inherit;
+}
+
+#project-description *:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
 
 .container {
