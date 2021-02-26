@@ -142,5 +142,10 @@
         }
       }
     }
+
+    // Style backer selection when sold out
+    &.no-stock {
+      opacity: .4;
+    }
   }
 }

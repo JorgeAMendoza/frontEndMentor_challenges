@@ -350,6 +350,10 @@ body {
   font-weight: bold;
 }
 
+#pledge-modal .pledge.no-stock {
+  opacity: .4;
+}
+
 #success-modal {
   z-index: 1;
   text-align: center;
