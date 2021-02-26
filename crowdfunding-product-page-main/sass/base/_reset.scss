@@ -37,6 +37,10 @@ button {
   font-family: inherit;
 }
 
+input {
+  font-family: inherit;
+}
+
 ul,
 ol {
   list-style: none;
@@ -56,6 +60,7 @@ body {
   background: url("./images/image-hero-mobile.jpg") no-repeat,
     darken($color: #fff, $amount: 3%);
   background-size: 100%;
+  position: relative;
 }
 
 // Front End Mentor Attributeion

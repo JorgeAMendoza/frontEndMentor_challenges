@@ -1,5 +1,7 @@
 @import "../abstracts/variables";
 nav {
+  // Z-index for body overlay
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;

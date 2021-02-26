@@ -35,6 +35,10 @@ button {
   font-family: inherit;
 }
 
+input {
+  font-family: inherit;
+}
+
 ul,
 ol {
   list-style: none;
@@ -53,6 +57,7 @@ body {
   color: #7a7a7a;
   background: url("./images/image-hero-mobile.jpg") no-repeat, #f7f7f7;
   background-size: 100%;
+  position: relative;
 }
 
 .attribution {
@@ -201,8 +206,176 @@ body {
   border-radius: inherit;
 }
 
-#project-description *:not(:last-child) {
+#project-description > *:not(:last-child) {
   margin-bottom: 1.5rem;
+}
+
+#pledge-modal {
+  z-index: 1;
+}
+
+#pledge-modal > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+#pledge-modal .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pledge-modal .pledge {
+  padding: 1.5em 0;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+}
+
+#pledge-modal .pledge > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+#pledge-modal .pledge > * {
+  padding: 0 1.5em;
+}
+
+#pledge-modal .pledge .checked {
+  border-color: transparent;
+  box-shadow: 0px 0px 0px 3px #3cb4ac;
+}
+
+#pledge-modal .pledge .pledge-title label {
+  font-weight: bold;
+  color: black;
+  padding-left: 4rem;
+  display: inline-block;
+  position: relative;
+  height: 30px;
+}
+
+#pledge-modal .pledge .pledge-title label[for="no-pledge"] .checkmark {
+  top: 0.1em;
+}
+
+#pledge-modal .pledge .pledge-title label .to-pledge {
+  color: #3cb4ac;
+  display: block;
+  font-weight: 600;
+}
+
+#pledge-modal .pledge .pledge-title label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+#pledge-modal .pledge .pledge-title label input:checked ~ .checkmark::after {
+  display: block;
+}
+
+#pledge-modal .pledge .pledge-title label .checkmark {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #c7c7c7;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+#pledge-modal .pledge .pledge-title label .checkmark::after {
+  position: absolute;
+  content: "";
+  background-color: #3cb4ac;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  top: 4px;
+  left: 4px;
+  display: none;
+}
+
+#pledge-modal .pledge .pledge-title label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+#pledge-modal .pledge .pledge-amount span {
+  font-weight: bold;
+  color: #000;
+  padding-right: 0.8rem;
+  font-size: 2rem;
+}
+
+#pledge-modal .pledge .pledge-confirm {
+  border-top: 1px solid #c7c7c7;
+  text-align: center;
+  padding-top: 1rem;
+  display: none;
+}
+
+#pledge-modal .pledge .pledge-confirm .text {
+  margin: 1.5rem 0;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit > * {
+  flex: 1;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit .btn {
+  min-width: 0ch;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c7c7c7;
+  border-radius: 20px;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit label input {
+  width: 8ch;
+  padding-left: 1rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+#success-modal {
+  z-index: 1;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1400px;
+  display: none;
+}
+
+#success-modal > * {
+  margin-bottom: 1.5rem;
+}
+
+#success-modal .success-title {
+  color: #000;
+  font-size: 2.4rem;
+}
+
+#success-modal.display {
+  display: block;
 }
 
 .container {
@@ -212,6 +385,7 @@ body {
 }
 
 nav {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;

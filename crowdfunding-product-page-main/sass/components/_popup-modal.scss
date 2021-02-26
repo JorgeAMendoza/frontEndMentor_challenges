@@ -1,0 +1,146 @@
+@import "../abstracts/variables";
+
+#pledge-modal {
+  // Z-index for body overlay
+  z-index: 1;
+
+  > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pledge {
+    padding: 1.5em 0;
+    border: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
+    border-radius: 10px;
+
+    > *:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    > * {
+      padding: 0 1.5em;
+    }
+
+    // Class to add when clicked, done thorugh JS
+    .checked {
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 3px $primary-color-light;
+    }
+
+    .pledge-title {
+      label {
+        font-weight: bold;
+        color: $neutral-color-dark;
+        padding-left: 4rem;
+        display: inline-block;
+        position: relative;
+        height: 30px;
+        // border: 1px solid black;
+
+        &[for="no-pledge"] .checkmark {
+          top: 0.1em;
+        }
+
+        .to-pledge {
+          color: $primary-color-light;
+          display: block;
+          font-weight: 600;
+        }
+
+        input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 0;
+          width: 0;
+          opacity: 0;
+
+          &:checked ~ .checkmark::after {
+            display: block;
+          }
+        }
+
+        .checkmark {
+          position: absolute;
+          top: 1em;
+          left: 0;
+          width: 25px;
+          height: 25px;
+          border: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
+          border-radius: 100%;
+          cursor: pointer;
+        }
+
+        .checkmark::after {
+          position: absolute;
+          content: "";
+          background-color: $primary-color-light;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          top: 4px;
+          left: 4px;
+          display: none;
+        }
+
+        &:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+      }
+    }
+
+    .pledge-amount span {
+      font-weight: bold;
+      color: #000;
+      padding-right: 0.8rem;
+      font-size: 2rem;
+    }
+
+    .pledge-confirm {
+      border-top: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
+      text-align: center;
+      padding-top: 1rem;
+      display: none;
+
+      .text {
+        margin: 1.5rem 0;
+      }
+
+      .submit {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        > * {
+          flex: 1;
+        }
+
+        .btn {
+          min-width: 0ch;
+        }
+
+        label {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
+          border-radius: 20px;
+
+          input {
+            width: 8ch;
+            padding-left: 1rem;
+            border: none;
+            outline: none;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

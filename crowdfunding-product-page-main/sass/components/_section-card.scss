@@ -94,7 +94,7 @@
 }
 
 #project-description {
-  *:not(:last-child) {
+  > *:not(:last-child) {
     margin-bottom: 1.5rem;
   }
 }
