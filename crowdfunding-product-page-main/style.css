@@ -175,11 +175,19 @@ body.dark::after {
   opacity: 0;
 }
 
+#project-header .options label[for="bookmarked"] input:checked ~ .bookmark-icon circle {
+  fill: #3cb4ac;
+}
+
+#project-header .options label[for="bookmarked"] input:checked ~ .bookmark-icon path {
+  fill: #fff;
+}
+
 #project-header .options label[for="bookmarked"] .bookmark-icon {
-  background: url(./images/icon-bookmark.svg) no-repeat center center/cover;
   display: inline-block;
-  height: 44px;
-  width: 44px;
+  width: 45px;
+  height: 45px;
+  position: relative;
 }
 
 #project-status .stats {
@@ -414,6 +422,7 @@ nav .site-logo {
 }
 
 nav .mobile-navigation-list {
+  z-index: 1;
   display: none;
   position: absolute;
   width: 100%;

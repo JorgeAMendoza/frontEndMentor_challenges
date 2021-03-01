@@ -44,14 +44,22 @@
       input {
         position: absolute;
         opacity: 0;
+
+        &:checked ~ .bookmark-icon {
+          circle {
+            fill: $primary-color-light;
+          }
+          path {
+            fill: #fff;
+          }
+        }
       }
 
       .bookmark-icon {
-        background: url(./images/icon-bookmark.svg) no-repeat center
-          center/cover;
         display: inline-block;
-        height: 44px;
-        width: 44px;
+        width: 45px;
+        height: 45px;
+        position: relative;
       }
     }
   }
