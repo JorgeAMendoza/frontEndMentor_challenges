@@ -1,7 +1,6 @@
 @import "../abstracts/variables";
 nav {
   // Z-index for body overlay
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,8 +12,16 @@ nav {
     height: 20px;
   }
 
-  .mobile-navigation-list {
+  &.toggle-view {
     z-index: 1;
+
+    .mobile-navigation-list {
+      display: block;
+    }
+  }
+
+  .mobile-navigation-list {
+    z-index: inherit;
     display: none;
     position: absolute;
     width: 100%;
@@ -34,11 +41,6 @@ nav {
     li a {
       color: $neutral-color-dark;
       font-weight: 500;
-    }
-
-    // Class to toggle view
-    &.toggle-view {
-      display: block;
     }
   }
 }

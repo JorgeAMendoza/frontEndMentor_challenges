@@ -1,8 +1,18 @@
 @import "../abstracts/variables";
 
 #pledge-modal {
-  // Z-index for body overlay
-  z-index: 1;
+  position: absolute;
+  top: 85rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1400px;
+  display: none;
+
+  &.show-modal {
+    z-index: 1;
+    display: block;
+  }
 
   > *:not(:last-child) {
     margin-bottom: 1.5rem;
@@ -145,7 +155,7 @@
 
     // Style backer selection when sold out
     &.no-stock {
-      opacity: .4;
+      opacity: 0.4;
     }
   }
 }
