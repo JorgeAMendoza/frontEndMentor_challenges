@@ -268,9 +268,13 @@ body.dark::after {
   padding: 0 1.5em;
 }
 
-#pledge-modal .pledge .checked {
+#pledge-modal .pledge.checked {
   border-color: transparent;
   box-shadow: 0px 0px 0px 3px #3cb4ac;
+}
+
+#pledge-modal .pledge.checked .pledge-confirm {
+  display: block;
 }
 
 #pledge-modal .pledge .pledge-title label {
