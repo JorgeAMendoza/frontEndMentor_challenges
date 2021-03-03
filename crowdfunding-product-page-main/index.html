@@ -68,15 +68,19 @@
       <section id="project-status">
         <div class="stats">
           <div class="stat">
-            <h3 class="stat-amount">$89,914</h3>
+            <h3 class="stat-amount">
+              $<span id="project-amount">89,914</span>
+            </h3>
             <p class="stat-subtitle">of $100,000</p>
           </div>
           <div class="stat">
-            <h3 class="stat-amount">5,007</h3>
+            <h3 class="stat-amount">
+              <span id="project-backers">id="project-backers"</span>
+            </h3>
             <p class="stat-subtitle">total backers</p>
           </div>
           <div class="stat">
-            <h3 class="stat-amount">56</h3>
+            <h3 id="project-days" class="stat-amount">56</h3>
             <p class="stat-subtitle">days left</p>
           </div>
         </div>
@@ -154,7 +158,10 @@
         <div class="title">
           <h2>Back this project</h2>
           <span
-            ><img src="images/icon-close-modal.svg" alt="Close Modal"
+            ><img
+              id="close-modal"
+              src="images/icon-close-modal.svg"
+              alt="Close Modal"
           /></span>
         </div>
         <p>
@@ -208,7 +215,9 @@
           <div class="pledge-confirm">
             <p class="text">Enter your pledge</p>
             <div class="submit">
-              <label>$ <input type="num" required min="25" /></label>
+              <label
+                >$ <input type="number" name="amount" required min="25"
+              /></label>
               <button class="btn">Continue</button>
             </div>
           </div>
@@ -239,7 +248,9 @@
           <div class="pledge-confirm">
             <p class="text">Enter your pledge</p>
             <div class="submit">
-              <label>$ <input type="num" required min="25" /></label>
+              <label
+                >$ <input type="number" name="amount" required min="75"
+              /></label>
               <button class="btn">Continue</button>
             </div>
           </div>
@@ -272,7 +283,9 @@
           <div class="pledge-confirm">
             <p class="text">Enter your pledge</p>
             <div class="submit">
-              <label>$ <input type="num" required min="25" /></label>
+              <label
+                >$ <input type="number" name="amount" required min="200"
+              /></label>
               <button class="btn">Continue</button>
             </div>
           </div>
