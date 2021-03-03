@@ -22,6 +22,7 @@
   const pledgeButton = document.querySelector("#pledge-button");
   const pledgeForms = document.querySelectorAll("form[class*='pledge']");
   const closeModal = document.querySelector("#close-modal");
+  const successModal = document.querySelector("#success-modal");
 
   const displayPledgeModal = () => {
     body.classList.add("dark");
@@ -31,6 +32,12 @@
   const closePledgeModal = () => {
     body.classList.remove("dark");
     pledgeModal.classList.remove("show-modal");
+    uncheckAllPledges();
+  };
+
+  const toggleSuccessModal = () => {
+    successModal.classList.toggle("display");
+    body.classList.toggle("dark");
   };
 
   const displayPledgeConfirmation = (e) => {
@@ -41,16 +48,23 @@
       );
   };
 
+  const uncheckAllPledges = () => {
+    document
+      .querySelectorAll("form[class*=pledge] input[type=checkbox]")
+      .forEach((check) => {
+        check.classList.remove("checked");
+        check.checked = false;
+        pledgeForms.forEach((form) => form.classList.remove("checked"));
+      });
+
+    document
+      .querySelectorAll("form[class*=pledge] input[type=number]")
+      .forEach((input) => (input.value = ""));
+  };
+
   const showConfirmation = (form, check) => {
     if (check.checked) {
-      document
-        .querySelectorAll("form[class*=pledge] input[type=checkbox]")
-        .forEach((check) => {
-          check.classList.remove("checked");
-          check.checked = false;
-        });
-
-      pledgeForms.forEach((form) => form.classList.remove("checked"));
+      uncheckAllPledges();
       check.checked = true;
       form.classList.add("checked");
     } else form.classList.remove("checked");
@@ -58,9 +72,13 @@
 
   const submitPledge = (e) => {
     e.preventDefault();
+    let pledgeAmount;
     if (!e.target.elements.amount) {
-      return;
-    }
+      pledgeAmount = 0;
+    } else pledgeAmount = parseInt(e.target.elements.amount.value);
+    projectStatusDOM.updateProjectStats(pledgeAmount);
+    closePledgeModal();
+    toggleSuccessModal();
   };
 
   pledgeButton.addEventListener("click", displayPledgeModal);
@@ -69,20 +87,28 @@
     form.addEventListener("submit", submitPledge);
   });
   closeModal.addEventListener("click", closePledgeModal);
+
+  successModal.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") toggleSuccessModal();
+  });
 })();
 
 // Module to handle updating backers stats
 const projectStatusDOM = (() => {
   const projectAmount = document.querySelector("#project-amount");
   const projectBackers = document.querySelector("#project-backers");
-  const projectDays = document.querySelector("#project-days");
 
-  const getProjectAmount = () =>
-    Number(projectAmount.textContent.replace(/,/g, ""));
+  const updateProjectStats = (amount) => {
+    const currentAmount = parseInt(projectAmount.textContent.replace(/,/g, ""));
+    const currentBackers = parseInt(
+      projectBackers.textContent.replace(/,/g, "")
+    );
 
-  const updateProjectStats = () => {};
+    projectAmount.textContent = (currentAmount + amount).toLocaleString("en");
+    projectBackers.textContent = (currentBackers + 1).toLocaleString("en");
+  };
 
   return {
-    getProjectAmount: getProjectAmount,
+    updateProjectStats: updateProjectStats,
   };
 })();
