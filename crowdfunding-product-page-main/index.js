@@ -31,18 +31,21 @@
     if (e.target.tagName === "INPUT")
       showConfirmation(
         e.target.parentElement.parentElement.parentElement,
-        e.target.checked
+        e.target
       );
   };
 
-  const showConfirmation = (form, status) => {
-    if (status) {
+  const showConfirmation = (form, check) => {
+    if (check.checked) {
       document
         .querySelectorAll("form[class*=pledge] input[type=checkbox]")
         .forEach((check) => {
           check.classList.remove("checked");
           check.checked = false;
         });
+
+      pledgeForms.forEach((form) => form.classList.remove("checked"));
+      check.checked = true;
       form.classList.add("checked");
     } else form.classList.remove("checked");
   };
@@ -52,5 +55,3 @@
     form.addEventListener("click", displayPledgeConfirmation)
   );
 })();
-
-// Give Z-index only when clicked, meanign remove them for now
