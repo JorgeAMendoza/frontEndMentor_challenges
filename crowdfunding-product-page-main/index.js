@@ -21,10 +21,16 @@
   const pledgeModal = document.querySelector("#pledge-modal");
   const pledgeButton = document.querySelector("#pledge-button");
   const pledgeForms = document.querySelectorAll("form[class*='pledge']");
+  const closeModal = document.querySelector("#close-modal");
 
   const displayPledgeModal = () => {
-    body.classList.toggle("dark");
-    pledgeModal.classList.toggle("show-modal");
+    body.classList.add("dark");
+    pledgeModal.classList.add("show-modal");
+  };
+
+  const closePledgeModal = () => {
+    body.classList.remove("dark");
+    pledgeModal.classList.remove("show-modal");
   };
 
   const displayPledgeConfirmation = (e) => {
@@ -50,8 +56,33 @@
     } else form.classList.remove("checked");
   };
 
+  const submitPledge = (e) => {
+    e.preventDefault();
+    if (!e.target.elements.amount) {
+      return;
+    }
+  };
+
   pledgeButton.addEventListener("click", displayPledgeModal);
-  pledgeForms.forEach((form) =>
-    form.addEventListener("click", displayPledgeConfirmation)
-  );
+  pledgeForms.forEach((form) => {
+    form.addEventListener("click", displayPledgeConfirmation);
+    form.addEventListener("submit", submitPledge);
+  });
+  closeModal.addEventListener("click", closePledgeModal);
+})();
+
+// Module to handle updating backers stats
+const projectStatusDOM = (() => {
+  const projectAmount = document.querySelector("#project-amount");
+  const projectBackers = document.querySelector("#project-backers");
+  const projectDays = document.querySelector("#project-days");
+
+  const getProjectAmount = () =>
+    Number(projectAmount.textContent.replace(/,/g, ""));
+
+  const updateProjectStats = () => {};
+
+  return {
+    getProjectAmount: getProjectAmount,
+  };
 })();
