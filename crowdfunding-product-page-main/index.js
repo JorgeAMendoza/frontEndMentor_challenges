@@ -79,6 +79,10 @@
     projectStatusDOM.updateProjectStats(pledgeAmount);
     closePledgeModal();
     toggleSuccessModal();
+
+    // call function to update pledge quanity
+    const pledgeQuantity = e.target.dataset.pledge;
+    projectStatusDOM.updatePledgeQuanity(pledgeQuantity);
   };
 
   pledgeButton.addEventListener("click", displayPledgeModal);
@@ -97,6 +101,15 @@
 const projectStatusDOM = (() => {
   const projectAmount = document.querySelector("#project-amount");
   const projectBackers = document.querySelector("#project-backers");
+  const bambooPledgeQuantity = document.querySelectorAll(
+    "#backer-bamboo .amount-left span, #pledge-bamboo .pledge-amount span "
+  );
+  const blackPledgeQuantity = document.querySelectorAll(
+    "#backer-black .amount-left span, #pledge-black .pledge-amount span"
+  );
+  const specialPledgeQuantity = document.querySelectorAll(
+    "#backer-special .amount-left span, #pledge-black .pledge-amount span"
+  );
 
   const updateProjectStats = (amount) => {
     const currentAmount = parseInt(projectAmount.textContent.replace(/,/g, ""));
@@ -108,7 +121,29 @@ const projectStatusDOM = (() => {
     projectBackers.textContent = (currentBackers + 1).toLocaleString("en");
   };
 
+  // function to update project quanity stat
+  const updatePledgeQuanity = (pledge) => {
+    // switch
+    switch (pledge) {
+      case "bamboo":
+        updateQuantity(bambooPledgeQuantity);
+        break;
+      case "black":
+        updateQuantity(blackPledgeQuantity);
+        break;
+      case "special":
+        updateQuantity(specialPledgeQuantity);
+        break;
+    }
+  };
+
+  const updateQuantity = (spans) => {
+    const currentQuan = parseInt(spans[0].textContent);
+    spans.forEach((span) => (span.textContent = currentQuan - 1));
+  };
+
   return {
     updateProjectStats: updateProjectStats,
+    updatePledgeQuanity: updatePledgeQuanity,
   };
 })();
