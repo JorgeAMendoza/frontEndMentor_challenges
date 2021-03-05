@@ -16,7 +16,7 @@
 })();
 
 //Update Project states, pledge to project
-(() => {
+const pledgeModalDOM = (() => {
   const body = document.querySelector("body");
   const pledgeModal = document.querySelector("#pledge-modal");
   const pledgeButton = document.querySelector("#pledge-button");
@@ -85,6 +85,19 @@
     projectStatusDOM.updatePledgeQuanity(pledgeQuantity);
   };
 
+  // Funciton to open up modal at specific button click.
+  const openSelectedPledge = (pledgeName) => {
+    displayPledgeModal();
+    const pledgeCard = document.querySelector(
+      `form[data-pledge='${pledgeName}']`
+    );
+    const pledgeCheckbox = pledgeCard.querySelector("input[type='checkbox']");
+    const pledgeCords = pledgeCheckbox.getBoundingClientRect();
+
+    pledgeCard.classList.add("checked");
+    pledgeCheckbox.checked = true;
+  };
+
   pledgeButton.addEventListener("click", displayPledgeModal);
   pledgeForms.forEach((form) => {
     form.addEventListener("click", displayPledgeConfirmation);
@@ -95,6 +108,10 @@
   successModal.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") toggleSuccessModal();
   });
+
+  return {
+    openSelectedPledge: openSelectedPledge,
+  };
 })();
 
 // Module to handle updating backers stats
@@ -146,4 +163,21 @@ const projectStatusDOM = (() => {
     updateProjectStats: updateProjectStats,
     updatePledgeQuanity: updatePledgeQuanity,
   };
+})();
+
+//Module to handle backer rewards
+const backerRewardDOM = (() => {
+  const backerRewardsCards = document.querySelectorAll(".backer-reward");
+
+  const openPledgeModal = (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const backerReward = e.target.parentElement.parentElement.dataset.backer;
+    pledgeModalDOM.openSelectedPledge(backerReward);
+  };
+
+  // set event listener on all cards
+  backerRewardsCards.forEach((card) =>
+    card.addEventListener("click", openPledgeModal)
+  );
 })();
