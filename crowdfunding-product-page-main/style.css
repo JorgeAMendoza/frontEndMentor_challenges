@@ -431,6 +431,11 @@ body.dark::after {
   margin: 0 auto;
 }
 
+.container-main {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -474,5 +479,23 @@ nav .mobile-navigation-list li:not(:last-child) {
 nav .mobile-navigation-list li a {
   color: black;
   font-weight: 500;
+}
+
+nav .desktop-navigation-list {
+  display: none;
+  gap: 1.2em;
+}
+
+nav .desktop-navigation-list li a {
+  color: #fff;
+}
+
+@media screen and (min-width: 76em) {
+  nav .nav-toggle {
+    display: none;
+  }
+  nav .desktop-navigation-list {
+    display: flex;
+  }
 }
 /*# sourceMappingURL=style.css.map */

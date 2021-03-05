@@ -43,4 +43,23 @@ nav {
       font-weight: 500;
     }
   }
+
+  .desktop-navigation-list {
+    display: none;
+    gap: 1.2em;
+
+    li a {
+      color: #fff;
+    }
+  }
+
+  @media screen and (min-width: $small-breakpoint) {
+    .nav-toggle {
+      display: none;
+    }
+
+    .desktop-navigation-list {
+      display: flex;
+    }
+  }
 }
