@@ -80,6 +80,13 @@ body.dark::after {
   opacity: 0.8;
 }
 
+@media screen and (min-width: 76em) {
+  body {
+    background: url("./images/image-hero-desktop.jpg") no-repeat, #f7f7f7;
+    background-size: 100% 40vh;
+  }
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -432,6 +439,7 @@ body.dark::after {
 }
 
 .container-main {
+  width: 90%;
   max-width: 100rem;
   margin: 0 auto;
 }

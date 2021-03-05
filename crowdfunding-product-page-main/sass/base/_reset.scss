@@ -82,6 +82,12 @@ body {
     background-color: #000;
     opacity: 0.8;
   }
+
+  @media screen and (min-width: $small-breakpoint) {
+    background: url("./images/image-hero-desktop.jpg") no-repeat,
+      darken($color: #fff, $amount: 3%);
+    background-size: 100% 40vh;
+  }
 }
 
 // Front End Mentor Attributeion
