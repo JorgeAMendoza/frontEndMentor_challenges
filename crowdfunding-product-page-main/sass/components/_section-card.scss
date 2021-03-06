@@ -99,7 +99,7 @@
   .stats {
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, 15rem);
     gap: 2rem;
     justify-content: center;
 
@@ -115,7 +115,7 @@
 
     @media screen and (min-width: $small-breakpoint) {
       justify-content: start;
-
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
       .stat {
         &:not(:last-child) {
           border-bottom: none;
@@ -141,5 +141,11 @@
       background-color: $primary-color-light;
       border-radius: inherit;
     }
+  }
+}
+
+#project-description {
+  p {
+    line-height: 1.8;
   }
 }

@@ -31,7 +31,7 @@ button {
   align-items: center;
   height: 44px;
   min-width: 20ch;
-  padding: 1.7em;
+  padding: 2em;
   font-family: inherit;
 }
 
@@ -157,6 +157,15 @@ body.dark::after {
   cursor: initial;
 }
 
+@media screen and (min-width: 600px) {
+  .backer-reward .reward-title,
+  .backer-reward .reward-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
 #project-header {
   margin-top: 20rem;
   text-align: center;
@@ -249,7 +258,7 @@ body.dark::after {
 #project-status .stats {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, 15rem);
   gap: 2rem;
   justify-content: center;
 }
@@ -265,6 +274,7 @@ body.dark::after {
 @media screen and (min-width: 600px) {
   #project-status .stats {
     justify-content: start;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
   #project-status .stats .stat:not(:last-child) {
     border-bottom: none;
@@ -286,6 +296,10 @@ body.dark::after {
   height: 100%;
   background-color: #3cb4ac;
   border-radius: inherit;
+}
+
+#project-description p {
+  line-height: 1.8;
 }
 
 #pledge-modal {

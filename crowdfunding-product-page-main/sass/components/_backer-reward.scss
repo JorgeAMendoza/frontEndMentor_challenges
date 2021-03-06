@@ -40,4 +40,13 @@
       cursor: initial;
     }
   }
+
+  @media screen and (min-width: $small-breakpoint) {
+    .reward-title,
+    .reward-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
 }
