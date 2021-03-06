@@ -501,28 +501,32 @@ body.dark::after {
   margin: 0 auto;
 }
 
-nav {
+header {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5vh;
-  padding-top: 2rem;
+  min-height: 5vh;
+  padding: 4rem 0;
   position: relative;
 }
 
-nav .site-logo {
+header nav .site-logo {
   height: 20px;
 }
 
-nav.toggle-view {
+header nav.toggle-view {
   z-index: 1;
 }
 
-nav.toggle-view .mobile-navigation-list {
+header nav.toggle-view .mobile-navigation-list {
   display: block;
 }
 
-nav .mobile-navigation-list {
+header nav .mobile-navigation-list {
   z-index: inherit;
   display: none;
   position: absolute;
@@ -533,33 +537,33 @@ nav .mobile-navigation-list {
   border-radius: 10px;
 }
 
-nav .mobile-navigation-list li {
+header nav .mobile-navigation-list li {
   padding: 1.5em;
 }
 
-nav .mobile-navigation-list li:not(:last-child) {
+header nav .mobile-navigation-list li:not(:last-child) {
   border-bottom: 1px solid #e0e0e0;
 }
 
-nav .mobile-navigation-list li a {
+header nav .mobile-navigation-list li a {
   color: black;
   font-weight: 500;
 }
 
-nav .desktop-navigation-list {
+header nav .desktop-navigation-list {
   display: none;
   gap: 1.2em;
 }
 
-nav .desktop-navigation-list li a {
+header nav .desktop-navigation-list li a {
   color: #fff;
 }
 
 @media screen and (min-width: 600px) {
-  nav .nav-toggle {
+  header nav .nav-toggle {
     display: none;
   }
-  nav .desktop-navigation-list {
+  header nav .desktop-navigation-list {
     display: flex;
   }
 }
