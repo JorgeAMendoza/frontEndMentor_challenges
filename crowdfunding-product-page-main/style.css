@@ -57,7 +57,20 @@ section {
   background-color: #fff;
   border-radius: 10px;
   margin-bottom: 1.2rem;
-  padding: 1.6em;
+  padding: 1.5em;
+}
+
+section > * {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 760px) {
+  section {
+    padding: 2em 2.5em;
+  }
+  section:not(:last-child) > * {
+    margin-bottom: 2.5rem;
+  }
 }
 
 body {
@@ -80,7 +93,7 @@ body.dark::after {
   opacity: 0.8;
 }
 
-@media screen and (min-width: 76em) {
+@media screen and (min-width: 600px) {
   body {
     background: url("./images/image-hero-desktop.jpg") no-repeat, #f7f7f7;
     background-size: 100% 40vh;
@@ -161,12 +174,10 @@ body.dark::after {
 
 #project-header .title {
   font-size: 2.4rem;
-  margin-bottom: 1.5rem;
 }
 
 #project-header .subtitle {
   font-size: 1.6rem;
-  margin-bottom: 1.5rem;
 }
 
 #project-header .options {
@@ -206,6 +217,15 @@ body.dark::after {
   position: relative;
 }
 
+@media screen and (min-width: 600px) {
+  #project-header .options {
+    justify-content: space-between;
+  }
+  #project-header .options button {
+    flex-grow: 0;
+  }
+}
+
 #project-status .stats {
   text-align: center;
   display: grid;
@@ -224,14 +244,12 @@ body.dark::after {
 
 #project-status .stats .stat-amount {
   font-size: 2.8rem;
-  margin-bottom: 0.8rem;
 }
 
 #project-status .status-bar {
   background-color: #ededed;
   height: 15px;
   border-radius: 100px;
-  margin-top: 1rem;
 }
 
 #project-status .status-bar div {
@@ -239,10 +257,6 @@ body.dark::after {
   height: 100%;
   background-color: #3cb4ac;
   border-radius: inherit;
-}
-
-#project-description > *:not(:last-child) {
-  margin-bottom: 1.5rem;
 }
 
 #pledge-modal {
@@ -498,7 +512,7 @@ nav .desktop-navigation-list li a {
   color: #fff;
 }
 
-@media screen and (min-width: 76em) {
+@media screen and (min-width: 600px) {
   nav .nav-toggle {
     display: none;
   }

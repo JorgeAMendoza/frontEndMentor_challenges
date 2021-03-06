@@ -16,12 +16,10 @@
 
   .title {
     font-size: 2.4rem;
-    margin-bottom: 1.5rem;
   }
 
   .subtitle {
     font-size: 1.6rem;
-    margin-bottom: 1.5rem;
   }
 
   .options {
@@ -63,6 +61,16 @@
       }
     }
   }
+
+  @media screen and (min-width: 600px) {
+    .options {
+      justify-content: space-between;
+
+      button {
+        flex-grow: 0;
+      }
+    }
+  }
 }
 
 #project-status {
@@ -81,7 +89,7 @@
       padding-bottom: 1rem;
       &-amount {
         font-size: 2.8rem;
-        margin-bottom: 0.8rem;
+        // margin-bottom: 0.8rem;
       }
     }
   }
@@ -90,7 +98,6 @@
     background-color: lighten($color: $neutral-color-light, $amount: 45%);
     height: 15px;
     border-radius: 100px;
-    margin-top: 1rem;
 
     div {
       width: 89%;
@@ -102,7 +109,4 @@
 }
 
 #project-description {
-  > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
 }
