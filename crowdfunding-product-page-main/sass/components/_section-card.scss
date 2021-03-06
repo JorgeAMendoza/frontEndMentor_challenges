@@ -31,24 +31,33 @@
       margin-right: 0.5rem;
     }
     label[for="bookmarked"] {
-      display: inline-block;
       position: relative;
       cursor: pointer;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      align-items: center;
+      display: flex;
+      background-color: darken($color: #fff, $amount: 6%);
+      border-radius: 100px;
 
       input {
         position: absolute;
         opacity: 0;
 
-        &:checked ~ .bookmark-icon {
-          circle {
-            fill: $primary-color-light;
+        &:checked ~ {
+          .bookmark-icon {
+            circle {
+              fill: $primary-color-light;
+            }
+            path {
+              fill: #fff;
+            }
           }
-          path {
-            fill: #fff;
+
+          span {
+            color: $primary-color-light;
           }
         }
       }
@@ -59,10 +68,23 @@
         height: 45px;
         position: relative;
       }
+
+      span {
+        display: inline-block;
+        font-weight: bold;
+        padding: 1rem;
+        display: none;
+      }
+
+      @media screen and (min-width: $small-breakpoint) {
+        span {
+          display: inline-block;
+        }
+      }
     }
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: $small-breakpoint) {
     .options {
       justify-content: space-between;
 
@@ -106,7 +128,4 @@
       border-radius: inherit;
     }
   }
-}
-
-#project-description {
 }

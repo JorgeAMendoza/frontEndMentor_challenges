@@ -191,10 +191,13 @@ body.dark::after {
 }
 
 #project-header .options label[for="bookmarked"] {
-  display: inline-block;
   position: relative;
   cursor: pointer;
   user-select: none;
+  align-items: center;
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 100px;
 }
 
 #project-header .options label[for="bookmarked"] input {
@@ -210,11 +213,28 @@ body.dark::after {
   fill: #fff;
 }
 
+#project-header .options label[for="bookmarked"] input:checked ~ span {
+  color: #3cb4ac;
+}
+
 #project-header .options label[for="bookmarked"] .bookmark-icon {
   display: inline-block;
   width: 45px;
   height: 45px;
   position: relative;
+}
+
+#project-header .options label[for="bookmarked"] span {
+  display: inline-block;
+  font-weight: bold;
+  padding: 1rem;
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  #project-header .options label[for="bookmarked"] span {
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 600px) {
