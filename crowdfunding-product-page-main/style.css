@@ -249,13 +249,9 @@ body.dark::after {
 #project-status .stats {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 15rem);
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 2rem;
   justify-content: center;
-}
-
-#project-status .stats .stat {
-  padding-bottom: 1rem;
 }
 
 #project-status .stats .stat:not(:last-child) {
@@ -264,6 +260,19 @@ body.dark::after {
 
 #project-status .stats .stat-amount {
   font-size: 2.8rem;
+}
+
+@media screen and (min-width: 600px) {
+  #project-status .stats {
+    justify-content: start;
+  }
+  #project-status .stats .stat:not(:last-child) {
+    border-bottom: none;
+    border-right: 1px solid #c7c7c7;
+  }
+  #project-status .stats .stat-amount {
+    font-size: 3.2rem;
+  }
 }
 
 #project-status .status-bar {
@@ -474,7 +483,7 @@ body.dark::after {
 
 .container-main {
   width: 90%;
-  max-width: 100rem;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
