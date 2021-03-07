@@ -44,10 +44,17 @@
 
       .pledge-confirm {
         display: block;
+        @media screen and (min-width: $small-breakpoint) {
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
 
     .pledge-title {
+      .pledge-amount {
+        display: none;
+      }
       label {
         font-weight: bold;
         color: $neutral-color-dark;
@@ -55,7 +62,6 @@
         display: inline-block;
         position: relative;
         height: 30px;
-        // border: 1px solid black;
 
         &[for="no-pledge"] .checkmark {
           top: 0.1em;
@@ -105,6 +111,26 @@
 
         &:hover input ~ .checkmark {
           background-color: #ccc;
+        }
+      }
+
+      @media screen and (min-width: $small-breakpoint) {
+        display: flex;
+        justify-content: space-between;
+
+        .pledge-amount {
+          display: block;
+        }
+
+        label {
+          .to-pledge {
+            display: inline-block;
+            margin-left: 1.5rem;
+          }
+
+          .checkmark {
+            top: 0;
+          }
         }
       }
     }
@@ -160,6 +186,12 @@
     // Style backer selection when sold out
     &.no-stock {
       opacity: 0.4;
+    }
+
+    @media screen and (min-width: $small-breakpoint) {
+      .pledge-amount {
+        display: none;
+      }
     }
   }
 }

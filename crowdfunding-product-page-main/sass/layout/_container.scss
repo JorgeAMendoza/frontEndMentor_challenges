@@ -7,5 +7,7 @@
     width: 90%;
     max-width: 90rem;
     margin: 0 auto;
+    // The pledge modal has the same contraints as the main class
+    position: relative;
   }
 }

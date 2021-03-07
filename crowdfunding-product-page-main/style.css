@@ -350,6 +350,17 @@ body.dark::after {
   display: block;
 }
 
+@media screen and (min-width: 600px) {
+  #pledge-modal .pledge.checked .pledge-confirm {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+#pledge-modal .pledge .pledge-title .pledge-amount {
+  display: none;
+}
+
 #pledge-modal .pledge .pledge-title label {
   font-weight: bold;
   color: black;
@@ -409,6 +420,23 @@ body.dark::after {
   background-color: #ccc;
 }
 
+@media screen and (min-width: 600px) {
+  #pledge-modal .pledge .pledge-title {
+    display: flex;
+    justify-content: space-between;
+  }
+  #pledge-modal .pledge .pledge-title .pledge-amount {
+    display: block;
+  }
+  #pledge-modal .pledge .pledge-title label .to-pledge {
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
+  #pledge-modal .pledge .pledge-title label .checkmark {
+    top: 0;
+  }
+}
+
 #pledge-modal .pledge .pledge-amount span {
   font-weight: bold;
   color: #000;
@@ -461,6 +489,12 @@ body.dark::after {
   opacity: 0.4;
 }
 
+@media screen and (min-width: 600px) {
+  #pledge-modal .pledge .pledge-amount {
+    display: none;
+  }
+}
+
 #success-modal {
   z-index: 1;
   text-align: center;
@@ -472,7 +506,7 @@ body.dark::after {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 1400px;
+  max-width: 50rem;
   display: none;
 }
 
@@ -499,6 +533,7 @@ body.dark::after {
   width: 90%;
   max-width: 90rem;
   margin: 0 auto;
+  position: relative;
 }
 
 header {
