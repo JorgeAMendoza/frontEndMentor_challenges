@@ -35,6 +35,10 @@ button {
   font-family: inherit;
 }
 
+button:hover {
+  background-color: #147b74;
+}
+
 input {
   font-family: inherit;
   border: 1px solid black;
@@ -370,6 +374,10 @@ body.dark::after {
   height: 30px;
 }
 
+#pledge-modal .pledge .pledge-title label:hover {
+  color: #3cb4ac;
+}
+
 #pledge-modal .pledge .pledge-title label[for="no-pledge"] .checkmark {
   top: 0.1em;
 }
@@ -417,7 +425,7 @@ body.dark::after {
 }
 
 #pledge-modal .pledge .pledge-title label:hover input ~ .checkmark {
-  background-color: #ccc;
+  border-color: #3cb4ac;
 }
 
 @media screen and (min-width: 600px) {
@@ -475,14 +483,19 @@ body.dark::after {
   align-items: center;
   border: 1px solid #c7c7c7;
   border-radius: 20px;
+  padding-left: 1rem;
 }
 
 #pledge-modal .pledge .pledge-confirm .submit label input {
   width: 8ch;
   padding-left: 1rem;
-  border: none;
   outline: none;
   font-weight: bold;
+  border-color: transparent;
+}
+
+#pledge-modal .pledge .pledge-confirm .submit label input:invalid {
+  box-shadow: none;
 }
 
 #pledge-modal .pledge.no-stock {

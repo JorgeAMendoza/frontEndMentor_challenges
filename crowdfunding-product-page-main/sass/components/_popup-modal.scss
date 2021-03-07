@@ -63,6 +63,10 @@
         position: relative;
         height: 30px;
 
+        &:hover {
+          color: $primary-color-light;
+        }
+
         &[for="no-pledge"] .checkmark {
           top: 0.1em;
         }
@@ -110,7 +114,7 @@
         }
 
         &:hover input ~ .checkmark {
-          background-color: #ccc;
+          border-color: $primary-color-light;
         }
       }
 
@@ -171,13 +175,18 @@
           align-items: center;
           border: 1px solid lighten($color: $neutral-color-light, $amount: 30%);
           border-radius: 20px;
+          padding-left: 1rem;
 
           input {
             width: 8ch;
             padding-left: 1rem;
-            border: none;
             outline: none;
             font-weight: bold;
+            border-color: transparent;
+
+            &:invalid {
+              box-shadow: none;
+            }
           }
         }
       }

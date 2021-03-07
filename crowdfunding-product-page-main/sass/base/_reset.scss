@@ -35,6 +35,10 @@ button {
   min-width: 20ch;
   padding: 2em;
   font-family: inherit;
+
+  &:hover {
+    background-color: $primary-color-dark;
+  }
 }
 
 input {
