@@ -1,19 +1,21 @@
 const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
   output: {
-    filename: "launch.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "imgs/[hash].[ext]",
   },
 
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
+    new CleanWebpackPlugin(),
   ],
 
   module: {
@@ -21,6 +23,11 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
       },
     ],
   },
