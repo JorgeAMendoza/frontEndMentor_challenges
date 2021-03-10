@@ -12,7 +12,7 @@
       href="imgs/736eae1ff09acfe04c50..png"
     />
 
-    <title>Frontend Mentor | Launch countdown timer</title>
+    <title>Frontend Mentor | Launch Countdown Timer</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -26,14 +26,40 @@
     </style>
   <script defer src="main.bundle.js"></script></head>
   <body>
-    We're launching soon Days Hours Minutes Seconds
-    <h1>HELLO</h1>
+    <header class="launch-header container">
+      <h1 class="launch-header__title">We're Launching Soon</h1>
+    </header>
 
-    <div class="attribution">
+    <main class="container">
+      <div class="countdown-clock">
+        <div class="countdown-clock__time">
+          <p class="countdown-clock__time__type">Days</p>
+        </div>
+        <div class="countdown-clock__time">
+          <p class="countdown-clock__time__type">Hours</p>
+        </div>
+        <div class="countdown-clock__time">
+          <p class="countdown-clock__time__type">Minutes</p>
+        </div>
+        <div class="countdown-clock__time">
+          <p class="countdown-clock__time__type">Seconds</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="launch-footer">
+      <div class="launch-footer__icons">
+        <img src="imgs/a9208377508aef178a3d..svg" alt="Visit our Facebook page" />
+        <img src="imgs/ea0db8e7cb2520eeee51..svg" alt="Visit our Pinterest page" />
+        <img src="imgs/b94ff26a97e94b0abe8b..svg" alt="Visit our Instagram page" />
+      </div>
+    </footer>
+
+    <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    </div> -->
   </body>
 </html>
