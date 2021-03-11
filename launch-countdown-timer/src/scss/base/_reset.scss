@@ -15,9 +15,9 @@ html {
 body {
   min-height: 100vh;
   font-family: "Red Hat Text", sans-serif;
-  // background: linear-gradient(
-  //   $neutral-black-blue 50%,
-  //   $primary-very-dark-purple
-  // );
-  // background: url("../../assets/bg-stars.svg");
+  background: linear-gradient(
+    $neutral-black-blue 30%,
+    $primary-very-dark-purple
+  );
+  background: url("/src/assets/pattern-hills.svg");
 }
