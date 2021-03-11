@@ -13,11 +13,11 @@ html {
 }
 
 body {
+  font-size: 1.6rem;
+  line-height: 1.5;
   min-height: 100vh;
   font-family: "Red Hat Text", sans-serif;
-  background: linear-gradient(
-    $neutral-black-blue 30%,
-    $primary-very-dark-purple
-  );
-  background: url("/src/assets/pattern-hills.svg");
+  background: url("/src/assets/pattern-hills.svg") no-repeat bottom right/250%,
+    url("/src/assets/bg-stars.svg") no-repeat center center,
+    linear-gradient($neutral-black-blue 30%, $primary-very-dark-purple);
 }
