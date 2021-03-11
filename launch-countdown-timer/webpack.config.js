@@ -15,7 +15,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
   ],
 
   module: {
@@ -28,6 +30,10 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["html-loader"],
+      },
+      {
+        test: /\.(svg|png|jpe?g|gif)$/,
+        type: "asset/resource",
       },
     ],
   },
