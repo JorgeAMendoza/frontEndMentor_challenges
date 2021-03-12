@@ -1,0 +1,7 @@
+@use '../abstracts/mixins' as *;
+
+.launch-footer {
+  #{&}__icons{
+      @include createFlexDisplay(row, center, center, 2em )
+  }
+}
