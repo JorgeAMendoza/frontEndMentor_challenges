@@ -1,0 +1,16 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.countdown-clock {
+  border: 1px solid black;
+
+  #{&}__time {
+    &__type {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: $primary-grayish-blue;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+  }
+}
