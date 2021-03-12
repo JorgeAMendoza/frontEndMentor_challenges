@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 *,
 *::after,
@@ -20,4 +21,7 @@ body {
   background: url("/src/assets/pattern-hills.svg") no-repeat bottom right/250%,
     url("/src/assets/bg-stars.svg") no-repeat center center,
     linear-gradient($neutral-black-blue 30%, $primary-very-dark-purple);
+
+  // Center everything
+  @include createFlexDisplay(column, space-around, center, 2rem);
 }
