@@ -6,3 +6,12 @@
   align-items: $align;
   gap: $gap;
 }
+
+// Create Grid Display
+@mixin createGridDisplay($numOfItems, $sizeOfItems, $gap, $justify, $align) {
+  display: grid;
+  grid-template-columns: repeat($numOfItems, $sizeOfItems);
+  gap: $gap;
+  justify-content: $justify;
+  align-items: $align;
+}
