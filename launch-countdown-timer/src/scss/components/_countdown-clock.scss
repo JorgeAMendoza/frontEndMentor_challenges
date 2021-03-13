@@ -5,6 +5,9 @@
   border: 1px solid black;
 
   #{&}__time {
+    &__container {
+      color: white;
+    }
     &__type {
       font-weight: bold;
       font-size: 1.4rem;
