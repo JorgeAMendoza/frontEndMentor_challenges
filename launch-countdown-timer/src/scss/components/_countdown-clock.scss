@@ -4,21 +4,21 @@
 .countdown-clock {
   background-color: transparent;
   display: grid;
-  grid-template-columns: repeat(4, minmax(4rem, 10rem));
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(5rem, 11rem));
+  gap: 1.5rem;
   justify-content: center;
+  margin-top: 5rem;
 
   #{&}__time {
     perspective: 1000px;
     background-color: $neutral-black-blue;
     text-align: center;
+    position: relative;
     &__card {
-      width: 100px;
-      height: 50px;
-      // Extra Space for when it flips
-      margin-bottom: 50px;
+      width: 100%;
+      height: 4.5rem;
       border-radius: 5px;
-      position: relative;
+      position: absolute;
       text-align: center;
       transform-origin: bottom center;
       transition: transform 1s ease;
@@ -56,7 +56,7 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         overflow: hidden;
-        font-size: 6rem;
+        font-size: 4.5rem;
         font-weight: bold;
         border-radius: inherit;
       }
@@ -86,14 +86,20 @@
         left: 50%;
         transform: translate(-50%, 50%) rotateX(0.5turn) scale(-1, 1);
       }
+
+      // Have card flipped before user sees page
+      &.flipped {
+        transition: transform -1s ease;
+        transform: rotateX(-180deg);
+      }
     }
     &__type {
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: $primary-grayish-blue;
       text-transform: uppercase;
       letter-spacing: 4px;
-      padding-top: 1rem;
+      padding-top: 11.5rem;
     }
   }
 }
