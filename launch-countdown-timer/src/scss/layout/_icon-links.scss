@@ -1,9 +1,9 @@
 @use '../abstracts/mixins' as *;
 
 .launch-footer {
-  margin-top: 12rem;
+  margin-top: auto;
   #{&}__icons {
     min-height: 10vh;
-    @include createFlexDisplay(row, center, center, 2em);
+    @include createFlexDisplay(row, center, start, 2em);
   }
 }
