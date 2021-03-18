@@ -1,5 +1,5 @@
 // Create Simple Flexbox Display
-@mixin createFlexDisplay($direction, $justify, $align, $gap) {
+@mixin createFlexDisplay($direction, $justify: null, $align: null, $gap: null) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
