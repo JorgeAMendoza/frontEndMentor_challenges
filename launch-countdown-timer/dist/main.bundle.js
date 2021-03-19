@@ -60,6 +60,36 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/app/clock.js":
+/*!**************************!*\
+  !*** ./src/app/clock.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_get_currnet_time__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/get-currnet-time */ \"./src/app/utils/get-currnet-time.js\");\n\r\n\r\nconst start = () => {\r\n  // Set up target Date Object\r\n  const _targetDate = new Date(\"January 01, 2022\");\r\n  const _targetDay = Math.floor((_targetDate - new Date()) / 1000 / 86400);\r\n  const _targeDateData = {\r\n    days: _targetDay,\r\n    hours: 0,\r\n    minutes: 0,\r\n    seconds: 0,\r\n  };\r\n\r\n  //   Set up current Date object\r\n  const _currentDate = (0,_utils_get_currnet_time__WEBPACK_IMPORTED_MODULE_0__.getCurrentTime)();\r\n\r\n  //   const currentDate = {};\r\n  //   // Intitial funciton\r\n  //   const run = () => {\r\n  //     const currentTime = new Date();\r\n  //     currentDate.days = targetDay;\r\n  //     currentDate.hours = 24 - (currentTime.getHours() + 1);\r\n  //     currentDate.minutes = 60 - (currentTime.getMinutes() + 1);\r\n  //     currentDate.seconds = 60 - (currentTime.getSeconds() + 1);\r\n  //     // somehwere here write to DOM.\r\n  //     // First just log when second changes\r\n  //     setInterval(() => {\r\n  //       checkTimeChange();\r\n  //       console.log(currentDate);\r\n  //     }, 1000);\r\n  //   };\r\n  //   const checkTimeChange = () => {\r\n  //     const currentTime = new Date();\r\n  //     currentDate.seconds = 60 - (currentTime.getSeconds() + 1);\r\n  //     // Check to see if minutes changed\r\n  //     if (currentDate.minutes !== 60 - (currentTime.getMinutes() + 1)) {\r\n  //       currentDate.minutes = 60 - (currentTime.getMinutes() + 1);\r\n  //     }\r\n  //   };\r\n  //   run();\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (start);\r\n\n\n//# sourceURL=webpack://launch-countdown-timer/./src/app/clock.js?");
+
+/***/ }),
+
+/***/ "./src/app/utils/get-currnet-time.js":
+/*!*******************************************!*\
+  !*** ./src/app/utils/get-currnet-time.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getCurrentTime\": () => (/* binding */ getCurrentTime)\n/* harmony export */ });\n/* harmony import */ var _timeConvert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./timeConvert */ \"./src/app/utils/timeConvert.js\");\n\r\nconst getCurrentTime = () => {\r\n  const currentTime = new Date();\r\n  return {\r\n    days: Math.floor(\r\n      (new Date(\"January 01, 2022\") - currentTime) / 1000 / 86400\r\n    ),\r\n    hours: _timeConvert__WEBPACK_IMPORTED_MODULE_0__.default.convertHours(currentTime.getHours()),\r\n    minutes: _timeConvert__WEBPACK_IMPORTED_MODULE_0__.default.convertMinutes(currentTime.getMinutes()),\r\n    seconds: _timeConvert__WEBPACK_IMPORTED_MODULE_0__.default.convertSeconds(currentTime.getSeconds()),\r\n  };\r\n};\r\n\n\n//# sourceURL=webpack://launch-countdown-timer/./src/app/utils/get-currnet-time.js?");
+
+/***/ }),
+
+/***/ "./src/app/utils/timeConvert.js":
+/*!**************************************!*\
+  !*** ./src/app/utils/timeConvert.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timeConvert = {\r\n  convertHours(hours) {\r\n    return 24 - (hours + 1);\r\n  },\r\n  convertMinutes(minutes) {\r\n    return 60 - (minutes + 1);\r\n  },\r\n  convertSeconds(seconds) {\r\n    return 60 - (seconds + 1);\r\n  },\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timeConvert);\r\n\n\n//# sourceURL=webpack://launch-countdown-timer/./src/app/utils/timeConvert.js?");
+
+/***/ }),
+
 /***/ "./src/assets/bg-stars.svg":
 /*!*********************************!*\
   !*** ./src/assets/bg-stars.svg ***!
@@ -86,7 +116,7 @@ eval("module.exports = __webpack_require__.p + \"imgs/815d688fd937623063b5..svg\
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n\r\n\n\n//# sourceURL=webpack://launch-countdown-timer/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n/* harmony import */ var _app_clock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/clock */ \"./src/app/clock.js\");\n\r\n\r\n\r\n(0,_app_clock__WEBPACK_IMPORTED_MODULE_1__.default)();\r\n\n\n//# sourceURL=webpack://launch-countdown-timer/./src/index.js?");
 
 /***/ })
 
