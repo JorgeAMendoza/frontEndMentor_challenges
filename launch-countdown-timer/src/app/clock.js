@@ -1,4 +1,5 @@
 import { getCurrentTime } from "./utils/get-currnet-time";
+import { timeChange } from "./timeChange";
 
 const start = () => {
   // Set up target Date Object
@@ -14,30 +15,20 @@ const start = () => {
   //   Set up current Date object
   const _currentDate = getCurrentTime();
 
-  //   const currentDate = {};
-  //   // Intitial funciton
-  //   const run = () => {
-  //     const currentTime = new Date();
-  //     currentDate.days = targetDay;
-  //     currentDate.hours = 24 - (currentTime.getHours() + 1);
-  //     currentDate.minutes = 60 - (currentTime.getMinutes() + 1);
-  //     currentDate.seconds = 60 - (currentTime.getSeconds() + 1);
-  //     // somehwere here write to DOM.
-  //     // First just log when second changes
-  //     setInterval(() => {
-  //       checkTimeChange();
-  //       console.log(currentDate);
-  //     }, 1000);
-  //   };
-  //   const checkTimeChange = () => {
-  //     const currentTime = new Date();
-  //     currentDate.seconds = 60 - (currentTime.getSeconds() + 1);
-  //     // Check to see if minutes changed
-  //     if (currentDate.minutes !== 60 - (currentTime.getMinutes() + 1)) {
-  //       currentDate.minutes = 60 - (currentTime.getMinutes() + 1);
-  //     }
-  //   };
-  //   run();
+  setInterval(() => {
+    const _currentCheck = getCurrentTime();
+    const { secondChange, minuteChange, hourChange, dayChange } = timeChange(
+      _currentDate,
+      _currentCheck
+    );
+
+    if (secondChange) _currentDate.seconds = _currentCheck.seconds;
+    if (minuteChange) _currentDate.minutes = _currentCheck.minutes;
+    if (hourChange) _currentDate.hours = _currentCheck.hours;
+    if (dayChange) _currentDate.days = _currentCheck.hours;
+    console.log(_currentDate);
+    // console.log(_currentDate);
+  }, 1000);
 };
 
 export default start;
