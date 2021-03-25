@@ -1,4 +1,4 @@
 import "./scss/main.scss";
-import start from "./app/clock";
+import clock from "./app/clock";
 
-start();
+clock();
