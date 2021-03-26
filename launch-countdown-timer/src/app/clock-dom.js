@@ -11,25 +11,25 @@ const clockDOM = () => {
   const checkTime = (timeType, timeValue, nextTimeValue) => {
     switch (timeType) {
       case "second":
-        changeTime(
+        _changeTime(
           _timeDisplayDOM.secondTime,
           createClockPart(timeValue, nextTimeValue)
         );
         break;
       case "minute":
-        changeTime(
+        _changeTime(
           _timeDisplayDOM.minuteTime,
           createClockPart(timeValue, nextTimeValue)
         );
         break;
       case "hour":
-        changeTime(
+        _changeTime(
           _timeDisplayDOM.hourTime,
           createClockPart(timeValue, nextTimeValue)
         );
         break;
       case "day":
-        changeTime(
+        _changeTime(
           _timeDisplayDOM.dayTime,
           createClockPart(timeValue, nextTimeValue)
         );
@@ -37,13 +37,17 @@ const clockDOM = () => {
     }
   };
 
-  const changeTime = (domObject, clockPartDOM) => {
+  const _changeTime = (domObject, clockPartDOM) => {
     const currentPart = domObject.querySelector(".countdown-clock__time__card");
     domObject.insertAdjacentElement("afterbegin", clockPartDOM);
     currentPart.classList.add("flip");
   };
 
   // Most likely public. called when inital date is created.
+  // Want most of it gone, just want one function that can handle this multiple times,
+
+  const setInitalTime = (timeInfo) => {};
+
   const setInitialSecond = (second, nextSecond) => {
     _timeDisplayDOM.secondTime.insertAdjacentElement(
       "afterbegin",
