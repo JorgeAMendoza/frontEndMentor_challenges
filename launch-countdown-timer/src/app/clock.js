@@ -28,23 +28,45 @@ const clock = () => {
     _currentDate.minutes,
     _currentDate.minutes - 1 === -1 ? 59 : _currentDate.minutes - 1
   );
+  dom.setInitialHour(
+    _currentDate.hours,
+    _currentDate.hours - 1 === -1 ? 59 : _currentDate.hours - 1
+  );
+  dom.setInitialDay(
+    _currentDate.days,
+    _currentDate.days - 1 === -1 ? 59 : _currentDate.days - 1
+  );
 
-  // setInterval(() => {
-  //   const _currentCheck = getCurrentTime();
-  //   const { secondChange, minuteChange, hourChange, dayChange } = timeChange(
-  //     _currentDate,
-  //     _currentCheck
-  //   );
-
-  //   if (secondChange)
-  //     dom.changeSecond(
-  //       _currentCheck.seconds,
-  //       _currentCheck.seconds - 1 === -1 ? 59 : _currentCheck.seconds - 1
-  //     );
-  //   if (minuteChange) _currentDate.minutes = _currentCheck.minutes;
-  //   if (hourChange) _currentDate.hours = _currentCheck.hours;
-  //   if (dayChange) _currentDate.days = _currentCheck.hours;
-  // }, 1000);
+  setInterval(() => {
+    const _currentCheck = getCurrentTime();
+    const { secondChange, minuteChange, hourChange, dayChange } = timeChange(
+      _currentDate,
+      _currentCheck
+    );
+    _currentDate.hours = _currentCheck.hours;
+    if (secondChange) {
+      _currentDate.seconds = _currentDate.seconds;
+      dom.changeSecond(
+        _currentCheck.seconds,
+        _currentCheck.seconds - 1 === -1 ? 59 : _currentCheck.seconds - 1
+      );
+    }
+    if (minuteChange) {
+      _currentDate.minutes = _currentCheck.minutes;
+      dom.changeMinute(
+        _currentDate.minutes,
+        _currentCheck.minutes - 1 === -1 ? 59 : _currentCheck.minutes - 1
+      );
+    }
+    if (hourChange) {
+      _currentDate.hours = _currentCheck.hours;
+      dom.changeHour(
+        _currentCheck.hours,
+        _currentCheck.hours - 1 === -1 ? 59 : _currentCheck.hours - 1
+      );
+    }
+    if (dayChange) _currentDate.days = _currentCheck.hours;
+  }, 1000);
 };
 
 export default clock;
