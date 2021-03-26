@@ -89,7 +89,6 @@
       // Class that when added, flips card
       &.flip {
         transform: rotateX(-180deg);
-        z-index: 1;
       }
 
       // Have card flipped before user sees page
