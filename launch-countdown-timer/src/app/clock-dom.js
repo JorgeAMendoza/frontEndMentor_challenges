@@ -8,24 +8,40 @@ const clockDOM = () => {
     secondTime: document.querySelector("#secondTime"),
   };
 
-  const changeSecond = (second, nextSecond) => {
-    const clockPart = createClockPart(second, nextSecond);
-    const currentPart = _timeDisplayDOM.secondTime.querySelector(
-      ".countdown-clock__time__card"
-    );
-    _timeDisplayDOM.secondTime.insertAdjacentElement("afterbegin", clockPart);
+  const checkTime = (timeType, timeValue, nextTimeValue) => {
+    switch (timeType) {
+      case "second":
+        changeTime(
+          _timeDisplayDOM.secondTime,
+          createClockPart(timeValue, nextTimeValue)
+        );
+        break;
+      case "minute":
+        changeTime(
+          _timeDisplayDOM.minuteTime,
+          createClockPart(timeValue, nextTimeValue)
+        );
+        break;
+      case "hour":
+        changeTime(
+          _timeDisplayDOM.hourTime,
+          createClockPart(timeValue, nextTimeValue)
+        );
+        break;
+      case "day":
+        changeTime(
+          _timeDisplayDOM.dayTime,
+          createClockPart(timeValue, nextTimeValue)
+        );
+        break;
+    }
+  };
+
+  const changeTime = (domObject, clockPartDOM) => {
+    const currentPart = domObject.querySelector(".countdown-clock__time__card");
+    domObject.insertAdjacentElement("afterbegin", clockPartDOM);
     currentPart.classList.add("flip");
   };
-  const changeMinute = (minute, nextMinute) => {
-    const clockPart = createClockPart(minute, nextMinute);
-    const currentPart = _timeDisplayDOM.minuteTime.querySelector(
-      ".countdown-clock__time__card"
-    );
-    _timeDisplayDOM.minuteTime.insertAdjacentElement("afterbegin", clockPart);
-    currentPart.classList.add("flip");
-  };
-  const changeHour = (hour, nextHour) => {};
-  const changeDay = (day, nextDay) => {};
 
   // Most likely public. called when inital date is created.
   const setInitialSecond = (second, nextSecond) => {
@@ -72,18 +88,15 @@ const clockDOM = () => {
     );
   };
 
-  // Event listener to handle deleting last clock part after transition
-  _timeDisplayDOM.secondTime.addEventListener("transitionend", () => {
-    const clockParts = _timeDisplayDOM.secondTime.querySelectorAll(
-      ".countdown-clock__time__card"
-    );
-
-    _timeDisplayDOM.secondTime.removeChild(clockParts[clockParts.length - 1]);
-  });
+  // Set Event listeners for deleting last clock part
+  for (let timeBlock in _timeDisplayDOM) {
+    _timeDisplayDOM[timeBlock].addEventListener("transitionend", function () {
+      const clockParts = this.querySelectorAll(".countdown-clock__time__card");
+      this.removeChild(clockParts[clockParts.length - 1]);
+    });
+  }
   return {
-    changeSecond,
-    changeMinute,
-    changeHour,
+    checkTime,
     setInitialSecond,
     setInitialMinute,
     setInitialHour,
