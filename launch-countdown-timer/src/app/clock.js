@@ -45,27 +45,29 @@ const clock = () => {
     );
     _currentDate.hours = _currentCheck.hours;
     if (secondChange) {
+      const nextSecond =
+        _currentCheck.seconds - 1 === -1 ? 59 : _currentCheck.seconds - 1;
       _currentDate.seconds = _currentDate.seconds;
-      dom.changeSecond(
-        _currentCheck.seconds,
-        _currentCheck.seconds - 1 === -1 ? 59 : _currentCheck.seconds - 1
-      );
+      dom.checkTime("second", _currentCheck.seconds, nextSecond);
     }
     if (minuteChange) {
+      const nextMinte =
+        _currentCheck.minutes - 1 === -1 ? 59 : _currentCheck.minutes - 1;
       _currentDate.minutes = _currentCheck.minutes;
-      dom.changeMinute(
-        _currentDate.minutes,
-        _currentCheck.minutes - 1 === -1 ? 59 : _currentCheck.minutes - 1
-      );
-    }
+      dom.checkTime("minute", _currentCheck.minutes, nextMinte);
+    } else return;
     if (hourChange) {
+      const nextHour =
+        _currentCheck.hours - 1 === -1 ? 59 : _currentCheck.hours - 1;
       _currentDate.hours = _currentCheck.hours;
-      dom.changeHour(
-        _currentCheck.hours,
-        _currentCheck.hours - 1 === -1 ? 59 : _currentCheck.hours - 1
-      );
+      dom.changeHour(_currentCheck.hours, nextHour);
+    } else return;
+    if (dayChange) {
+      const nextDay =
+        _currentCheck.days - 1 === -1 ? 59 : _currentCheck.hours - 1;
+      _currentDate.days = _currentCheck.hours;
+      dom.checkTime("hour", _currentCheck.days, nextDay);
     }
-    if (dayChange) _currentDate.days = _currentCheck.hours;
   }, 1000);
 };
 
