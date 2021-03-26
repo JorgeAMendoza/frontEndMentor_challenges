@@ -9,73 +9,81 @@ const clockDOM = () => {
   };
 
   const changeSecond = (second, nextSecond) => {
-    // creates new card part, top;
-    // createClockPart(second, nextSecond, "flipped");
-    // _timeDisplayDOM.secondTime.insertAdjacentElement(
-    //   "afterbegin",
-    //   createClockPart(second, nextSecond)
-    // );
-    // console.log(second, nextSecond);
-    // give current top part a flipped class.
-    // Event will handle deletion of card now covered up.
+    const clockPart = createClockPart(second, nextSecond);
+    const currentPart = _timeDisplayDOM.secondTime.querySelector(
+      ".countdown-clock__time__card"
+    );
+    _timeDisplayDOM.secondTime.insertAdjacentElement("afterbegin", clockPart);
+    currentPart.classList.add("flip");
   };
-  const changeMinute = (minute, nextMinute) => {};
+  const changeMinute = (minute, nextMinute) => {
+    const clockPart = createClockPart(minute, nextMinute);
+    const currentPart = _timeDisplayDOM.minuteTime.querySelector(
+      ".countdown-clock__time__card"
+    );
+    _timeDisplayDOM.minuteTime.insertAdjacentElement("afterbegin", clockPart);
+    currentPart.classList.add("flip");
+  };
   const changeHour = (hour, nextHour) => {};
   const changeDay = (day, nextDay) => {};
-
-  const removeClockPart = () => {
-    // Fires off once transition has ended/card has flipped.
-    // Grab all time cards
-    // Grab the last one
-    // Remove it from teh parent.
-  };
 
   // Most likely public. called when inital date is created.
   const setInitialSecond = (second, nextSecond) => {
     _timeDisplayDOM.secondTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(second, nextSecond, "flipped")
+      createClockPart(second, second, "flipped")
     );
     _timeDisplayDOM.secondTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(nextSecond, nextSecond)
+      createClockPart(second, nextSecond)
     );
   };
 
   const setInitialMinute = (minute, nextMinute) => {
     _timeDisplayDOM.minuteTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(minute, nextMinute, "flipped")
+      createClockPart(minute, minute, "flipped")
     );
     _timeDisplayDOM.minuteTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(nextMinute, nextMinute)
+      createClockPart(minute, nextMinute)
     );
   };
 
   const setInitialHour = (hour, nextHour) => {
     _timeDisplayDOM.hourTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(hour, nextHour, "flipped")
+      createClockPart(hour, hour, "flipped")
     );
     _timeDisplayDOM.hourTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(nextMinute, nextHour)
+      createClockPart(hour, nextHour)
     );
   };
 
   const setInitialDay = (day, nextDay) => {
     _timeDisplayDOM.dayTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(hour, nextHour, "flipped")
+      createClockPart(day, day, "flipped")
     );
     _timeDisplayDOM.dayTime.insertAdjacentElement(
       "afterbegin",
-      createClockPart(nextMinute, nextHour)
+      createClockPart(day, nextDay)
     );
   };
+
+  // Event listener to handle deleting last clock part after transition
+  _timeDisplayDOM.secondTime.addEventListener("transitionend", () => {
+    const clockParts = _timeDisplayDOM.secondTime.querySelectorAll(
+      ".countdown-clock__time__card"
+    );
+
+    _timeDisplayDOM.secondTime.removeChild(clockParts[clockParts.length - 1]);
+  });
   return {
     changeSecond,
+    changeMinute,
+    changeHour,
     setInitialSecond,
     setInitialMinute,
     setInitialHour,
