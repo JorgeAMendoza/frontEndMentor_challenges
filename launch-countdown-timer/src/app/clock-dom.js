@@ -43,52 +43,32 @@ const clockDOM = () => {
     currentPart.classList.add("flip");
   };
 
-  // Most likely public. called when inital date is created.
-  // Want most of it gone, just want one function that can handle this multiple times,
+  const setInitialTime = (timeInfo) => {
+    const {
+      second,
+      nextSecond,
+      minute,
+      nextMinute,
+      hour,
+      nextHour,
+      day,
+      nextDay,
+    } = timeInfo;
 
-  const setInitalTime = (timeInfo) => {};
-
-  const setInitialSecond = (second, nextSecond) => {
-    _timeDisplayDOM.secondTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(second, second, "flipped")
-    );
-    _timeDisplayDOM.secondTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(second, nextSecond)
-    );
+    _createInitialDOM(_timeDisplayDOM.secondTime, second, nextSecond);
+    _createInitialDOM(_timeDisplayDOM.minuteTime, minute, nextMinute);
+    _createInitialDOM(_timeDisplayDOM.hourTime, hour, nextHour);
+    _createInitialDOM(_timeDisplayDOM.dayTime, day, nextDay);
   };
 
-  const setInitialMinute = (minute, nextMinute) => {
-    _timeDisplayDOM.minuteTime.insertAdjacentElement(
+  const _createInitialDOM = (domTarget, time, nextTime) => {
+    domTarget.insertAdjacentElement(
       "afterbegin",
-      createClockPart(minute, minute, "flipped")
+      createClockPart(time, time, "flipped")
     );
-    _timeDisplayDOM.minuteTime.insertAdjacentElement(
+    domTarget.insertAdjacentElement(
       "afterbegin",
-      createClockPart(minute, nextMinute)
-    );
-  };
-
-  const setInitialHour = (hour, nextHour) => {
-    _timeDisplayDOM.hourTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(hour, hour, "flipped")
-    );
-    _timeDisplayDOM.hourTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(hour, nextHour)
-    );
-  };
-
-  const setInitialDay = (day, nextDay) => {
-    _timeDisplayDOM.dayTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(day, day, "flipped")
-    );
-    _timeDisplayDOM.dayTime.insertAdjacentElement(
-      "afterbegin",
-      createClockPart(day, nextDay)
+      createClockPart(time, nextTime)
     );
   };
 
@@ -101,10 +81,7 @@ const clockDOM = () => {
   }
   return {
     checkTime,
-    setInitialSecond,
-    setInitialMinute,
-    setInitialHour,
-    setInitialDay,
+    setInitialTime,
   };
 };
 
