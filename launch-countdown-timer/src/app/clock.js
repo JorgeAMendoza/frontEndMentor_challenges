@@ -19,25 +19,23 @@ const clock = () => {
   //   Set up current Date object
   const _currentDate = getCurrentTime();
 
-  // Set inital state of clock
-  dom.setInitialSecond(
-    _currentDate.seconds,
-    _currentDate.seconds - 1 === -1 ? 59 : _currentDate.seconds - 1
-  );
-  dom.setInitialMinute(
-    _currentDate.minutes,
-    _currentDate.minutes - 1 === -1 ? 59 : _currentDate.minutes - 1
-  );
-  dom.setInitialHour(
-    _currentDate.hours,
-    _currentDate.hours - 1 === -1 ? 59 : _currentDate.hours - 1
-  );
-  dom.setInitialDay(
-    _currentDate.days,
-    _currentDate.days - 1 === -1 ? 59 : _currentDate.days - 1
-  );
+  dom.setInitialTime({
+    second: _currentDate.seconds,
+    nextSecond: _currentDate.seconds - 1 === -1 ? 59 : _currentDate.seconds - 1,
+    minute: _currentDate.minutes,
+    nextMinute: _currentDate.minutes - 1 === -1 ? 59 : _currentDate.minutes - 1,
+    hour: _currentDate.hours,
+    nextHour: _currentDate.hours - 1 === -1 ? 23 : _currentDate.hours - 1,
+    day: _currentDate.days,
+    nextDay: _currentDate.days - 1 === -1 ? 364 : _currentDate.days - 1,
+  });
 
-  setInterval(() => {
+  const changeTime = () => {
+    if (Date.now() <= _targetDate) {
+      // Call function to set DOM to be launched;
+      clearInterval(startCountdown);
+      return;
+    }
     const _currentCheck = getCurrentTime();
     const { secondChange, minuteChange, hourChange, dayChange } = timeChange(
       _currentDate,
@@ -58,17 +56,22 @@ const clock = () => {
     } else return;
     if (hourChange) {
       const nextHour =
-        _currentCheck.hours - 1 === -1 ? 59 : _currentCheck.hours - 1;
+        _currentCheck.hours - 1 === -1 ? 23 : _currentCheck.hours - 1;
       _currentDate.hours = _currentCheck.hours;
       dom.changeHour(_currentCheck.hours, nextHour);
     } else return;
     if (dayChange) {
       const nextDay =
-        _currentCheck.days - 1 === -1 ? 59 : _currentCheck.hours - 1;
+        _currentCheck.days - 1 === -1 ? 364 : _currentCheck.hours - 1;
       _currentDate.days = _currentCheck.hours;
       dom.checkTime("hour", _currentCheck.days, nextDay);
     }
-  }, 1000);
+  };
+
+  const startCountdown = () => {
+    setInterval(changeTime, 1000);
+  };
+  startCountdown();
 };
 
 export default clock;
