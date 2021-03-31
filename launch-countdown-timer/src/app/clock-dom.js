@@ -43,7 +43,11 @@ const clockDOM = () => {
     currentPart.classList.add("flip");
   };
 
-  const setInitialTime = (timeInfo) => {
+  const launchpage = () => {
+    document.querySelector("#pageTitle").textContent = "We've Launched!";
+  };
+
+  const setInitialTime = (timeInfo, isPast = false) => {
     const {
       second,
       nextSecond,
@@ -82,6 +86,7 @@ const clockDOM = () => {
   return {
     checkTime,
     setInitialTime,
+    launchpage,
   };
 };
 
