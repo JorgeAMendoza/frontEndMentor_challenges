@@ -18,9 +18,15 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   font-family: "Red Hat Text", sans-serif;
-  background: url("/src/assets/pattern-hills.svg") no-repeat bottom right/250%,
+  background: url("/src/assets/pattern-hills.svg") no-repeat bottom right/225%,
     url("/src/assets/bg-stars.svg") no-repeat center center,
     linear-gradient($neutral-black-blue 30%, $primary-very-dark-purple);
 
   @include createFlexDisplay(column);
+
+  @media only screen and (min-width: 992px) {
+    background: url("/src/assets/pattern-hills.svg") no-repeat bottom right/100%,
+      url("/src/assets/bg-stars.svg") no-repeat center center,
+      linear-gradient($neutral-black-blue 30%, $primary-very-dark-purple);
+  }
 }
