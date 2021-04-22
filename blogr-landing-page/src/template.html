@@ -12,10 +12,15 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Frontend Mentor | [Blogr]</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
+    <!-- <style>
       .attribution {
         font-size: 11px;
         text-align: center;
@@ -23,20 +28,160 @@
       .attribution a {
         color: hsl(228, 45%, 44%);
       }
-    </style>
+    </style> -->
   </head>
   <body>
-    Product Overview Pricing Marketplace Features Integrations Company About
-    Team Blog Careers Connect Contact Newsletter LinkedIn Login Sign Up A modern
-    publishing platform Grow your audience and build your online brand Start for
-    Free Learn More Designed for the future Introducing an extensible editor
-    Blogr features an exceedingly intuitive interface which lets you focus on
-    one thing: creating content. The editor supports management of multiple
-    blogs and allows easy manipulation of embeds such as images, videos, and
-    Markdown. Extensibility with plugins and themes provide easy ways to add
-    functionality or change the looks of a blog. Robust content management
-    Flexible content management enables users to easily move through posts.
-    Increase the usability of your blog by adding customized categories,
+    <header class="header">
+      <div class="nav-bar container">
+        <img
+          src="./assets/images/logo.svg"
+          alt="Blogr Logo"
+          class="nav-bar__logo"
+        />
+        <nav class="nav-bar__nav">
+          <ul class="nav-bar__nav__list">
+            <li class="nav-bar__nav__list__option">
+              Product
+              <ul class="nav-bar__nav__list__option__items">
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Overview</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Pricing</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Marketplace</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Features</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Integrations</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-bar__nav__list__option">
+              Company
+              <ul class="nav-bar__nav__list__option__items">
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Team</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Blog</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-bar__nav__list__option">
+              Connect
+              <ul class="nav-bar__nav__list__option__items">
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Contact</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Newsletter</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Linkedln</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Features</a
+                  >
+                </li>
+                <li class="nav-bar__nav__list__option__items__item">
+                  <a
+                    href="#"
+                    class="nav-bar__nav__list__option_items__item__text"
+                    >Integrations</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="nav-bar__login">
+          <button class="btn btn--clear">Login</button>
+          <button class="btn btn--primary">Sign Up</button>
+        </div>
+      </div>
+
+      <div class="header__content">
+        <h1 class="header__content__title">A modern publishing platform</h1>
+        <h4 class="header__content_subtitle">
+          Grow your auidence and build your online brand
+        </h4>
+        <div class="header__content__action">
+          <button class="btn btn-primary">Start for Free</button>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+    </header>
+    Login Sign Up A modern publishing platform Grow your audience and build your
+    online brand Start for Free Learn More Designed for the future Introducing
+    an extensible editor Blogr features an exceedingly intuitive interface which
+    lets you focus on one thing: creating content. The editor supports
+    management of multiple blogs and allows easy manipulation of embeds such as
+    images, videos, and Markdown. Extensibility with plugins and themes provide
+    easy ways to add functionality or change the looks of a blog. Robust content
+    management Flexible content management enables users to easily move through
+    posts. Increase the usability of your blog by adding customized categories,
     sections, format, or flow. With this functionality, you’re in full control.
     State of the Art Infrastructure With reliability and speed in mind,
     worldwide data centers provide the backbone for ultra-fast connectivity.
@@ -52,11 +197,11 @@
     Marketplace Features Integrations Company About Team Blog Careers Connect
     Contact Newsletter LinkedIn
 
-    <div class="attribution">
+    <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    </div> -->
   </body>
 </html>
