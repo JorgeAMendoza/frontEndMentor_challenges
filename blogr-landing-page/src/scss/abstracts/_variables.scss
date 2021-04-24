@@ -1,0 +1,27 @@
+$-light-red: hsl(356, 100%, 66%);
+$-very-light-red: hsl(355, 100%, 74%);
+$-very-dark-blue: hsl(208, 49%, 24%);
+
+$-white: hsl(0, 0%, 100%);
+$-grayish-blue: hsl(240, 2%, 79%);
+$-very-dark-grayish-blue: hsl(207, 13%, 34%);
+$-very-dark-black-blue: hsl(240, 10%, 16%);
+
+$section-title-color: $-very-dark-blue;
+$button-call-to-action-hover-color: $-very-light-red;
+$white-text-color: $-white;
+$footer-text-color: $-grayish-blue;
+$section-content-text-color: $-very-dark-grayish-blue;
+
+$footer-background-color: $-very-dark-black-blue;
+$header-background-color: linear-gradient(
+  120deg,
+  hsl(13, 100%, 72%),
+  hsl(353, 100%, 62%)
+);
+
+$section-dark-background-color: linear-gradient(
+  90deg,
+  hsl(237, 17%, 21%),
+  hsl(237, 23%, 32%)
+);
