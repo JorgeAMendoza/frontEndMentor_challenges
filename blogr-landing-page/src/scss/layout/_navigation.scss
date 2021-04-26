@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as *;
+
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  grid-template-areas:
+    "logo menu"
+    "nav-menu nav-menu";
+
+  .site-logo {
+    grid-area: logo;
+    align-self: center;
+  }
+
+  &__open-menu {
+    grid-area: menu;
+    justify-self: end;
+    align-self: center;
+  }
+
+  &__content {
+    grid-area: nav-menu;
+    background-color: $mobile-navbar-background-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+  }
+}

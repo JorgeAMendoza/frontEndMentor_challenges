@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as *;
+
+.header {
+  background: url("/src/assets/images/bg-pattern-intro.svg") no-repeat 35% 40%/325%,
+    $header-background-color;
+  border-bottom-left-radius: 100px;
+  min-height: 20vh;
+  padding: 4rem 0;
+}
