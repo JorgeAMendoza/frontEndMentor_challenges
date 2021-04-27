@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 30px;
+  min-width: 14ch;
+  padding: .8em;
+  font-family: "Overpass", sans-serif;
+  font-weight: bold;
+  color: $button-default-text-color;
+
+  &--clear {
+    border: transparent;
+  }
+
+  &--primary {
+    border: transparent;
+    background: $button-primary-background-color;
+    color: $white-text-color;
+  }
+}
