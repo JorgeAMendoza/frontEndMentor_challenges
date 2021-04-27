@@ -7,6 +7,7 @@
   grid-template-areas:
     "logo menu"
     "nav-menu nav-menu";
+  position: relative;
 
   .site-logo {
     grid-area: logo;
@@ -17,6 +18,7 @@
     grid-area: menu;
     justify-self: end;
     align-self: center;
+    cursor: pointer;
   }
 
   &__content {
@@ -24,7 +26,75 @@
     background-color: $mobile-navbar-background-color;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     border-radius: 5px;
+    padding: 2.5em 2em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  &__nav {
+    font-family: "Overpass";
+    color: $navbar-text-color;
+    font-weight: bold;
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+
+      & > * + * {
+        margin-top: 1.2rem;
+      }
+    }
+  }
+
+  &__nav__list__option {
+    .nav-arrow {
+      padding-left: 0.4rem;
+      cursor: pointer;
+
+      img:last-child {
+        display: none;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__nav__list__option__items {
+    background-color: darken($mobile-navbar-background-color, 7%);
+    padding: 1em 0;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    display: none;
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+      &__text {
+        color: $navbar-list-item-text-color;
+      }
+    }
+  }
+
+  &__login {
+    border-top: 1px solid darken($mobile-navbar-background-color, 15%);
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+
+    .btn {
+      display: block;
+      margin: 0 auto;
+
+      &:first-child {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }
