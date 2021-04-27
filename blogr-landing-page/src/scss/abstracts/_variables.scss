@@ -12,6 +12,14 @@ $button-call-to-action-hover-color: $-very-light-red;
 $white-text-color: $-white;
 $footer-text-color: $-grayish-blue;
 $section-content-text-color: $-very-dark-grayish-blue;
+$navbar-text-color: $-very-dark-black-blue;
+$navbar-list-item-text-color: $-very-dark-grayish-blue;
+$button-default-text-color: $-very-dark-black-blue;
+$button-primary-background-color: linear-gradient(
+  90deg,
+  hsl(13, 100%, 72%),
+  hsl(353, 100%, 62%)
+);
 
 $mobile-navbar-background-color: $-white;
 $footer-background-color: $-very-dark-black-blue;
