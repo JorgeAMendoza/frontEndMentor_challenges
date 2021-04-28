@@ -226,16 +226,17 @@
       <section class="page-section page-section--blue">
         <div class="section-information section-information--reverse container">
           <div class="section-information__content">
-            <img
-              src="imgs/fe1ec0f05da01bb067fa..svg"
-              alt="Laptop Illustartor Mobile"
-              class="laptop-illustration laptop-illustration--mobile"
-            />
-            <img
-              src="imgs/799209c2628b1f244e15..svg"
-              alt="Laptop Illustration desktop"
-              class="laptop-illustration laptop-illustration--desktop"
-            />
+            <picture>
+              <source
+                srcset="imgs/799209c2628b1f244e15..svg"
+                media="(min-width:900px)"
+                alt="Laptop Illustration"
+              />
+              <img
+                src="imgs/fe1ec0f05da01bb067fa..svg"
+                alt="Laptop Illustration"
+              />
+            </picture>
             <h3 class="section-information__content__title">Free, open, simple</h3>
             <p class="section-information__content__text">
               Blogr is a free and open source application backed by a large community of
