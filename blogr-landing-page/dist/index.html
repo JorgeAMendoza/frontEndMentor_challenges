@@ -144,14 +144,14 @@
         </div>
       </div>
 
-      <div class="header__content">
+      <div class="header__content container">
         <h1 class="header__content__title">A modern publishing platform</h1>
-        <h4 class="header__content_subtitle">
+        <h4 class="header__content__subtitle">
           Grow your auidence and build your online brand
         </h4>
         <div class="header__content__action">
-          <button class="btn btn-primary">Start for Free</button>
-          <button class="btn">Learn More</button>
+          <button class="btn btn--action">Start for Free</button>
+          <button class="btn btn--border-transparent">Learn More</button>
         </div>
       </div>
     </header>
@@ -160,17 +160,29 @@
       <section class="page-section">
         <h2 class="section-title">Designed for the future</h2>
         <div class="section-information container">
-          <img
-            src="imgs/b9c7941a96d06832fa27..svg"
+          <!-- <img
+            src="./assets/images/illustration-editor-mobile.svg"
             alt="Editor Illustration"
             class="editor-illustration editor-illustration--mobile"
           />
 
           <img
-            src="imgs/c6c8050aa4dcf0c64b44..svg"
+            src="./assets/images/illustration-editor-desktop.svg"
             alt="editor Illustration"
             class="editor-illustration editor-illustration--desktop"
-          />
+          /> -->
+
+          <picture>
+            <source
+              srcset="imgs/c6c8050aa4dcf0c64b44..svg"
+              media="(min-width:900px)"
+              alt="Editor Illustration"
+            />
+            <img
+              src="imgs/b9c7941a96d06832fa27..svg"
+              alt="Editor Illustration"
+            />
+          </picture>
           <div class="section-information__content">
             <h3 class="section-information__content__title">
               Introducing an extensible editor
