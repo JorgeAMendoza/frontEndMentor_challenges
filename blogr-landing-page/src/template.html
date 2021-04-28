@@ -144,14 +144,14 @@
         </div>
       </div>
 
-      <div class="header__content">
+      <div class="header__content container">
         <h1 class="header__content__title">A modern publishing platform</h1>
-        <h4 class="header__content_subtitle">
+        <h4 class="header__content__subtitle">
           Grow your auidence and build your online brand
         </h4>
         <div class="header__content__action">
-          <button class="btn btn-primary">Start for Free</button>
-          <button class="btn">Learn More</button>
+          <button class="btn btn--action">Start for Free</button>
+          <button class="btn btn--border-transparent">Learn More</button>
         </div>
       </div>
     </header>
@@ -160,7 +160,7 @@
       <section class="page-section">
         <h2 class="section-title">Designed for the future</h2>
         <div class="section-information container">
-          <img
+          <!-- <img
             src="./assets/images/illustration-editor-mobile.svg"
             alt="Editor Illustration"
             class="editor-illustration editor-illustration--mobile"
@@ -170,7 +170,19 @@
             src="./assets/images/illustration-editor-desktop.svg"
             alt="editor Illustration"
             class="editor-illustration editor-illustration--desktop"
-          />
+          /> -->
+
+          <picture>
+            <source
+              srcset="./assets/images/illustration-editor-desktop.svg"
+              media="(min-width:900px)"
+              alt="Editor Illustration"
+            />
+            <img
+              src="./assets/images/illustration-editor-mobile.svg"
+              alt="Editor Illustration"
+            />
+          </picture>
           <div class="section-information__content">
             <h3 class="section-information__content__title">
               Introducing an extensible editor
@@ -214,16 +226,17 @@
       <section class="page-section page-section--blue">
         <div class="section-information section-information--reverse container">
           <div class="section-information__content">
-            <img
-              src="./assets/images/illustration-laptop-mobile.svg"
-              alt="Laptop Illustartor Mobile"
-              class="laptop-illustration laptop-illustration--mobile"
-            />
-            <img
-              src="./assets/images/illustration-laptop-desktop.svg"
-              alt="Laptop Illustration desktop"
-              class="laptop-illustration laptop-illustration--desktop"
-            />
+            <picture>
+              <source
+                srcset="./assets/images/illustration-laptop-desktop.svg"
+                media="(min-width:900px)"
+                alt="Laptop Illustration"
+              />
+              <img
+                src="./assets/images/illustration-laptop-mobile.svg"
+                alt="Laptop Illustration"
+              />
+            </picture>
             <h3 class="section-information__content__title">Free, open, simple</h3>
             <p class="section-information__content__text">
               Blogr is a free and open source application backed by a large community of
