@@ -4,6 +4,33 @@
   background: url("/src/assets/images/bg-pattern-intro.svg") no-repeat 35% 40%/325%,
     $header-background-color;
   border-bottom-left-radius: 100px;
-  min-height: 40vh;
+  min-height: 60vh;
   padding: 4rem 0;
+
+  &__content {
+    text-align: center;
+    font-family: "Overpass";
+    color: $white-text-color;
+    padding-top: 6rem;
+    min-height: 30vh;
+
+    & > * {
+      margin-bottom: 1.5rem;
+    }
+
+    &__title {
+      font-size: clamp(3.2rem, 2.5vw, 4rem);
+    }
+
+    &__subtitle {
+      font-weight: lighter;
+    }
+
+    &__action {
+      margin-top: 3.5rem;
+      & > *:first-child {
+        margin-right: 1.5rem;
+      }
+    }
+  }
 }
