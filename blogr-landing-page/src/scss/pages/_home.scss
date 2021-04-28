@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as *;
+
+.page-section {
+  margin-top: 5rem;
+  padding: 3rem 0;
+  .section-title {
+    font-size: 2.4rem;
+    font-family: "Overpass";
+    color: $section-title-color;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  &:nth-child(2) {
+    margin-top: 15rem;
+  }
+
+  .section-information {
+    position: relative;
+    &__content {
+      margin: 2.5rem;
+      &__title {
+        font-size: 2.4rem;
+        font-family: "Overpass";
+        color: $section-title-color;
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+      }
+
+      &__text {
+        color: $section-content-text-color;
+        font-family: "Overpass";
+        line-height: 1.8;
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &--blue {
+    background: url("/src/assets/images/bg-pattern-circles.svg") no-repeat 50% -30rem/
+        150%,
+      $section-dark-background-color;
+    border-radius: 0 20% 0 20%;
+    min-height: 50rem;
+
+    .section-information {
+      &__content__text,
+      .section-title {
+        color: darken(white, 7%);
+      }
+
+      .section-title {
+        padding-top: 17rem;
+      }
+
+      &__picture {
+        position: absolute;
+        top: -50%;
+      }
+    }
+  }
+}
