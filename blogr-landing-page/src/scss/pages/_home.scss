@@ -59,6 +59,9 @@
       &__picture {
         position: absolute;
         top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 350px;
       }
     }
   }
