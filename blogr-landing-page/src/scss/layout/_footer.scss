@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+footer {
+  background-color: $footer-background-color;
+  color: $white-text-color;
+  border-radius: 0 25% 0 0;
+  padding: 5rem 0;
+  text-align: center;
+
+  .site-logo {
+    margin: 3.5rem;
+  }
+
+  .footer-content {
+    display: grid;
+    place-content: center;
+    gap: 4rem;
+  }
+
+  .footer-nav {
+    &__title {
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      font-family: Overpass, Helvetica, sans-serif;
+    }
+
+    &__nav-list {
+      &__item {
+        &:not(:last-child){
+            margin-bottom: .8rem;
+        }
+
+        &__text{
+            color: $footer-text-color;
+            font-family: Ubuntu;
+        }
+      }
+    }
+  }
+}
