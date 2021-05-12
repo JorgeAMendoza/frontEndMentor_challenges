@@ -80,13 +80,33 @@ eval("module.exports = __webpack_require__.p + \"imgs/bf6b3e1b727eabeffdc5..svg\
 
 /***/ }),
 
+/***/ "./src/assets/images/icon-close.svg":
+/*!******************************************!*\
+  !*** ./src/assets/images/icon-close.svg ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"imgs/c6580312401807bc9f98..svg\";\n\n//# sourceURL=webpack://blogr-landing-page/./src/assets/images/icon-close.svg?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n\r\n\n\n//# sourceURL=webpack://blogr-landing-page/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n/* harmony import */ var _navbar_toggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar-toggle */ \"./src/navbar-toggle.js\");\n\r\n\r\n\r\n(0,_navbar_toggle__WEBPACK_IMPORTED_MODULE_1__.navbarToggle)();\r\n\r\n\r\n\n\n//# sourceURL=webpack://blogr-landing-page/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/navbar-toggle.js":
+/*!******************************!*\
+  !*** ./src/navbar-toggle.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"navbarToggle\": () => (/* binding */ navbarToggle)\n/* harmony export */ });\n/* harmony import */ var _assets_images_icon_close_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/images/icon-close.svg */ \"./src/assets/images/icon-close.svg\");\n\r\n\r\nconst navbarToggle = () => {\r\n  const navMenuButton = document.querySelector(\"#navMenuButton\");\r\n  let navOpen = false;\r\n\r\n  const toggleNav = (e) => {\r\n    //   if the navOPen is false,\r\n    if (!navOpen) {\r\n      e.target.setAttribute(\"src\", _assets_images_icon_close_svg__WEBPACK_IMPORTED_MODULE_0__);\r\n    }\r\n    // then change it to the close source, and open the navbar\r\n\r\n    // if the current src is close,\r\n    // then change it to the hamburger close, close all list items within and then close the navbar.\r\n  };\r\n\r\n  //   set event listeners\r\n  navMenuButton.addEventListener(\"click\", toggleNav);\r\n};\r\n\n\n//# sourceURL=webpack://blogr-landing-page/./src/navbar-toggle.js?");
 
 /***/ })
 
