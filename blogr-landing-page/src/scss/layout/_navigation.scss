@@ -33,6 +33,10 @@
     left: 0;
     right: 0;
     display: none;
+
+    &--display {
+      display: block;
+    }
   }
 
   &__nav {
