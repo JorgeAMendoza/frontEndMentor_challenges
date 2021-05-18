@@ -33,7 +33,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    // display: none;
+    display: none;
 
     &--display {
       display: block;
@@ -83,7 +83,11 @@
     padding: 1em 0;
     border-radius: 5px;
     margin-top: 1.5rem;
-    // display: none;
+    display: none;
+
+    &--display {
+      display: block;
+    }
 
     &__item {
       &:not(:last-child) {
