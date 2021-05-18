@@ -8,6 +8,7 @@
     "logo menu"
     "nav-menu nav-menu";
   position: relative;
+  z-index: 1;
 
   .site-logo {
     grid-area: logo;
@@ -32,7 +33,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    display: none;
+    // display: none;
 
     &--display {
       display: block;
@@ -59,6 +60,14 @@
       padding-left: 0.4rem;
       cursor: pointer;
 
+      &__img {
+        transition: transform 0.5s ease;
+
+        &--display {
+          transform: rotate(180deg);
+        }
+      }
+
       img:last-child {
         display: none;
       }
@@ -74,7 +83,7 @@
     padding: 1em 0;
     border-radius: 5px;
     margin-top: 1.5rem;
-    display: none;
+    // display: none;
 
     &__item {
       &:not(:last-child) {
