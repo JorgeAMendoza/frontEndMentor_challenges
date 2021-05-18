@@ -1,18 +1,23 @@
 import closeIcon from "./assets/images/icon-close.svg";
+import hamburgerIcon from "./assets/images/icon-hamburger.svg";
 
 export const navbarToggle = () => {
   const navMenuButton = document.querySelector("#navMenuButton");
+  const navbarContent = document.querySelector("#navbarContent");
   let navOpen = false;
 
   const toggleNav = (e) => {
-    //   if the navOPen is false,
     if (!navOpen) {
       e.target.setAttribute("src", closeIcon);
-    }
-    // then change it to the close source, and open the navbar
+      navOpen = true;
 
-    // if the current src is close,
-    // then change it to the hamburger close, close all list items within and then close the navbar.
+      navbarContent.classList.add("nav-bar__content--display");
+    } else {
+      e.target.setAttribute("src", hamburgerIcon);
+      navOpen = false;
+
+      navbarContent.classList.remove("nav-bar__content--display");
+    }
   };
 
   //   set event listeners
