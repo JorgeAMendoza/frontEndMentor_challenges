@@ -4,6 +4,9 @@ import hamburgerIcon from "./assets/images/icon-hamburger.svg";
 export const navbarToggle = () => {
   const navMenuButton = document.querySelector("#navMenuButton");
   const navbarContent = document.querySelector("#navbarContent");
+  const navbarOptions = document.querySelectorAll(
+    ".nav-bar__nav__list__option"
+  );
   let navOpen = false;
 
   const toggleNav = (e) => {
@@ -20,6 +23,17 @@ export const navbarToggle = () => {
     }
   };
 
+  const toggleNavItems = (e) => {
+    const navOption = e.currentTarget;
+    // grab the image within, rotate it by 90deg, preferrebly done through class.
+    const navArrowImage = e.currentTarget.querySelector(".nav-arrow__img");
+    navArrowImage.classList.add("nav-arrow__img--display");
+    // grab the option items element wthin, give it the class to display the contents withiin .
+  };
+
   //   set event listeners
   navMenuButton.addEventListener("click", toggleNav);
+  navbarOptions.forEach((option) =>
+    option.addEventListener("click", toggleNavItems)
+  );
 };
