@@ -25,10 +25,16 @@ export const navbarToggle = () => {
 
   const toggleNavItems = (e) => {
     const navOption = e.currentTarget;
-    // grab the image within, rotate it by 90deg, preferrebly done through class.
-    const navArrowImage = e.currentTarget.querySelector(".nav-arrow__img");
-    navArrowImage.classList.add("nav-arrow__img--display");
-    // grab the option items element wthin, give it the class to display the contents withiin .
+
+    const navArrowImage = navOption.querySelector(".nav-arrow__img");
+    navArrowImage.classList.toggle("nav-arrow__img--display");
+
+    const navOptionlist = navOption.querySelector(
+      ".nav-bar__nav__list__option__items"
+    );
+    navOptionlist.classList.toggle(
+      "nav-bar__nav__list__option__items--display"
+    );
   };
 
   //   set event listeners
