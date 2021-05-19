@@ -10,6 +10,10 @@
   position: relative;
   z-index: 1;
 
+  @media screen and (min-width: $medium-screen) {
+    grid-template-areas: "logo nav-menu";
+  }
+
   .site-logo {
     grid-area: logo;
     align-self: center;
@@ -20,13 +24,15 @@
     justify-self: end;
     align-self: center;
     cursor: pointer;
+
+    @media screen and (min-width: $medium-screen) {
+      display: none;
+    }
   }
 
   &__content {
     grid-area: nav-menu;
     background-color: $mobile-navbar-background-color;
-    display: flex;
-    flex-direction: column;
     text-align: center;
     border-radius: 5px;
     padding: 2.5em 2em;
@@ -34,6 +40,15 @@
     left: 0;
     right: 0;
     display: none;
+
+    @media screen and (min-width: $medium-screen) {
+      display: block;
+      background-color: transparent;
+      flex-direction: row;
+      position: relative;
+      padding: 0;
+      border-radius: 0;
+    }
 
     &--display {
       display: block;
@@ -49,8 +64,8 @@
       display: flex;
       flex-direction: column;
 
-      & > * + * {
-        margin-top: 1.2rem;
+      @media screen and (min-width: $medium-screen) {
+        flex-direction: row;
       }
     }
   }
@@ -74,7 +89,11 @@
     }
 
     &:not(:first-child) {
-      margin-top: 2rem;
+      margin-top: 2.3rem;
+    }
+
+    @media screen and (min-width: $medium-screen){
+      border:1px solid black;
     }
   }
 
