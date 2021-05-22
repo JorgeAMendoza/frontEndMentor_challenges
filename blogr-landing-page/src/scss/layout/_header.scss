@@ -7,6 +7,11 @@
   min-height: 60vh;
   padding: 4rem 0;
 
+  @media screen and (min-width: $medium-screen){
+    background: url("/src/assets/images/bg-pattern-intro.svg") no-repeat 35% 40%/150%,
+    $header-background-color;
+  }
+
   &__content {
     text-align: center;
     font-family: "Overpass";
