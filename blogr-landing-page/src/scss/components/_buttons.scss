@@ -33,4 +33,18 @@
     border: 1px solid #fff;
     color: #fff;
   }
+
+  @media screen and (min-width: $medium-screen) {
+    color: white;
+
+    &--primary {
+      background: $white-text-color;
+      color: $button-call-to-action-text-color;
+    }
+
+    &--action{
+      background-color: $white-text-color;
+      color: $button-call-to-action-text-color;
+    }
+  }
 }
