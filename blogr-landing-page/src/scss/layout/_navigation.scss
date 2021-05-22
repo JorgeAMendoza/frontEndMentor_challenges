@@ -11,6 +11,7 @@
   z-index: 1;
 
   @media screen and (min-width: $medium-screen) {
+    grid-template-columns: auto 1fr;
     grid-template-areas: "logo nav-menu";
   }
 
@@ -42,9 +43,11 @@
     display: none;
 
     @media screen and (min-width: $medium-screen) {
-      display: block;
-      background-color: transparent;
+      display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
       position: relative;
       padding: 0;
       border-radius: 0;
@@ -77,6 +80,7 @@
 
       &__img {
         transition: transform 0.5s ease;
+        filter: brightness(0) invert(1);
 
         &--display {
           transform: rotate(180deg);
@@ -92,8 +96,13 @@
       margin-top: 2.3rem;
     }
 
-    @media screen and (min-width: $medium-screen){
-      border:1px solid black;
+    @media screen and (min-width: $medium-screen) {
+      &:not(:first-child) {
+        margin-top: 0;
+        margin-left: 2rem;
+      }
+
+      color: $white-text-color;
     }
   }
 
@@ -130,6 +139,21 @@
 
       &:first-child {
         margin-bottom: 1rem;
+      }
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      margin: 0;
+      padding: 0;
+      border-top: transparent;
+
+      .btn {
+        display: inline-block;
+        padding: 0.5em 1em;
+
+        &:first-child {
+          margin-bottom: 0;
+        }
       }
     }
   }
