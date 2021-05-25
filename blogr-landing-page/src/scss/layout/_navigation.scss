@@ -51,6 +51,7 @@
       position: relative;
       padding: 0;
       border-radius: 0;
+      text-align: left;
     }
 
     &--display {
@@ -69,21 +70,26 @@
 
       @media screen and (min-width: $medium-screen) {
         flex-direction: row;
+        gap: 3rem;
       }
     }
   }
 
   &__nav__list__option {
+    position: relative;
     .nav-arrow {
       padding-left: 0.4rem;
       cursor: pointer;
 
       &__img {
         transition: transform 0.5s ease;
-        filter: brightness(0) invert(1);
 
         &--display {
           transform: rotate(180deg);
+        }
+
+        @media screen and (min-width: $medium-screen) {
+          filter: brightness(0) invert(1);
         }
       }
 
@@ -99,7 +105,6 @@
     @media screen and (min-width: $medium-screen) {
       &:not(:first-child) {
         margin-top: 0;
-        margin-left: 2rem;
       }
 
       color: $white-text-color;
@@ -119,12 +124,32 @@
 
     &__item {
       &:not(:last-child) {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
       }
 
       &__text {
+        font-family: "Ubuntu";
         color: $navbar-list-item-text-color;
+        font-weight: 400;
+
+        @media screen and (min-width: $medium-screen) {
+          color: #000;
+        }
+
+        &:hover {
+          font-weight: bold;
+        }
       }
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      background-color: $white-text-color;
+      position: absolute;
+      margin-top: 0;
+      top: 150%;
+      left: -10%;
+      width: 11rem;
+      padding-left: 1rem;
     }
   }
 
