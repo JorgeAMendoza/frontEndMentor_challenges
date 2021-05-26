@@ -19,6 +19,7 @@
     position: relative;
     &__content {
       margin: 2rem 0;
+
       &__title {
         font-size: 2.4rem;
         font-family: "Overpass";
@@ -35,6 +36,27 @@
         line-height: 1.8;
         text-align: center;
         font-weight: 400;
+      }
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+
+      &__content{
+        &__text, &__title{
+          text-align: left;
+          margin:0;
+        }
+      }
+
+      &__picture{
+        position: absolute;
+        left:100rem;
+      
+        img{
+          min-width: 50rem;
+        }
       }
     }
   }
