@@ -1,18 +1,31 @@
 @use "../abstracts/variables" as *;
 
 .page-section {
-  margin-top: 5rem;
-  padding: 3rem 0;
+  padding-top: 5rem;
+  padding: 10rem 0;
+
+  // background: url("/src/assets/images/bg-pattern-intro.svg") no-repeat 35% 40%/325%,
+  //   $header-background-color;
+
+  @media screen and (min-width: $large-screen){
+    padding: 18rem 0;
+    background: url("/src/assets/images/illustration-editor-desktop.svg") no-repeat 114% center/42%;
+  }
+
   .section-title {
     font-size: 2.4rem;
     font-family: "Overpass";
     color: $section-title-color;
     text-align: center;
-    margin-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
+
+    @media screen and (min-width: $large-screen){
+      padding-bottom: 10rem;
+    }
   }
 
   &:nth-child(2) {
-    margin-top: 15rem;
+    padding-top: 15rem;
   }
 
   .section-information {
@@ -27,7 +40,7 @@
         text-align: center;
         width: 75%;
         margin: 0 auto;
-        padding-bottom: 1rem;
+        padding-bottom: 1.5rem;
       }
 
       &__text {
@@ -39,7 +52,7 @@
       }
     }
 
-    @media screen and (min-width: $medium-screen) {
+    @media screen and (min-width: $large-screen) {
       display:grid;
       grid-template-columns: 1fr 1fr;
 
@@ -51,12 +64,7 @@
       }
 
       &__picture{
-        position: absolute;
-        left:100rem;
-      
-        img{
-          min-width: 50rem;
-        }
+        display:none;
       }
     }
   }
