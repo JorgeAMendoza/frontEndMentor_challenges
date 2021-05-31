@@ -7,9 +7,15 @@
   // background: url("/src/assets/images/bg-pattern-intro.svg") no-repeat 35% 40%/325%,
   //   $header-background-color;
 
-  @media screen and (min-width: $large-screen){
+  @media screen and (min-width: $large-screen) {
     padding: 18rem 0;
-    background: url("/src/assets/images/illustration-editor-desktop.svg") no-repeat 114% center/42%;
+    background: url("/src/assets/images/illustration-editor-desktop.svg")
+      no-repeat 110% center/42%;
+
+    &--reverse {
+      background: url("/src/assets/images/illustration-laptop-desktop.svg")
+        no-repeat -5% center/40%;
+    }
   }
 
   .section-title {
@@ -19,7 +25,7 @@
     text-align: center;
     padding-bottom: 3.5rem;
 
-    @media screen and (min-width: $large-screen){
+    @media screen and (min-width: $large-screen) {
       padding-bottom: 10rem;
     }
   }
@@ -53,18 +59,25 @@
     }
 
     @media screen and (min-width: $large-screen) {
-      display:grid;
+      display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-areas: "text space";
 
-      &__content{
-        &__text, &__title{
+      &__content {
+        grid-area: text;
+        &__text,
+        &__title {
           text-align: left;
-          margin:0;
+          margin: 0;
         }
       }
 
-      &__picture{
-        display:none;
+      &__picture {
+        display: none;
+      }
+
+      &--reverse {
+        grid-template-areas: "space text";
       }
     }
   }
