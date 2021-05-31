@@ -7,14 +7,28 @@ footer {
   padding: 5rem 0;
   text-align: center;
 
+  @media screen and (min-width: $medium-screen){
+    text-align: left;
+    padding:8rem 0;
+  }
+
   .site-logo {
     margin: 3.5rem;
+
+    @media screen and (min-width: $medium-screen){
+      margin:0;
+    }
   }
 
   .footer-content {
     display: grid;
     place-content: center;
     gap: 4rem;
+
+    @media screen and (min-width: $medium-screen) {
+      grid-template-columns: repeat(4, 1fr);
+      place-content: start;
+    }
   }
 
   .footer-nav {
