@@ -100,7 +100,7 @@
     border-radius: 0 20% 0 20%;
     min-height: 50rem;
 
-    @media screen and (min-width: $large-screen){
+    @media screen and (min-width: $medium-screen){
       padding:0;
       min-height: 40rem;
     }
