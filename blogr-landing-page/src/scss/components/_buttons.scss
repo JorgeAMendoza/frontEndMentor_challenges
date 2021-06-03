@@ -20,18 +20,33 @@
     border: transparent;
     background: $button-primary-background-color;
     color: $white-text-color;
+
+    &:hover{
+      color:$white-text-color;
+      background-color: rgba($white-text-color, .4)
+    }
   }
 
   &--action {
     background-color: $white-text-color;
     color: $button-call-to-action-text-color;
     font-family: "Ubuntu";
+    
+    &:hover{
+      color:$white-text-color;
+      background-color: rgba($white-text-color, .4)
+    }
   }
 
   &--border-transparent {
     font-family: "Ubuntu";
     border: 1px solid #fff;
     color: #fff;
+    
+    &:hover{
+      color: $button-call-to-action-text-color;
+      background-color: $white-text-color;
+    }
   }
 
   @media screen and (min-width: $medium-screen) {
