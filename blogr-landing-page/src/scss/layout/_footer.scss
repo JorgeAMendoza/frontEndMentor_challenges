@@ -47,6 +47,10 @@ footer {
         &__text{
             color: $footer-text-color;
             font-family: Ubuntu;
+
+            &:hover{
+              text-decoration: underline;
+            }
         }
       }
     }
