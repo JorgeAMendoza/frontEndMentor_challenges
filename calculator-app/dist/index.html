@@ -14,16 +14,85 @@
     <title>Frontend Mentor | Calculator app</title>
   <script defer src="main.bundle.js"></script></head>
   <body>
-    <header>
+    <header class="container">
       <div class="app-title">Calc</div>
       <div class="theme-select">
-        <p class="theme-select__text" aria-label="Select a Theme">Theme</p>
-        <div class="theme-select__options">
-          <div class="theme-select__theme-1">
+        <p class="theme-select__text">Theme</p>
+        <div class="theme-select__options" aria-label="Select a theme">
+          <div class="theme-select__theme">
             <label for="themeOne">1</label>
+            <input
+              aria-label="Select Theme One"
+              type="radio"
+              name="theme-select"
+              id="themeOne"
+              class="theme-select__option"
+            />
+          </div>
+          <div class="theme-select__theme">
+            <label for="themeTwo">2</label>
+            <input
+              aria-label="Select Theme Two"
+              type="radio"
+              name="theme-select"
+              id="themeTwo"
+              class="theme-select__option"
+            />
+          </div>
+          <div class="theme-select__theme">
+            <label for="themeThree">3</label>
+            <input
+              aria-label="Select Theme Two"
+              type="radio"
+              name="theme-select"
+              id="themeThree"
+              class="theme-select__option"
+            />
           </div>
         </div>
       </div>
     </header>
+
+    <main class="container">
+      <div class="input-display">
+        <p class="input-display__text" aria-live="polite">399,981</p>
+      </div>
+
+      <div class="calc-input">
+        <button class="calc-input__option" data-value="7">7</button>
+        <button class="calc-input__option" data-value="8">8</button>
+        <button class="calc-input__option" data-value="9">9</button>
+        <button
+          class="calc-input__option calc-input__option--blue"
+          data-value="del"
+        >
+          del
+        </button>
+        <button class="calc-input__option" data-value="4">4</button>
+        <button class="calc-input__option" data-value="5">5</button>
+        <button class="calc-input__option" data-value="6">6</button>
+        <button class="calc-input__option" data-value="+">+</button>
+        <button class="calc-input__option" data-value="1">1</button>
+        <button class="calc-input__option" data-value="2">2</button>
+        <button class="calc-input__option" data-value="3">3</button>
+        <button class="calc-input__option" data-value="-">-</button>
+        <button class="calc-input__option" data-value=".">.</button>
+        <button class="calc-input__option" data-value="0">0</button>
+        <button class="calc-input__option" data-value="/">/</button>
+        <button class="calc-input__option" data-value="*">x</button>
+        <button
+          class="calc-input__option calc-input__option--blue"
+          data-value="reset"
+        >
+          RESET
+        </button>
+        <button
+          class="calc-input__option calc-input__option--red"
+          data-value="="
+        >
+          =
+        </button>
+      </div>
+    </main>
   </body>
 </html>
