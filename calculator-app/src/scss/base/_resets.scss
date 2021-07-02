@@ -1,21 +1,23 @@
 // Page Resets
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
 
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-}
-
-html {
-  font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
   font-family: "Spartan", sans-serif;
   font-weight: bold;
+  min-height: 100vh;
 }
