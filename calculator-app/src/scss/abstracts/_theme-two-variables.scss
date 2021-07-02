@@ -16,3 +16,24 @@ $-dark-grayish-orange: hsl(35, 11%, 61%);
 // Text
 $-very-dark-grayish-yellow: hsl(60, 10%, 19%);
 $-white: hsl(0, 0, 100%);
+
+// Apply Variables
+
+// Backgrounds
+$main-background: $-light-gray;
+$toggle-background: $-grayish-red;
+$keypad-background: $-grayish-red;
+$screen-background: $-very-light-gray;
+
+// Keys
+$key-func-background: $-dark-moderate-cyan;
+$key-func-shadow: $-very-dark-cyan;
+$key-equal-background: $-orange;
+$key-equal-shadow: $-dark-orange;
+$toggle-color: $-orange;
+$key-nums-background: $-light-grayish-yellow;
+$key-nums-shadow: $-dark-grayish-orange;
+
+// Text
+$light-text: $-white;
+$dark-text: $-very-dark-grayish-yellow;

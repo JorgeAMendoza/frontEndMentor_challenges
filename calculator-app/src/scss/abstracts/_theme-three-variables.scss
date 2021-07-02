@@ -16,3 +16,25 @@ $-dark-magenta: hsl(290, 70%, 36%);
 $-light-yellow: hsl(52, 100%, 62%);
 $-very-dark-blue: hsl(198, 20%, 13%);
 $-white: hsl(0, 0, 100%);
+
+// Applying Variables
+
+// Backgrounds
+$main-background: $-very-dark-violet-1;
+$toggle-background: $-very-dark-violet-2;
+$keypad-background: $-very-dark-violet-2;
+$screen-background: $-very-dark-violet-2;
+
+// Keys
+$key-func-background: $-dark-violet;
+$key-func-shadow: $-vivid-magenta;
+$key-equal-background: $-pure-cyan;
+$key-equal-shadow: $-soft-cyan;
+$toggle-color: $-pure-cyan;
+$key-nums-background: $-very-dark-violet-3;
+$key-nums-shadow: $-very-dark-violet-3;
+
+// Text
+$light-text: $-white;
+$light-yellow-text: $-light-yellow;
+$dark-text: $-very-dark-blue;
