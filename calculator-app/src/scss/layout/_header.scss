@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 3.2rem;
+
+  .app-title {
+    font-size: 2.4rem;
+  }
+
+  .theme-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+      padding-right: 2rem;
+      border: 1px solid black;
+      text-transform: uppercase;
+      align-self: flex-end;
+    }
+
+    &__options {
+      border: 1px solid black;
+      display: flex;
+      gap: 1rem;
+    }
+
+    &__theme {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
