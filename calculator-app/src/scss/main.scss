@@ -1,2 +1,9 @@
 // Project Base, Resets, and Typorgraphy
 @use "./base/resets";
+
+// Project Layout
+@use "./layout/container";
+@use "./layout/header";
+
+// Project Themes
+@use "./themes/theme-one";
