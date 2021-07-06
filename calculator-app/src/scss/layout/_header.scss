@@ -13,6 +13,12 @@ header {
     justify-content: center;
     align-items: center;
 
+    &__tab {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+
     &__text {
       padding-right: 2rem;
       text-transform: uppercase;
