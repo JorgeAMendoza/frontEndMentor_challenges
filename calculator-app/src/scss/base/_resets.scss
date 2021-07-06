@@ -20,5 +20,7 @@ body {
   font-family: "Spartan", sans-serif;
   font-weight: bold;
   min-height: 100vh;
-  padding:3rem 0;
+  padding: 3rem 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
