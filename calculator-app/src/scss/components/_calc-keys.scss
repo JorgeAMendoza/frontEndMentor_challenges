@@ -3,6 +3,10 @@
     border-radius: 5px;
     font-family: "Spartan", sans-serif;
     border:none;
-    font-size: 2rem;
+    font-size: 3rem;
+
+    &--reset, &--delete, &--equal{
+        font-size: 2rem;
+    }
   }
 }
