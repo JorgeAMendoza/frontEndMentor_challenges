@@ -14,9 +14,12 @@ header {
     align-items: center;
 
     &__tab {
-      width: 25px;
-      height: 25px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
+      position: absolute;
+      transform-origin: center;
+      transition: translate 0.5s ease;
     }
 
     &__text {
@@ -25,15 +28,32 @@ header {
       align-self: flex-end;
     }
 
-    &__options {
+    &__labels {
       display: flex;
-      gap: 1rem;
+      justify-content: space-around;
+      padding-bottom: 0.1rem;
+    }
+
+    &__row {
+      width: 8rem;
+      height: 3rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: hsl(223, 31%, 20%);
+      border-radius: 25px;
+      position: relative;
+    }
+
+    &__option {
+      opacity: 0;
     }
 
     &__theme {
       display: flex;
       flex-direction: column;
       text-align: center;
+      position: relative;
     }
   }
 }
