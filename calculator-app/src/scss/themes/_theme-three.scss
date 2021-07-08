@@ -1,0 +1,58 @@
+@use "../abstracts/theme-three-variables" as *;
+
+.theme-3 {
+  background: $main-background;
+
+  .app-title {
+    color: $light-yellow-text;
+  }
+
+  .theme-select {
+    &__text {
+      color: $light-yellow-text;
+    }
+
+    &__tab {
+      background-color: $toggle-color;
+    }
+
+    &__labels {
+      color: $light-yellow-text;
+    }
+
+    &__row {
+      background-color: $toggle-background;
+    }
+  }
+
+  .input-display {
+    background-color: $screen-background;
+
+    &__text {
+      color: $light-yellow-text;
+    }
+  }
+
+  .calc-input {
+    background-color: $keypad-background;
+
+    &__option {
+      background-color: $key-nums-background;
+      box-shadow: 0 5px $key-nums-shadow;
+      color: $key-nums-text-color;
+
+      &--delete,
+      &--reset {
+        background-color: $key-func-background;
+        box-shadow: 0 5px $key-func-shadow;
+        color: $light-text;
+      }
+
+      &--equal {
+        background-color: $key-equal-background;
+        box-shadow: 0 5px $key-equal-shadow;
+        color: $dark-text;
+      }
+    }
+  }
+}
