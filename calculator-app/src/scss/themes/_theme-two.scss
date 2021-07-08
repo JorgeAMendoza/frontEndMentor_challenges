@@ -1,15 +1,15 @@
-@use "../abstracts/theme-one-variables" as *;
+@use "../abstracts/theme-two-variables" as *;
 
-.theme-1 {
+.theme-2 {
   background: $main-background;
 
   .app-title {
-    color: $light-text;
+    color: $dark-text;
   }
 
   .theme-select {
     &__text {
-      color: $light-text;
+      color: $dark-text;
     }
 
     &__tab {
@@ -17,7 +17,7 @@
     }
 
     &__labels {
-      color: $light-text;
+      color: $dark-text;
     }
 
     &__row {
@@ -29,7 +29,7 @@
     background-color: $screen-background;
 
     &__text {
-      color: $light-text;
+      color: $dark-text;
     }
   }
 
