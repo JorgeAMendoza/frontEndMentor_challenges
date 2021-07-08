@@ -19,6 +19,10 @@
     &__tab {
       background-color: $toggle-color;
     }
+
+    &__labels{
+      color: $light-text;
+    }
   }
 
   .input-display {
