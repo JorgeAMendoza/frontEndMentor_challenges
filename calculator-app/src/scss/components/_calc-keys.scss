@@ -4,11 +4,16 @@
     font-family: "Spartan", sans-serif;
     border: none;
     font-size: 2.4rem;
+    cursor: pointer;
 
     &--reset,
     &--delete,
     &--equal {
       font-size: 1.6rem;
+    }
+
+    &:active {
+      box-shadow: none;
     }
   }
 }
