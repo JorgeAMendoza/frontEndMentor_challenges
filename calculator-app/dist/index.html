@@ -13,7 +13,7 @@
 
     <title>Frontend Mentor | Calculator app</title>
   <script defer src="main.bundle.js"></script></head>
-  <body class="theme-2">
+  <body class="theme-1">
     <header class="container">
       <div class="app-title">calc</div>
       <div class="theme-select">
@@ -28,12 +28,14 @@
           <div class="theme-select__row">
             <div class="theme-select__tab"></div>
             <input
+              data-theme="1"
               aria-label="Select Theme One"
               type="radio"
               name="theme-select"
               id="themeOne"
               class="theme-select__option"
             /><input
+              data-theme="2"
               aria-label="Select Theme Two"
               type="radio"
               name="theme-select"
@@ -41,6 +43,7 @@
               class="theme-select__option"
             />
             <input
+              data-theme="3"
               aria-label="Select Theme Two"
               type="radio"
               name="theme-select"
