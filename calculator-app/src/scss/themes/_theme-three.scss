@@ -41,17 +41,29 @@
       box-shadow: 0 5px $key-nums-shadow;
       color: $key-nums-text-color;
 
+      &:active {
+        background-color: darken($key-nums-background, 5%);
+      }
+
       &--delete,
       &--reset {
         background-color: $key-func-background;
         box-shadow: 0 5px $key-func-shadow;
         color: $light-text;
+
+        &:active {
+          background-color: darken($key-func-background, 5%);
+        }
       }
 
       &--equal {
         background-color: $key-equal-background;
         box-shadow: 0 5px $key-equal-shadow;
         color: $dark-text;
+
+        &:active {
+          background-color: darken($key-equal-background, 5%);
+        }
       }
     }
   }
