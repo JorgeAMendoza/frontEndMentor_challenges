@@ -23,6 +23,10 @@
     &__row {
       background-color: $toggle-background;
     }
+
+    &__tab {
+      transform: translateX(120%);
+    }
   }
 
   .input-display {
