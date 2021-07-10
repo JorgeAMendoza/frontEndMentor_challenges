@@ -1,3 +1,6 @@
+import { first } from "lodash";
+import * as mathObject from "./utils/math-functions";
+
 export const numberInput = () => {
   const _staticDOM = {
     inputDisplay: document.querySelector(".input-display__text"),
@@ -61,8 +64,67 @@ export const numberInput = () => {
     _staticDOM.inputDisplay.textContent = "";
   };
 
+  const _getPostFix = (infix) => {
+    const postFix = [];
+    const operandStack = [];
+
+    for (let char of infix) {
+      switch (char) {
+        case "+":
+        case "-":
+          _getOperand(char, 1, operandStack, postFix);
+          break;
+        case "*":
+        case "/":
+          _getOperand(char, 2, operandStack, postFix);
+          break;
+        default:
+          postFix.push(char);
+      }
+    }
+
+    while (operandStack.length !== 0) {
+      postFix.push(operandStack.pop());
+    }
+    return postFix;
+  };
+
+  const _getOperand = (opThis, precOne, opStack, postStack) => {
+    while (opStack.length !== 0) {
+      let opTop = opStack.pop();
+      let precTwo = opTop === "+" || opTop === "-" ? 1 : 2;
+
+      if (precTwo < precOne) {
+        opStack.push(opTop);
+        break;
+      } else {
+        postStack.push(opTop);
+      }
+    }
+    opStack.push(opThis);
+  };
+
   const _calculateAnswer = (input) => {
-    // If it starts with an operator, then simply return, will put error later.
+    const firstChar = input.charAt(0);
+    if (
+      firstChar === "+" ||
+      firstChar === "-" ||
+      firstChar === "/" ||
+      firstChar === "*" ||
+      firstChar === "."
+    )
+      return;
+
+    // Have it check if the last character is a number as well.
+
+    const currentDisplay = _staticDOM.inputDisplay.textContent;
+    const infixExpression = currentDisplay
+      .replace(/([+-])/gi, " $1 ")
+      .replace(/([/*])/gi, " $1 ")
+      .split(" ");
+
+    const postFixExpression = _getPostFix(infixExpression);
+    console.log(postFixExpression);
   };
 
   _staticDOM.keyInput.forEach((key) =>
