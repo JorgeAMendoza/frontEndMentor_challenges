@@ -5,7 +5,7 @@ export const themeSwitch = () => {
     themeTab: document.querySelector(".theme-select__tab"),
   };
 
-  const changeTheme = (e) => {
+  const _changeTheme = (e) => {
     const themeSelection = e.target.dataset.theme;
     _staticDOM.pageBody.classList.remove("theme-1", "theme-2", "theme-3");
 
@@ -23,6 +23,6 @@ export const themeSwitch = () => {
   };
 
   _staticDOM.themeSelect.forEach((input) =>
-    input.addEventListener("change", changeTheme)
+    input.addEventListener("change", _changeTheme)
   );
 };
