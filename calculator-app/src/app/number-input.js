@@ -1,5 +1,5 @@
-import { first } from "lodash";
-import * as mathObject from "./utils/math-functions";
+import { evaluatePostfix } from "./utils/evaluate-postfix";
+import { getPostFix } from "./utils/get-postfix";
 
 export const numberInput = () => {
   const _staticDOM = {
@@ -64,44 +64,8 @@ export const numberInput = () => {
     _staticDOM.inputDisplay.textContent = "";
   };
 
-  const _getPostFix = (infix) => {
-    const postFix = [];
-    const operandStack = [];
-
-    for (let char of infix) {
-      switch (char) {
-        case "+":
-        case "-":
-          _getOperand(char, 1, operandStack, postFix);
-          break;
-        case "*":
-        case "/":
-          _getOperand(char, 2, operandStack, postFix);
-          break;
-        default:
-          postFix.push(char);
-      }
-    }
-
-    while (operandStack.length !== 0) {
-      postFix.push(operandStack.pop());
-    }
-    return postFix;
-  };
-
-  const _getOperand = (opThis, precOne, opStack, postStack) => {
-    while (opStack.length !== 0) {
-      let opTop = opStack.pop();
-      let precTwo = opTop === "+" || opTop === "-" ? 1 : 2;
-
-      if (precTwo < precOne) {
-        opStack.push(opTop);
-        break;
-      } else {
-        postStack.push(opTop);
-      }
-    }
-    opStack.push(opThis);
+  const _displayAnswser = (answer) => {
+    _staticDOM.inputDisplay.textContent = answer;
   };
 
   const _calculateAnswer = (input) => {
@@ -123,8 +87,8 @@ export const numberInput = () => {
       .replace(/([/*])/gi, " $1 ")
       .split(" ");
 
-    const postFixExpression = _getPostFix(infixExpression);
-    console.log(postFixExpression);
+    const postFixExpression = getPostFix(infixExpression);
+    _displayAnswser(evaluatePostfix(postFixExpression));
   };
 
   _staticDOM.keyInput.forEach((key) =>
