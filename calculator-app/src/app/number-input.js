@@ -6,9 +6,14 @@ export const numberInput = () => {
     inputDisplay: document.querySelector(".input-display__text"),
     keyInput: document.querySelectorAll(".calc-input__option"),
   };
+  let _answerCalculated = false;
 
   const _keyFunction = (e) => {
     const keyInput = e.target.dataset.value;
+    if (_answerCalculated) {
+      _staticDOM.inputDisplay.textContent = "";
+      _answerCalculated = false;
+    }
     switch (keyInput) {
       case "del":
         _deleteCharacter();
@@ -32,6 +37,7 @@ export const numberInput = () => {
   };
 
   const _inputCharacter = (char) => {
+    if (_staticDOM.inputDisplay.textContent.length === 13) return;
     _staticDOM.inputDisplay.textContent += char;
   };
 
@@ -66,6 +72,7 @@ export const numberInput = () => {
 
   const _displayAnswser = (answer) => {
     _staticDOM.inputDisplay.textContent = answer;
+    _answerCalculated = true;
   };
 
   const _calculateAnswer = (input) => {
@@ -78,8 +85,6 @@ export const numberInput = () => {
       firstChar === "."
     )
       return;
-
-    // Have it check if the last character is a number as well.
 
     const currentDisplay = _staticDOM.inputDisplay.textContent;
     const infixExpression = currentDisplay
