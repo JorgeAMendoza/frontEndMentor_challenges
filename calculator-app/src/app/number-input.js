@@ -71,7 +71,7 @@ export const numberInput = () => {
   };
 
   const _displayAnswser = (answer) => {
-    _staticDOM.inputDisplay.textContent = answer;
+    _staticDOM.inputDisplay.textContent = answer.toLocaleString();
     _answerCalculated = true;
   };
 
