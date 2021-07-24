@@ -4,7 +4,10 @@
   "description": "Sunny side landing page front end mentor challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --config ./webpack/webpack.dev.js --watch",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,7 @@
     "style-loader": "^3.2.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
   }
 }
