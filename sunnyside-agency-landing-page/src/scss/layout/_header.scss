@@ -1,0 +1,31 @@
+@use "../abstracts/variables" as *;
+
+header {
+  min-height: 85vh;
+  color: $white-text;
+  background: url("/src/assets/images/mobile/image-header.jpg") no-repeat center
+    bottom/cover;
+  padding: 3rem 0;
+
+  .page-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Fraunces", serif;
+    font-size: 4rem;
+    letter-spacing: 0.8rem;
+    margin-top: 7rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 150px;
+      background: url("/src/assets/images/icon-arrow-down.svg") no-repeat center
+        bottom/cover;
+      top: 17rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

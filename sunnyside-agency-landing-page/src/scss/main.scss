@@ -1,2 +1,7 @@
 // Page Basics and Resets
 @use "./base/reset";
+
+// Page Layout
+@use "./layout/container";
+@use "./layout/header";
+@use "./layout/navigation";

@@ -1,0 +1,12 @@
+@use "../abstracts/mixins" as *;
+
+.nav-bar {
+  @include basic-flex-layout(row, space-between, center, 1rem);
+
+  &__nav {
+    display: none;
+    ul {
+      @include basic-flex-layout(column, center, center, 1rem);
+    }
+  }
+}

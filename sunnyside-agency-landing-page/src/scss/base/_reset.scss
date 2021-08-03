@@ -16,9 +16,18 @@ html {
 
 body {
   font-size: 1.8rem;
+  width: 100%;
 }
 
 a,
 button {
   cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
 }

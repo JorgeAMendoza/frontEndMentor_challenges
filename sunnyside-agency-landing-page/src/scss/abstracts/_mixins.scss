@@ -12,6 +12,6 @@
   gap: $gap;
 }
 
-@mixin link-hover-saturate($color, $saturation){
-    color: saturate($color: $color, $amount: $saturation)
+@mixin link-hover-saturate($color, $saturation) {
+  color: saturate($color: $color, $amount: $saturation);
 }
