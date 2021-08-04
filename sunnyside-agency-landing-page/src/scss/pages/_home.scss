@@ -1,0 +1,69 @@
+@use "../abstracts/variables" as *;
+
+.info-two-column {
+  text-align: center;
+
+  &__content {
+    padding: 5rem 0;
+
+    & > *:not(:last-child) {
+      padding-bottom: 3rem;
+    }
+  }
+  &__title {
+    font-family: Fraunces;
+    font-size: 3.2rem;
+    line-height: 1.2;
+    font-weight: 900;
+    color: $transform-standout-title-color;
+  }
+
+  &__text {
+    font-family: $barlow-font;
+    font-weight: 600;
+    color: $transform-standout-color;
+  }
+
+  &__link {
+    color: $transform-standout-link-color;
+    font-family: $fraunces-font;
+    font-weight: 900;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 110%;
+      height: 7px;
+      background-color: lighten($color: $yellow-link, $amount: 30%);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 70%;
+      z-index: -1;
+      border-radius: 5px;
+    }
+  }
+
+  &--reverse {
+    .info-two-column__link::after {
+      background-color: lighten($color: $red-link, $amount: 20%);
+    }
+  }
+}
+
+.info-one-column {
+  &__content {
+    min-height: 60rem;
+    display: flex;
+    padding: 4rem 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+  }
+
+  &__content:first-child {
+    background: url("/src/assets/images/mobile/image-graphic-design.jpg")
+      no-repeat top center/cover;
+  }
+}
