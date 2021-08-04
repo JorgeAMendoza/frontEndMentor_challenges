@@ -1,6 +1,7 @@
 // Primary Colors
 $-soft-red: hsl(7, 99%, 70%);
 $-yellow: hsl(51, 100%, 49%);
+$-baby-blue: #3ebfff;
 $-dark-desaturated-cyan: hsl(167, 40%, 24%);
 $-dark-blue: hsl(198, 62%, 26%);
 $-dark-moderate-cyan: hsl(168, 34%, 41%);
@@ -27,3 +28,10 @@ $black-text: $-black;
 
 // Background-colors
 $footer-background: $-dark-moderate-cyan;
+$navbar-mobile-background: $-white;
+$navbar-mobile-background-contact: $-yellow;
+$navbar-triangle-background: $-baby-blue;
+
+// text colors
+$navbar-mobile-text: $-dark-grayish-blue;
+$navbar-mobile-text-contact: $-black;

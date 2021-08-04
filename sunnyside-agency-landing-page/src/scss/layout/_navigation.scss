@@ -1,12 +1,49 @@
 @use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
 
 .nav-bar {
   @include basic-flex-layout(row, space-between, center, 1rem);
+  position: relative;
 
   &__nav {
     display: none;
+    position: absolute;
+    background-color: $navbar-mobile-background;
+    width: 100%;
+    top: 8rem;
+    z-index: 1;
+    padding: 4rem 0;
+
     ul {
-      @include basic-flex-layout(column, center, center, 1rem);
+      @include basic-flex-layout(column, center, center, 2.6rem);
     }
+
+    &::after {
+      content: "";
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: -10%;
+      right:0;
+      background: linear-gradient(135deg, transparent 50%, $navbar-mobile-background 50%);
+    }
+  }
+
+  &__nav-text {
+    text-decoration: none;
+    font-weight: bold;
+    color: $navbar-mobile-text;
+    font-family: Barlow, Arial, Helvetica, sans-serif;
+  }
+
+  &__nav-text--contact {
+    color: $navbar-mobile-text-contact;
+    font-family: Fraunces;
+    text-transform: uppercase;
+    background-color: $navbar-mobile-background-contact;
+    padding: 0.8em 1.4em;
+    border-radius: 30px;
+    font-size: 1.6rem;
   }
 }
