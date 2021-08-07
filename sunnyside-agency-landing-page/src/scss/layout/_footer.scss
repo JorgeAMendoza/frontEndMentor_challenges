@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.footer-bar {
+  background-color: lighten($color: $footer-background, $amount: 25%);
+  padding: 5rem 0;
+  min-height: 30rem;
+
+  > *:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  > *:last-child {
+    margin-top: 7rem;
+  }
+
+  &__logo img {
+    margin: 0 auto;
+  }
+
+  &__nav ul {
+    @include basic-flex-layout(row, space-around, center, 1rem);
+  }
+
+  &__text {
+    font-family: $barlow-font;
+    color: $footer-nav-text;
+  }
+
+  &__icons ul {
+    @include basic-flex-layout(row, center, center, 2.5rem);
+  }
+}

@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 
 header {
-  min-height: 75vh;
+  min-height: 70vh;
   color: $white-text;
   background: url("/src/assets/images/mobile/image-header.jpg") no-repeat center
     bottom/cover;
@@ -11,19 +11,20 @@ header {
     text-transform: uppercase;
     text-align: center;
     font-family: "Fraunces", serif;
-    font-size: 4rem;
+    font-size: clamp(3.2rem, 10vw, 6.4rem);
     letter-spacing: 0.8rem;
-    margin-top: 5rem;
+    line-height: 1.2;
+    margin-top: 10vh;
     position: relative;
 
     &::after {
       content: "";
       position: absolute;
       width: 40px;
-      height: 130px;
-      background: url("/src/assets/images/icon-arrow-down.svg") no-repeat center
-        bottom/cover;
-      top: 14rem;
+      height: 120px;
+      background: url("/src/assets/images/icon-arrow-down.svg") no-repeat bottom
+        center/contain;
+      top: 150%;
       left: 50%;
       transform: translateX(-50%);
     }
