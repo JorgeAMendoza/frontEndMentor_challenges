@@ -22,6 +22,7 @@ body {
 a,
 button {
   cursor: pointer;
+  text-decoration: none;
 }
 
 ul li {
@@ -30,4 +31,5 @@ ul li {
 
 img {
   max-width: 100%;
+  display: block;
 }

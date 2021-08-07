@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .info-two-column {
   text-align: center;
@@ -56,14 +57,105 @@
   &__content {
     min-height: 60rem;
     display: flex;
-    padding: 4rem 0;
+    padding: 5rem 0;
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
   }
 
+  &__title {
+    font-family: $fraunces-font;
+    font-weight: 900;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+  }
+
   &__content:first-child {
     background: url("/src/assets/images/mobile/image-graphic-design.jpg")
-      no-repeat top center/cover;
+      no-repeat center center/cover;
+
+    .info-one-column__title {
+      color: $graphic-design-title-green;
+    }
+
+    .info-one-column__text {
+      font-family: $barlow-font;
+      color: $graphic-design-section-text-green;
+    }
   }
+
+  &__content:last-child {
+    background: url("/src/assets/images/mobile/image-photography.jpg") no-repeat
+      center center/cover;
+
+    .info-one-column__title {
+      color: $photography-design-title-blue;
+    }
+
+    .info-one-column__text {
+      font-family: $barlow-font;
+      color: $photography-design-text-blue;
+    }
+  }
+}
+
+.clients {
+  padding: 6rem 0;
+
+  h2 {
+    font-family: $fraunces-font;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: 3px;
+    color: $testimonial-head-text;
+  }
+
+  &__display {
+    @include basic-flex-layout(column, space-around, center, 2.5rem);
+  }
+
+  &__testimonial {
+    margin-top: 5rem;
+    > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__image {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-family: $barlow-font;
+    color: $testimonial-client-text;
+  }
+
+  &__info {
+    text-align: center;
+  }
+
+  &__name {
+    font-family: $fraunces-font;
+    color: $testimonial-client-name;
+  }
+
+  &__title {
+    font-family: $barlow-font;
+    color: $testimonial-client-title;
+    font-size: 1.6rem;
+    margin-top: .3rem;
+  }
+}
+
+.image-gallery {
+  display: grid;
+  @include basic-grid-layout(2, 1fr, 0);
 }
