@@ -3,10 +3,11 @@
 
 .info-two-column {
   text-align: center;
-
+  display: grid;
+  grid-template-columns: 1fr;
   &__content {
-    padding: 5rem 0;
-
+    padding: 5rem 1rem;
+    order: 1;
     & > *:not(:last-child) {
       padding-bottom: 3rem;
     }
@@ -51,11 +52,26 @@
       background-color: lighten($color: $red-link, $amount: 20%);
     }
   }
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__image img {
+      height: 100%;
+      width: 100%;
+    }
+
+    &--reverse {
+      .info-two-column__content {
+        order:0;
+      }
+    }
+  }
 }
 
 .info-one-column {
   &__content {
-    min-height: 60rem;
+    min-height: 50rem;
     display: flex;
     padding: 5rem 0;
     flex-direction: column;
@@ -82,6 +98,11 @@
       font-family: $barlow-font;
       color: $graphic-design-section-text-green;
     }
+
+    @media screen and (min-width: 768px) {
+      background: url("/src/assets/images/desktop/image-graphic-design.jpg")
+        no-repeat top center/cover;
+    }
   }
 
   &__content:last-child {
@@ -96,6 +117,17 @@
       font-family: $barlow-font;
       color: $photography-design-text-blue;
     }
+
+    @media screen and (min-width: 768px) {
+      background: url("/src/assets/images/desktop/image-photography.jpg")
+        no-repeat top center/cover;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    min-height: 50vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -151,11 +183,15 @@
     font-family: $barlow-font;
     color: $testimonial-client-title;
     font-size: 1.6rem;
-    margin-top: .3rem;
+    margin-top: 0.3rem;
   }
 }
 
 .image-gallery {
   display: grid;
   @include basic-grid-layout(2, 1fr, 0);
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
