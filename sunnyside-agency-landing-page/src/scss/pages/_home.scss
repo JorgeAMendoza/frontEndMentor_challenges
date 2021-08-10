@@ -56,6 +56,10 @@
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
 
+    &__content:first-child {
+      order:0;
+    }
+
     &__image img {
       height: 100%;
       width: 100%;
@@ -63,7 +67,13 @@
 
     &--reverse {
       .info-two-column__content {
-        order:0;
+        order: 1;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      &__content {
+        text-align: left;
       }
     }
   }
