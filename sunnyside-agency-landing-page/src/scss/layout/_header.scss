@@ -1,17 +1,22 @@
 @use "../abstracts/variables" as *;
 
 header {
-  min-height: 70vh;
+  min-height: 80vh;
   color: $white-text;
   background: url("/src/assets/images/mobile/image-header.jpg") no-repeat center
     bottom/cover;
   padding: 3rem 0;
 
+  @media screen and (min-width: 768px) {
+    background: url("/src/assets/images/desktop/image-header.jpg") no-repeat
+      bottom center/cover;
+  }
+
   .page-title {
     text-transform: uppercase;
     text-align: center;
     font-family: "Fraunces", serif;
-    font-size: clamp(3.2rem, 10vw, 6.4rem);
+    font-size: clamp(3.2rem, 8vw, 5.6rem);
     letter-spacing: 0.8rem;
     line-height: 1.2;
     margin-top: 10vh;

@@ -19,7 +19,7 @@
   }
 
   &__nav ul {
-    @include basic-flex-layout(row, space-around, center, 1rem);
+    @include basic-flex-layout(row, center, center, 5rem);
   }
 
   &__text {
