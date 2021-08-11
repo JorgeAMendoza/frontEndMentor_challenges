@@ -14,7 +14,7 @@
   }
   &__title {
     font-family: Fraunces;
-    font-size: 3.2rem;
+    font-size: clamp(3.2rem, 3.5vw, 4rem);
     line-height: 1.2;
     font-weight: 900;
     color: $transform-standout-title-color;
@@ -23,6 +23,7 @@
   &__text {
     font-family: $barlow-font;
     font-weight: 600;
+    font-size: clamp(1.8rem, 1.5vw, 2.4rem);
     color: $transform-standout-color;
   }
 
@@ -30,6 +31,7 @@
     color: $transform-standout-link-color;
     font-family: $fraunces-font;
     font-weight: 900;
+    font-size: clamp(1.8rem, 1.5vw, 2.4rem);
     text-decoration: none;
     position: relative;
 
@@ -93,8 +95,12 @@
   &__title {
     font-family: $fraunces-font;
     font-weight: 900;
-    font-size: 3.2rem;
+    font-size: clamp(3.2rem, 3.5vw, 4rem);
     margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: clamp(1.8rem, 1.5vw, 2.4rem);
   }
 
   &__content:first-child {
@@ -143,8 +149,7 @@
 }
 
 .clients {
-  padding: 6rem 0;
-
+  padding: 4rem 0;
   h2 {
     font-family: $fraunces-font;
     text-transform: uppercase;
@@ -152,6 +157,7 @@
     text-align: center;
     letter-spacing: 3px;
     color: $testimonial-head-text;
+    font-size: clamp(2.4rem, 1vw, 3.2rem);
   }
 
   &__display {
@@ -179,15 +185,18 @@
     text-align: center;
     font-family: $barlow-font;
     color: $testimonial-client-text;
+    font-size: clamp(1.8rem, 1vw, 2.4rem);
   }
 
   &__info {
     text-align: center;
+    font-size: clamp(1.8rem, 1vw, 2.4rem);
   }
 
   &__name {
     font-family: $fraunces-font;
     color: $testimonial-client-name;
+    font-size: clamp(1.8rem, 1vw, 2.4rem);
   }
 
   &__title {
@@ -195,13 +204,17 @@
     color: $testimonial-client-title;
     font-size: 1.6rem;
     margin-top: 0.3rem;
+    font-size: clamp(1.8rem, 1vw, 2.4rem);
+  }
+
+  @media screen and (min-width: 768px) {
+    min-height: 45vw;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 40vw;
-    @include basic-flex-layout(column, center, center, 2rem);
+    @include basic-flex-layout(column, center, center, 1rem);
     &__display {
-      @include basic-flex-layout(row, center, center, 1rem);
+      @include basic-flex-layout(row, center, center, 0);
     }
 
     &__text {
