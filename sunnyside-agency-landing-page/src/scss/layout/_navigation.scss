@@ -49,6 +49,10 @@
         justify-content: flex-end;
       }
     }
+
+    &.display {
+      display:block;
+    }
   }
 
   &__logo img {
