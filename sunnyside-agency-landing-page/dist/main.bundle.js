@@ -1,0 +1,1 @@
+(()=>{"use strict";(()=>{const e={navbar:document.querySelector(".nav-bar__nav"),navToggle:document.querySelector(".nav-bar__menu")};e.navToggle.addEventListener("click",(()=>{e.navbar.classList.toggle("display")})),window.addEventListener("resize",(a=>{a.target.innerWidth>=768&&e.navbar.classList.remove("display")}))})()})();
