@@ -1,0 +1,47 @@
+{
+    "name": "tip-calculator-app",
+    "version": "1.0.0",
+    "description": "tip calculator challenge provided from front end mentor",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "watch": "webpack --config ./webpack/webpack.dev.js",
+        "build": "webpack --config ./webpack/webpack.prod.js",
+        "start": "webpack serve --config ./webpack/webpack.dev.js --open chrome"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JorgeAMendoza/frontEndMentor_challenges.git"
+    },
+    "keywords": [
+        "Webpack",
+        "FrontEndMentor",
+        "CSS",
+        "Grid",
+        "Flexbox",
+        "tip",
+        "Scss"
+    ],
+    "author": "Jorge A. Mendoza II",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JorgeAMendoza/frontEndMentor_challenges/issues"
+    },
+    "homepage": "https://github.com/JorgeAMendoza/frontEndMentor_challenges#readme",
+    "devDependencies": {
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "css-loader": "^6.2.0",
+        "css-minimizer-webpack-plugin": "^3.0.2",
+        "html-loader": "^2.1.2",
+        "html-webpack-plugin": "^5.3.2",
+        "jest": "^27.0.6",
+        "mini-css-extract-plugin": "^2.1.0",
+        "sass": "^1.35.2",
+        "sass-loader": "^12.1.0",
+        "style-loader": "^3.2.1",
+        "webpack": "^5.45.1",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2",
+        "webpack-merge": "^5.8.0"
+    }
+}
