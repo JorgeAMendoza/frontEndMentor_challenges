@@ -1,0 +1,36 @@
+// Primary Colors
+$-strong-cyan: hsl(172, 67%, 45%);
+
+// Neutral Colors
+$-very-dark-cyan: hsl(183, 100%, 15%);
+$-dark-grayish-cyan: hsl(186, 14%, 43%);
+$-dark-grayish-cyan-light: hsl(184, 14%, 56%);
+$-light-grayish-cyan: hsl(185, 41%, 84%);
+$-light-grayish-cyan-light: hsl(189, 41%, 97%);
+$-white: hsl(0, 0%, 100%);
+
+//Apply variables.
+$page-background: $-light-grayish-cyan;
+$calculator-background: $-white;
+$tip-calculator-background: $-white;
+
+$header-text-color: $-dark-grayish-cyan;
+
+$bill-input-background: $-light-grayish-cyan-light;
+$bill-input-text-color: $-very-dark-cyan;
+
+$tip-percent-background: $-very-dark-cyan;
+$tip-percent-active-background: $-strong-cyan;
+$tip-percent-active-text: $-very-dark-cyan;
+$tip-percent-custom-background: $-light-grayish-cyan-light;
+$tip-percent-custom-text-color: $-dark-grayish-cyan;
+
+$input-background: $-light-grayish-cyan;
+
+$tip-amount-background: $-very-dark-cyan;
+$tip-amount-per-person-color: $-dark-grayish-cyan-light;
+$tip-amount-tip-total-color: $-strong-cyan;
+$tip-amount-reset-button-background: $-strong-cyan;
+$tip-amount-reset-button-color: $-very-dark-cyan;
+
+$white-text: $-white;

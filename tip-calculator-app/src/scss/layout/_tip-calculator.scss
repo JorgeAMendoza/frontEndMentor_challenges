@@ -1,0 +1,105 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+#tip-calculator {
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  padding: 2.5rem;
+  @include basic-grid-layout(1, 1fr, 3rem);
+
+  section > div:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+#tip-input {
+  .bill {
+    &__text {
+      color: $header-text-color;
+      margin-bottom: 1rem;
+    }
+
+    &__input {
+      background-color: $bill-input-background;
+      min-height: 1em;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      @include basic-flex-layout(row, center, center, 1rem);
+      input {
+        background-color: inherit;
+        text-align: right;
+        color: $bill-input-text-color;
+        font-weight: 700;
+        font-size: 2.4rem;
+
+        &::placeholder {
+          color: $bill-input-text-color;
+        }
+      }
+    }
+  }
+
+  .tip-percent {
+    &__text {
+      color: $header-text-color;
+      margin-bottom: 1rem;
+    }
+
+    &__container {
+      @include basic-grid-layout(2, 1fr, 1.5rem);
+      grid-auto-rows: 4.5rem;
+    }
+  }
+
+  .people-amount {
+    &__text {
+      color: $header-text-color;
+      margin-bottom: 1rem;
+    }
+
+    &__input {
+      background-color: $bill-input-background;
+      min-height: 1em;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      @include basic-flex-layout(row, center, center, 1rem);
+      input {
+        background-color: inherit;
+        text-align: right;
+        color: $bill-input-text-color;
+        font-weight: 700;
+        font-size: 2.4rem;
+
+        &::placeholder {
+          color: $bill-input-text-color;
+        }
+      }
+    }
+  }
+}
+
+#tip-total {
+  background-color: $tip-amount-background;
+  border-radius: 15px;
+  padding: 1.8em 1.5em;
+
+  .tip-display {
+    @include basic-flex-layout(row, space-between, center, 1rem);
+    &__info {
+      color: $white-text;
+      font-weight: 700;
+    }
+
+    &__per {
+      color: $tip-amount-per-person-color;
+      font-weight: 700;
+    }
+
+    &__result {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: $tip-amount-tip-total-color;
+      word-spacing: 0;
+    }
+  }
+}

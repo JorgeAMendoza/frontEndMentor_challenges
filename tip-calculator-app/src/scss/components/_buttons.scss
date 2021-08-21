@@ -1,0 +1,42 @@
+@use "../abstracts/variables" as *;
+
+.btn {
+  min-width: 5ch;
+  border-radius: 5px;
+
+  &__percent {
+    background-color: $tip-amount-background;
+    color: $white-text;
+    font-size: 2.4rem;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $tip-percent-active-background;
+      color: $tip-percent-active-text;
+    }
+
+    &--custom {
+      text-align: right;
+      padding: 0 1rem;
+      background-color: $tip-percent-custom-background;
+      color: $tip-percent-custom-text-color;
+
+      &::placeholder {
+        color: $tip-percent-custom-text-color;
+      }
+
+      &:hover {
+        background-color: $tip-percent-custom-background;
+      }
+    }
+  }
+
+  &__reset {
+    background-color: $tip-amount-reset-button-background;
+    color: $tip-amount-reset-button-color;
+    font-weight: 700;
+    font-size: 2.4rem;
+    width: 100%;
+    min-height: 2em;
+  }
+}

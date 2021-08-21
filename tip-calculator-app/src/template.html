@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -16,81 +21,77 @@
   </head>
   <body>
     <header>
-      <div class="page-logo">
+      <h1 class="page-logo">
         <img src="./assets/images/logo.svg" alt="Tip calculator Logo" />
-      </div>
+      </h1>
     </header>
 
     <main id="tip-calculator" class="container">
       <section id="tip-input">
         <div class="bill">
-          <h3 class="bill-text">Bill</h3>
-          <div class="bill-input">
-            <span
-              ><img src="./assets/images/icon-dollar.svg" alt="Dollar Icon"
-            /></span>
-            <input type="number" class="bill-input-form" placeholder="0" />
+          <h3 class="bill__text">Bill</h3>
+          <div class="bill__input">
+            <div class="bill__icon">
+              <img src="./assets/images/icon-dollar.svg" alt="Dollar Icon" />
+            </div>
+            <input type="number" class="bill-input__form" placeholder="0" />
           </div>
         </div>
 
         <div class="tip-percent">
-          <h3 class="tip-percent-text">Select Tip %</h3>
-          <div class="tip-percent-container">
-            <button class="tip-percent-button" data-tip-percent="0.05">
-              5%
-            </button>
-            <button class="tip-percent-button" data-tip-percent="0.1">
-              10%
-            </button>
-            <button class="tip-percent-button" data-tip-percent="0.15">
+          <h3 class="tip-percent__text">Select Tip %</h3>
+          <div class="tip-percent__container">
+            <button class="btn btn__percent" data-tip-percent="0.05">5%</button>
+            <button class="btn btn__percent" data-tip-percent="0.1">10%</button>
+            <button class="btn btn__percent" data-tip-percent="0.15">
               15%
             </button>
-            <button class="tip-percent-button" data-tip-percent="0.25">
+            <button class="btn btn__percent" data-tip-percent="0.25">
               25%
             </button>
-            <button class="tip-percent-button" data-tip-percent="0.50">
+            <button class="btn btn__percent" data-tip-percent="0.50">
               50%
             </button>
             <input
               type="number"
-              class="tip-percent-button tip-percent-button--custom"
+              class="btn btn__percent btn__percent--custom"
               placeholder="Custom"
             />
           </div>
         </div>
 
         <div class="people-amount">
-          <h3 class="people-amount-text">Number of People</h3>
-          <div class="people-amount-input">
+          <h3 class="people-amount__text">Number of People</h3>
+          <div class="people-amount__input">
             <span
               ><img src="./assets/images/icon-person.svg" alt="Person Icon"
             /></span>
-            <input type="number" class="people-amount-form" placeholder="0" />
+            <input type="number" class="people-amount__form" placeholder="0" />
           </div>
         </div>
       </section>
       <section id="tip-total">
         <div class="tip-display">
-          <div class="tip-display-text">
-            <p class="tip-display-info">Tip Amount</p>
-            <p class="tip-display-per">/ person</p>
+          <div class="tip-display__text">
+            <p class="tip-display__info">Tip Amount</p>
+            <p class="tip-display__per">/ person</p>
           </div>
-          <p class="tip-display-result">
-            $ <span id="tip-amount-per-person">0.00</span>
+          <p class="tip-display__result">
+            $<span id="tip-amount__per-person">0.00</span>
           </p>
         </div>
 
         <div class="tip-display">
-          <div class="tip-display-text">
-            <p class="tip-display-info">Total</p>
-            <p class="tip-display-per">/ person</p>
+          <div class="tip-display__text">
+            <p class="tip-display__info">Total</p>
+            <p class="tip-display__per">/ person</p>
           </div>
-          <p class="tip-display-result">
-            $ <span id="tip-amount-total">0.00</span>
+          <p class="tip-display__result">
+            $<span id="tip-amount__total">0.00</span>
           </p>
         </div>
 
-        <button class="btn btn-reset">Reset</button>
+        <button class="btn btn__reset">Reset</button>
       </section>
     </main>
   </body>
