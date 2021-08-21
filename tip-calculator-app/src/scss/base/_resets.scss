@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as *;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: $page-background;
+  font-family: 'Space Mono', monospace;
+}
+
+a,
+button {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+span {
+  display: inline-block;
+}
+
+input {
+  display: inline-block;
+  border: none;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.6rem;
+}
