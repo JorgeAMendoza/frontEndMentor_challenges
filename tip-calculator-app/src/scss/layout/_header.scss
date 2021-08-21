@@ -1,0 +1,6 @@
+@use "../abstracts/mixins" as *;
+
+header {
+  min-height: 20vh;
+  @include basic-flex-layout(column, center, center, 0);
+}
