@@ -8,6 +8,7 @@ $-dark-grayish-cyan-light: hsl(184, 14%, 56%);
 $-light-grayish-cyan: hsl(185, 41%, 84%);
 $-light-grayish-cyan-light: hsl(189, 41%, 97%);
 $-white: hsl(0, 0%, 100%);
+$-red: rgb(248, 93, 93);
 
 //Apply variables.
 $page-background: $-light-grayish-cyan;
@@ -18,12 +19,15 @@ $header-text-color: $-dark-grayish-cyan;
 
 $bill-input-background: $-light-grayish-cyan-light;
 $bill-input-text-color: $-very-dark-cyan;
+$bill-input-text-color-placeholder: $-dark-grayish-cyan-light;
+$bill-input-focus-color: $-strong-cyan;
 
 $tip-percent-background: $-very-dark-cyan;
 $tip-percent-active-background: $-strong-cyan;
 $tip-percent-active-text: $-very-dark-cyan;
 $tip-percent-custom-background: $-light-grayish-cyan-light;
 $tip-percent-custom-text-color: $-dark-grayish-cyan;
+$tip-percent-custom-text-placeholder: $-dark-grayish-cyan-light;
 
 $input-background: $-light-grayish-cyan;
 
@@ -33,4 +37,7 @@ $tip-amount-tip-total-color: $-strong-cyan;
 $tip-amount-reset-button-background: $-strong-cyan;
 $tip-amount-reset-button-color: $-very-dark-cyan;
 
+$button-hover: $-light-grayish-cyan;
+
 $white-text: $-white;
+$error-text-color: $-red;
