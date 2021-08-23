@@ -8,7 +8,13 @@
   @include basic-grid-layout(1, 1fr, 3rem);
 
   section > div:not(:last-child) {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    @include basic-grid-layout(2, 1fr, 4rem);
+    border-radius: 20px;
+    padding: 4rem 3rem;
   }
 }
 
@@ -33,8 +39,12 @@
         font-size: 2.4rem;
 
         &::placeholder {
-          color: $bill-input-text-color;
+          color: $bill-input-text-color-placeholder;
         }
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 2px $bill-input-focus-color;
       }
     }
   }
@@ -48,6 +58,10 @@
     &__container {
       @include basic-grid-layout(2, 1fr, 1.5rem);
       grid-auto-rows: 4.5rem;
+
+      @media screen and (min-width: 900px) {
+        @include basic-grid-layout(3, 1fr, 1.5rem);
+      }
     }
   }
 
@@ -55,6 +69,11 @@
     &__text {
       color: $header-text-color;
       margin-bottom: 1rem;
+      @include basic-flex-layout(row, space-between, center, 0);
+    }
+
+    &__error {
+      color: $error-text-color;
     }
 
     &__input {
@@ -71,8 +90,16 @@
         font-size: 2.4rem;
 
         &::placeholder {
-          color: $bill-input-text-color;
+          color: $tip-percent-custom-text-placeholder;
         }
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 2px $bill-input-focus-color;
+      }
+
+      &.error:focus-within{
+        box-shadow: 0 0 0 2px $error-text-color;
       }
     }
   }
@@ -100,6 +127,16 @@
       font-weight: 700;
       color: $tip-amount-tip-total-color;
       word-spacing: 0;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    @include basic-flex-layout(column, flex-start, stretch, 1rem);
+    padding: 2.5em;
+
+    > *:last-child {
+      margin-top: auto;
+      justify-self: flex-end;
     }
   }
 }
