@@ -4,6 +4,10 @@
   min-width: 5ch;
   border-radius: 5px;
 
+  &:hover {
+    background-color: $button-hover;
+  }
+
   &__percent {
     background-color: $tip-amount-background;
     color: $white-text;
@@ -11,7 +15,6 @@
     font-weight: bold;
 
     &:hover {
-      background-color: $tip-percent-active-background;
       color: $tip-percent-active-text;
     }
 
@@ -27,6 +30,10 @@
 
       &:hover {
         background-color: $tip-percent-custom-background;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $bill-input-focus-color;
       }
     }
   }

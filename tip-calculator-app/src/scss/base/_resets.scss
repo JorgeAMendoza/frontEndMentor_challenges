@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -14,8 +15,13 @@ html {
 
 body {
   font-size: 1.6rem;
+  min-height: 100vh;
   background-color: $page-background;
   font-family: 'Space Mono', monospace;
+
+  @media screen and (min-width: 900px) {
+    @include basic-flex-layout(column, center, center, 8rem);
+  }
 }
 
 a,
@@ -40,6 +46,12 @@ input {
   font-family: inherit;
   width: 100%;
   outline: none;
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 h1,
