@@ -29,6 +29,7 @@
     },
     "homepage": "https://github.com/JorgeAMendoza/frontEndMentor_challenges#readme",
     "devDependencies": {
+        "@babel/preset-env": "^7.15.0",
         "css-loader": "^6.2.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^18.2.1",
@@ -46,6 +47,7 @@
         "webpack-dev-server": "^3.11.2"
     },
     "dependencies": {
+        "@jest/globals": "^27.0.6",
         "clean-webpack-plugin": "^4.0.0-alpha.0",
         "css-minimizer-webpack-plugin": "^3.0.2",
         "html-webpack-plugin": "^5.3.2",
