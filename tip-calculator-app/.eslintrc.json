@@ -2,6 +2,8 @@
     "extends": ["airbnb"],
     "rules": {
         "linebreak-style":"off",
-        "prefer-template":"off"
+        "prefer-template":"off",
+        "no-unused-vars":"warn", 
+        "implicit-arrow-linebreak": "off"
     }
 }
