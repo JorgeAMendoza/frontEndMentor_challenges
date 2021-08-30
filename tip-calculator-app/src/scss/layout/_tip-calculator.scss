@@ -98,7 +98,7 @@
         box-shadow: 0 0 0 2px $bill-input-focus-color;
       }
 
-      &.error:focus-within{
+      &.error:focus-within {
         box-shadow: 0 0 0 2px $error-text-color;
       }
     }
