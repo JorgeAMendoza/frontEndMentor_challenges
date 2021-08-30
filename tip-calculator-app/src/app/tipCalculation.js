@@ -11,8 +11,8 @@ export default function tipCalculation() {
     const personAmount = amountPerPerson(bill, percent, people);
 
     return {
-      tipTotal: toFixed(personTotal, 2),
-      tipAmount: toFixed(personAmount, 2),
+      tipTotal: toFixed(personTotal, true),
+      tipAmount: toFixed(personAmount, false),
     };
   };
   return { calculateTip };
