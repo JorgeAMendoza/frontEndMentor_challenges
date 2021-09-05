@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { expect, describe } from '@jest/globals';
-import toFixed from '../src/app/utils/toFixed';
+import toFixed from '../app/utils/toFixed';
 
 describe('Fixed Number Conversion', () => {
   test('Test 1: 32.7865 to 32.78 ', () => {

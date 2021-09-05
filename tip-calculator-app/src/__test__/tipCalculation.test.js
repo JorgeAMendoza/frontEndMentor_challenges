@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { expect, describe } from '@jest/globals';
-import tipCalculation from '../src/app/tipCalculation';
+import tipCalculation from '../app/tipCalculation';
 
 describe('Tip Calculation Module Test', () => {
   const testCalculator = tipCalculation();
