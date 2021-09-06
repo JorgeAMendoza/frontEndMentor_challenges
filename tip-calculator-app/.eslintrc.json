@@ -4,6 +4,8 @@
         "linebreak-style":"off",
         "prefer-template":"off",
         "no-unused-vars":"warn", 
-        "implicit-arrow-linebreak": "off"
+        "implicit-arrow-linebreak": "off",
+        "object-curly-newline":"off",
+        "comma-dangle":"off"
     }
 }
