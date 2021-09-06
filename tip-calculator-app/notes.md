@@ -13,8 +13,6 @@ Input Validation (Last Updated on September 1, 2021)
 - Ending note for September 1st, maybe the validator function only needs to check, and only return true or false, while we let the dom element handle the removing and adding of elements.
 
 - Testing DOM in Jest: https://dev.to/ms314006/use-jest-write-unit-testing-for-dom-manipulation-3n6c
-/**
- * @jest-environment jsdom
- */
-/* eslint-disable no-undef */
 
+DOM
+- What will happen, we will first check input validity in seperate function, then if that passes, then do the tip caluclation. So Two seperate functions, 
