@@ -24,8 +24,8 @@ export default function calculatorDOM() {
     const billValue = Number(bill);
     const percentValue = Number(percent);
     const peopleValue = Number(people);
-    // const tipTotalText = tipTotalDOM;
-    // const totalText = totalDOM;
+    const tipTotalText = tipTotalDOM;
+    const totalText = totalDOM;
 
     const { tipTotal, tipAmount } = tipCalculator.calculateTip(
       billValue,
@@ -33,8 +33,8 @@ export default function calculatorDOM() {
       peopleValue
     );
 
-    tipTotalDOM.textContent = tipTotal;
-    totalDOM.textContent = tipAmount;
+    tipTotalText.textContent = tipAmount;
+    totalText.textContent = tipTotal;
   };
 
   return { validateInputs, calculateTip };
