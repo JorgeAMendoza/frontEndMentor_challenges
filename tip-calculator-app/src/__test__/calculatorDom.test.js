@@ -59,9 +59,9 @@ describe('Calculator DOM Manipulation', () => {
     const tipTotal = document.querySelector('.tip-total');
     const total = document.querySelector('.total');
 
-    billInput.value = 123.5;
-    percentInput.value = 0.25;
-    peopleInput.value = 10;
+    billInput.value = 142.55;
+    percentInput.value = 0.15;
+    peopleInput.value = 5;
 
     // Assuming inputs are valid, just pass in the values along with the dom elements.
     testDOM.calculateTip(
