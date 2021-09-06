@@ -14,4 +14,7 @@ describe('Validating People Input', () => {
   it('Test 4: People amount of 101', () => {
     expect(validatePeople(101)).toBe(false);
   });
+  it('Test 5: Input of e', () => {
+    expect(validatePeople('e')).toBe(false);
+  });
 });

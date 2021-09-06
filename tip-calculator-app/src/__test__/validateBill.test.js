@@ -14,4 +14,7 @@ describe('Testing Validation Functions', () => {
   it('Test 4: Valid input of 142.55 returns true', () => {
     expect(validateBill(142.55)).toBe(true);
   });
+  it('Test 5: Input of e', () => {
+    expect(validateBill('e')).toBe(false);
+  });
 });
