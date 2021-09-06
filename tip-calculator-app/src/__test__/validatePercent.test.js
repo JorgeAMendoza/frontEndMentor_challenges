@@ -20,4 +20,7 @@ describe('Validate tip percentage', () => {
   it('Test 6: Custom value of 100.00', () => {
     expect(validatePercent(100.0)).toBe(false);
   });
+  it('Test 5: Input of e', () => {
+    expect(validatePercent('e')).toBe(false);
+  });
 });
