@@ -6,15 +6,18 @@ import validatePercent from './utils/validate/validatePercent';
 export default function calculatorDOM() {
   const tipCalculator = tipCalculation();
   const validateInputs = (billDOM, percentDOM, peopleDOM) => {
-    const billValue = Number(billDOM.value);
-    const percentValue = Number(percentDOM.value);
-    const peopleValue = Number(peopleDOM.value);
+    const billValue = Number(billDOM.querySelector('input').value);
+    const peopleValue = Number(peopleDOM.querySelector('input').value);
+    const percentValue =
+      Number(percentDOM.querySelector('input').value) ||
+      Number(percentDOM.querySelector('.active').dataset.tipPercent);
 
     if (!validateBill(billValue)) billDOM.classList.add('error');
     else billDOM.classList.remove('error');
 
-    if (!validatePercent(percentValue)) percentDOM.classList.add('error');
-    else percentDOM.classList.remove('error');
+    if (!validatePercent(percentValue)) {
+      percentDOM.querySelector('input').classList.add('error');
+    } else percentDOM.querySelector('input').classList.remove('error');
 
     if (!validatePeople(peopleValue)) peopleDOM.classList.add('error');
     else peopleDOM.classList.remove('error');
