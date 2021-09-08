@@ -14,5 +14,8 @@ Input Validation (Last Updated on September 1, 2021)
 
 - Testing DOM in Jest: https://dev.to/ms314006/use-jest-write-unit-testing-for-dom-manipulation-3n6c
 
-DOM
-- What will happen, we will first check input validity in seperate function, then if that passes, then do the tip caluclation. So Two seperate functions, 
+DOM (Last Updated September 7, 2021)
+
+- What will happen, we will first check input validity in seperate function, then if that passes, then do the tip caluclation. So Two seperate functions,
+- Since we have the inputs within the div, we have to pass in the divs and then extract the input and their values within the dom module
+- Also remember that only the input in the percent buttons will get a red border, so we aren't putting it on the div but the small input itself
