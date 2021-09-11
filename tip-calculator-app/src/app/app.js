@@ -24,12 +24,29 @@ export default function app() {
   const resetPage = () => {
     console.log('Reseting Page');
   };
+
+  const buttonSelect = (e) => {
+    staticDOM.tipPercentButtons.forEach((button) =>
+      button.classList.remove('active')
+    );
+
+    staticDOM.tipPercentInput.value = '';
+    e.target.classList.add('active');
+    setTipInformation();
+  };
+
+  const inputCustomPercent = () => {
+    staticDOM.tipPercentButtons.forEach((button) =>
+      button.classList.remove('active')
+    );
+    setTipInformation();
+  };
   // Set event listeners on the page
   staticDOM.billInputContainer.addEventListener('change', setTipInformation);
   staticDOM.peopleInputContainer.addEventListener('change', setTipInformation);
-  staticDOM.tipPercentInput.addEventListener('change', setTipInformation);
+  staticDOM.tipPercentInput.addEventListener('change', inputCustomPercent);
   staticDOM.tipPercentButtons.forEach((button) =>
-    button.addEventListener('click', setTipInformation)
+    button.addEventListener('click', buttonSelect)
   );
   staticDOM.resetButton.addEventListener('click', resetPage);
 }
