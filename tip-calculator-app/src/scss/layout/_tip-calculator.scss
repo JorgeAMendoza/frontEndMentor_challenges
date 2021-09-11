@@ -43,6 +43,10 @@
         }
       }
 
+      &.error {
+        box-shadow: 0 0 0 2px $error-text-color;
+      }
+
       &:focus-within {
         box-shadow: 0 0 0 2px $bill-input-focus-color;
       }
@@ -61,6 +65,10 @@
 
       @media screen and (min-width: 900px) {
         @include basic-grid-layout(3, 1fr, 1.5rem);
+      }
+
+      input.error {
+        box-shadow: 0 0 0 2px $error-text-color;
       }
     }
   }
@@ -94,12 +102,12 @@
         }
       }
 
-      &:focus-within {
-        box-shadow: 0 0 0 2px $bill-input-focus-color;
+      &.error {
+        box-shadow: 0 0 0 2px $error-text-color;
       }
 
-      &.error:focus-within {
-        box-shadow: 0 0 0 2px $error-text-color;
+      &:focus-within {
+        box-shadow: 0 0 0 2px $bill-input-focus-color;
       }
     }
   }
