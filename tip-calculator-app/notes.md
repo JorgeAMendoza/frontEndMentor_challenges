@@ -14,14 +14,9 @@ Input Validation (Last Updated on September 1, 2021)
 
 - Testing DOM in Jest: https://dev.to/ms314006/use-jest-write-unit-testing-for-dom-manipulation-3n6c
 
-DOM
+DOM (Last Updated September 11, 2021)
 
 - What will happen, we will first check input validity in seperate function, then if that passes, then do the tip caluclation. So Two seperate functions,
-
-Main App Logic (Last updated Sepetember 7th, 2021)
-
-- So we will set app.js handle setting up main event listeners and other simple js interactions. This will include setting up event listeners, writing the class names to dom elements, reseting the overall display, etc.
-- Since the button area is not its own form own input, will grab the container, then grab the the currently selected button or input, (for button grab the data attribute, for input grab the value)
-- Need to grab the percent custom input seperatly, and the buttons as well. 
-- We need to give a class a button of active, so that when the validator runs it knows which dataset value to grab, Will need some JS to ensure remove the active and error classes within the tip percent container and add the active class to the button that was just clicked. 
-
+- Since we have the inputs within the div, we have to pass in the divs and then extract the input and their values within the dom module
+- Also remember that only the input in the percent buttons will get a red border, so we aren't putting it on the div but the small input itself
+- Create test for the reset button and structure test so that button values are grabbed properly. 
