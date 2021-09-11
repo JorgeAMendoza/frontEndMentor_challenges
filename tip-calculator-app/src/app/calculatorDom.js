@@ -40,5 +40,29 @@ export default function calculatorDOM() {
     totalText.textContent = tipTotal;
   };
 
-  return { validateInputs, calculateTip };
+  const resetCalculator = (
+    billDOM,
+    percentDOM,
+    peopleDOM,
+    tipTotalContent,
+    totalContent
+  ) => {
+    const billInput = billDOM.querySelector('input');
+    const percentInput = percentDOM.querySelector('input');
+    const percentButtons = percentDOM.querySelectorAll('button');
+    const peopleInput = peopleDOM.querySelector('input');
+    const tipTotalText = tipTotalContent;
+    const totalText = totalContent;
+
+    billInput.value = '';
+    percentInput.value = '';
+    peopleInput.value = '';
+
+    percentButtons.forEach((button) => button.classList.remove('active'));
+
+    tipTotalText.textContent = '0.00';
+    totalText.textContent = '0.00';
+  };
+
+  return { validateInputs, calculateTip, resetCalculator };
 }

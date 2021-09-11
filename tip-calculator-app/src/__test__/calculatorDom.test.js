@@ -9,14 +9,24 @@ import calculatorDOM from '../app/calculatorDom';
 describe('Calculator DOM Manipulation', () => {
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="billContainer"><input class=""></div>
+      <div class="billContainer">
+      <input class="">
+      </div>
+
       <div class="percentContainer">
-      <button class="active" "data-tip-percent=".10"><input class=""></div>
-      <div class="peopleContainer"><input class=""></div>
+      <button class="active" "data-tip-percent=".10">
+      <button class="" "data-tip-percent=".25">
+      <input class="">
+      </div>
+
+      <div class="peopleContainer">
+      <input class="">
+      </div>
       
       <div>
       <p class="tip-total"></p>
       <p class="total"></p>
+      <button id="reset">Reset</button>
       </div>`;
   });
 
@@ -87,5 +97,28 @@ describe('Calculator DOM Manipulation', () => {
 
     expect(tipTotal.textContent).toBe('4.27');
     expect(total.textContent).toBe('32.79');
+  });
+
+  it('Test 5: Reset values', () => {
+    const billContainer = document.querySelector('.billContainer');
+    const percentContainer = document.querySelector('.percentContainer');
+    const peopleContainer = document.querySelector('.peopleContainer');
+    const tipTotal = document.querySelector('.tip-total');
+    const total = document.querySelector('.total');
+
+    testDOM.resetCalculator(
+      billContainer,
+      percentContainer,
+      peopleContainer,
+      tipTotal,
+      total
+    );
+
+    expect(billContainer.querySelector('input').value).toBe('');
+    expect(percentContainer.querySelector('input').value).toBe('');
+    expect(percentContainer.querySelector('button.active')).toBe(null);
+    expect(peopleContainer.querySelector('input').value).toBe('');
+    expect(tipTotal.textContent).toBe('0.00');
+    expect(total.textContent).toBe('0.00');
   });
 });
