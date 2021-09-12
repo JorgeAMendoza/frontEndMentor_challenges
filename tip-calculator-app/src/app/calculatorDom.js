@@ -73,6 +73,9 @@ export default function calculatorDOM() {
     billInput.value = '';
     percentInput.value = '';
     peopleInput.value = '';
+    billDOM.classList.remove('error');
+    percentInput.classList.remove('error');
+    peopleDOM.classList.remove('error');
 
     percentButtons.forEach((button) => button.classList.remove('active'));
 
