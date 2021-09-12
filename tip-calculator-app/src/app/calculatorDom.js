@@ -5,6 +5,12 @@ import validatePercent from './utils/validate/validatePercent';
 
 export default function calculatorDOM() {
   const tipCalculator = tipCalculation();
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  });
+
   const validateInputs = (billDOM, percentDOM, peopleDOM) => {
     const billValue = Number(billDOM.querySelector('input').value);
     const peopleValue = Number(peopleDOM.querySelector('input').value);
@@ -52,8 +58,8 @@ export default function calculatorDOM() {
       peopleValue
     );
 
-    tipTotalText.textContent = tipAmount;
-    totalText.textContent = tipTotal;
+    tipTotalText.textContent = formatter.format(tipAmount);
+    totalText.textContent = formatter.format(tipTotal);
   };
 
   const resetCalculator = (
