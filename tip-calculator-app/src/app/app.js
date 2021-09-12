@@ -11,6 +11,7 @@ export default function app() {
     tipAmountText: document.querySelector('#tip-amount__per-person'),
     tipTotalText: document.querySelector('#tip-amount__total'),
     resetButton: document.querySelector('#resetButton'),
+    peopleErrorMessage: document.querySelector('#peopleError'),
   };
 
   const setTipInformation = () => {
@@ -25,8 +26,12 @@ export default function app() {
       staticDOM.tipPercentInput.classList.contains('error') ||
       staticDOM.peopleInputContainer.classList.contains('error')
     ) {
+      if (staticDOM.peopleInputContainer.classList.contains('error')) {
+        staticDOM.peopleErrorMessage.classList.add('show-error');
+      }
       return;
     }
+    staticDOM.peopleErrorMessage.classList.remove('show-error');
     tipDOM.calculateTip(
       staticDOM.billInputContainer,
       staticDOM.tipPercentContainer,

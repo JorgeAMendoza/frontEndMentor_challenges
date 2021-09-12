@@ -82,6 +82,11 @@
 
     &__error {
       color: $error-text-color;
+      display: none;
+
+      &.show-error {
+        display: block;
+      }
     }
 
     &__input {
