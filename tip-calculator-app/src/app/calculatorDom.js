@@ -8,9 +8,6 @@ export default function calculatorDOM() {
   const validateInputs = (billDOM, percentDOM, peopleDOM) => {
     const billValue = Number(billDOM.querySelector('input').value);
     const peopleValue = Number(peopleDOM.querySelector('input').value);
-    // const percentValue =
-    //   Number(percentDOM.querySelector('input').value) ||
-    //   Number(percentDOM.querySelector('.active').dataset.tipPercent);
     let percentValue;
 
     if (percentDOM.querySelector('input').value) {
@@ -34,10 +31,18 @@ export default function calculatorDOM() {
     else peopleDOM.classList.remove('error');
   };
 
-  const calculateTip = (bill, percent, people, tipTotalDOM, totalDOM) => {
-    const billValue = Number(bill);
-    const percentValue = Number(percent);
-    const peopleValue = Number(people);
+  const calculateTip = (
+    billDOM,
+    percentDOM,
+    peopleDOM,
+    tipTotalDOM,
+    totalDOM
+  ) => {
+    const billValue = Number(billDOM.querySelector('input').value);
+    const peopleValue = Number(peopleDOM.querySelector('input').value);
+    const percentValue =
+      Number(percentDOM.querySelector('input').value) ||
+      Number(percentDOM.querySelector('.active').dataset.tipPercent);
     const tipTotalText = tipTotalDOM;
     const totalText = totalDOM;
 
