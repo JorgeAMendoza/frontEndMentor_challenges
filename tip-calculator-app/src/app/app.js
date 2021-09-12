@@ -27,6 +27,13 @@ export default function app() {
     ) {
       return;
     }
+    tipDOM.calculateTip(
+      staticDOM.billInputContainer,
+      staticDOM.tipPercentContainer,
+      staticDOM.peopleInputContainer,
+      staticDOM.tipAmountText,
+      staticDOM.tipTotalText
+    );
   };
 
   const resetPage = () => {
