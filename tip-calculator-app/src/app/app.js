@@ -9,7 +9,7 @@ export default function app() {
     tipPercentInput: document.querySelector('.tip-percent__container input'),
     tipPercentButtons: document.querySelectorAll('.tip-percent button'),
     tipAmountText: document.querySelector('#tip-amount__per-person'),
-    tipTotalText: document.querySelector('#tip-display__total'),
+    tipTotalText: document.querySelector('#tip-amount__total'),
     resetButton: document.querySelector('#resetButton'),
   };
 
@@ -19,10 +19,24 @@ export default function app() {
       staticDOM.tipPercentContainer,
       staticDOM.peopleInputContainer
     );
+
+    if (
+      staticDOM.billInputContainer.classList.contains('error') ||
+      staticDOM.tipPercentInput.classList.contains('error') ||
+      staticDOM.peopleInputContainer.classList.contains('error')
+    ) {
+      return;
+    }
   };
 
   const resetPage = () => {
-    console.log('Reseting Page');
+    tipDOM.resetCalculator(
+      staticDOM.billInputContainer,
+      staticDOM.tipPercentContainer,
+      staticDOM.peopleInputContainer,
+      staticDOM.tipAmountText,
+      staticDOM.tipTotalText
+    );
   };
 
   const buttonSelect = (e) => {
@@ -41,7 +55,7 @@ export default function app() {
     );
     setTipInformation();
   };
-  // Set event listeners on the page
+
   staticDOM.billInputContainer.addEventListener('change', setTipInformation);
   staticDOM.peopleInputContainer.addEventListener('change', setTipInformation);
   staticDOM.tipPercentInput.addEventListener('change', inputCustomPercent);

@@ -8,9 +8,6 @@ export default function calculatorDOM() {
   const validateInputs = (billDOM, percentDOM, peopleDOM) => {
     const billValue = Number(billDOM.querySelector('input').value);
     const peopleValue = Number(peopleDOM.querySelector('input').value);
-    // const percentValue =
-    //   Number(percentDOM.querySelector('input').value) ||
-    //   Number(percentDOM.querySelector('.active').dataset.tipPercent);
     let percentValue;
 
     if (percentDOM.querySelector('input').value) {
@@ -68,6 +65,9 @@ export default function calculatorDOM() {
     billInput.value = '';
     percentInput.value = '';
     peopleInput.value = '';
+    billDOM.classList.remove('error');
+    percentInput.classList.remove('error');
+    peopleDOM.classList.remove('error');
 
     percentButtons.forEach((button) => button.classList.remove('active'));
 
