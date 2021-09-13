@@ -20,7 +20,7 @@ export default function app() {
       staticDOM.tipPercentContainer,
       staticDOM.peopleInputContainer
     );
-
+    staticDOM.peopleErrorMessage.classList.remove('show-error');
     if (
       staticDOM.billInputContainer.classList.contains('error') ||
       staticDOM.tipPercentInput.classList.contains('error') ||
@@ -31,7 +31,6 @@ export default function app() {
       }
       return;
     }
-    staticDOM.peopleErrorMessage.classList.remove('show-error');
     tipDOM.calculateTip(
       staticDOM.billInputContainer,
       staticDOM.tipPercentContainer,
