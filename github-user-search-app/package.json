@@ -1,0 +1,24 @@
+{
+  "name": "github-user-search-app",
+  "version": "1.0.0",
+  "description": "Simple Reat app that uses the GitHub User API to get user information",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeAMendoza/frontEndMentor_challenges.git"
+  },
+  "keywords": [
+    "React",
+    "GitHub",
+    "Webpack"
+  ],
+  "author": "Jorge A. Mendoza II",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorgeAMendoza/frontEndMentor_challenges/issues"
+  },
+  "homepage": "https://github.com/JorgeAMendoza/frontEndMentor_challenges#readme"
+}
