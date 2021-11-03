@@ -2,14 +2,16 @@ import { Octokit } from 'octokit';
 
 const getGithubInfo = async (userName) => {
   const octokit = new Octokit({ auth: process.env.GITHUB_KEY });
+  let res;
   try {
-    const res = await octokit.request('GET /search/users', {
-      q: userName,
+    res = await octokit.request('GET /users/{username}', {
+      username: userName,
     });
-    return res;
   } catch (e) {
-    throw new Error('User Not Found');
+    throw new Error('No Results');
   }
+
+  return res.data;
 };
 
 export default getGithubInfo;

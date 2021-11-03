@@ -1,17 +1,17 @@
-export const UserGithubStats = (props) => {
+export const UserGithubStats = ({ repos, followers, following }) => {
   return (
     <div>
       <div>
         <h3>Repos</h3>
-        <p>8</p>
+        <p>{repos}</p>
       </div>
       <div>
         <h3>Followers</h3>
-        <p>8</p>
+        <p>{followers}</p>
       </div>
       <div>
         <h3>Following</h3>
-        <p>8</p>
+        <p>{following}</p>
       </div>
     </div>
   );
