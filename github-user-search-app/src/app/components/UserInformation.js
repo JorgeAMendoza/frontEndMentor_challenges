@@ -1,7 +1,7 @@
-import locationIcon from '../../../assets/icon-location.svg';
-import twitterIcon from '../../../assets/icon-twitter.svg';
-import websiteIcon from '../../../assets/icon-website.svg';
-import companyIcon from '../../../assets/icon-company.svg';
+import locationIcon from '../../assets/icon-location.svg';
+import twitterIcon from '../../assets/icon-twitter.svg';
+import websiteIcon from '../../assets/icon-website.svg';
+import companyIcon from '../../assets/icon-company.svg';
 
 export const UserInformation = ({ location, twitter, blog, company }) => {
   return (

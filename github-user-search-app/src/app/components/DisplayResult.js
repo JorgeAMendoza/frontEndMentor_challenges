@@ -1,4 +1,4 @@
-import { convertDate } from '../../utils/convert-date';
+import { convertDate } from '../utils/convert-date';
 import { UserGithubStats } from './UserGitHubStats';
 import { UserInformation } from './UserInformation';
 
