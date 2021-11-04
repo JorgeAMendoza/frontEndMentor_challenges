@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import searchIcon from '../assets/icon-search.svg';
-import { DisplayResult } from './components/DisplayResult/DisplayResult';
-import getGithubInfo from './api/get-github-info';
+import searchIcon from '../../assets/icon-search.svg';
+import { DisplayResult } from './DisplayResult';
+import getGithubInfo from '../api/get-github-info';
 
-const GitHubSearch = () => {
+export const GitHubSearch = () => {
   const [search, setSearch] = useState('');
   const [errorText, setErrorText] = useState('');
   const [userData, setUserData] = useState({});
@@ -54,5 +54,3 @@ const GitHubSearch = () => {
     </main>
   );
 };
-
-export default GitHubSearch;
