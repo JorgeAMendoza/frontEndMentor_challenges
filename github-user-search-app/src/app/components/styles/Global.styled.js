@@ -19,6 +19,8 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: 'Space Mono', monospace;
     font-size: 1.6rem;
     min-height: 100vh;
+    padding: 4rem 0;
+    background-color: ${({ theme }) => theme.background};
   }
 
   a,
