@@ -1,31 +1,24 @@
 import { useState } from 'react';
-import moonIcon from '../assets/icon-moon.svg';
+import { ThemeProvider } from 'styled-components';
 import { GitHubSearch } from './components/GitHubSearch';
+import { Header } from './components/Header';
 import { GlobalStyles } from './components/styles/Global.styled';
+import { lightTheme, darkTheme } from './components/styles/styled-utils/theme';
 
 function App() {
-  const [theme, setTheme] = useState('Dark');
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    if (theme === 'light') setTheme('dark');
+    else setTheme('light');
+  };
   return (
     <>
-      <GlobalStyles />
-      <div>
-        <header>
-          <h1>devfinder</h1>
-          <button
-            onClick={() => {
-              if (theme === 'Dark') setTheme('Light');
-              else setTheme('Dark');
-            }}
-          >
-            {theme}
-            <span>
-              <img src={moonIcon} alt="Dark Mode Toggled" />
-            </span>
-          </button>
-        </header>
-
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Header themeToggle={toggleTheme} themeName={theme}></Header>
         <GitHubSearch></GitHubSearch>
-      </div>
+      </ThemeProvider>
     </>
   );
 }
