@@ -14,12 +14,14 @@ export const lightTheme = {
   searchBar: '#fefefe',
   searchText: '#4B6A9B',
   errorText: '#f74646',
-  searchName: '#2b3442',
-  dateJoined: '#697c9a',
-  userName: 'pink',
-  userBio: '#4b6a9b',
 
+  resultsBackground: '#fff',
+  searchName: '#0079FF',
+  dateJoined: '#697c9a',
+  userName: '#2b3442',
+  userBio: '#4b6a9b',
   userStats: {
+    background: '#f6f8ff',
     statTitle: '#4b6a9b',
     statNum: '#2b3442',
   },

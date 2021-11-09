@@ -31,6 +31,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: inherit;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   ul,
   li {
     list-style: none;
@@ -41,7 +45,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     display: block;
   }
 
-  input{
+  input {
     font-family: inherit;
   }
 
