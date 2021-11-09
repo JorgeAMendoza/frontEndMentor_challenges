@@ -11,12 +11,12 @@ export const UserInformationStyled = styled.div`
     color: ${({ theme }) => theme.userSocial.color};
   }
 
-  span:first-child {
+  span {
     width: 2.5rem;
     text-align: center;
 
-    img {
-      width: 1.9rem;
+    svg path {
+      fill: ${({ theme }) => theme.userSocial.color};
     }
   }
 

@@ -1,21 +1,21 @@
-import locationIcon from '../../assets/icon-location.svg';
-import twitterIcon from '../../assets/icon-twitter.svg';
-import websiteIcon from '../../assets/icon-website.svg';
-import companyIcon from '../../assets/icon-company.svg';
 import { UserInformationStyled } from './styles/UserInformationStyled.styled';
+import { LocationIcon } from './IconComponents/LocationIcon';
+import { LinkIcon } from './IconComponents/LinkIcon';
+import { TwitterIcon } from './IconComponents/TwitterIcon';
+import { CompanyIcon } from './IconComponents/CompanyIcon';
 
 export const UserInformation = ({ location, twitter, blog, company }) => {
   return (
     <UserInformationStyled>
       <p>
         <span>
-          <img src={locationIcon} alt="Location"></img>
+          <LocationIcon />
         </span>
         {location}
       </p>
       <p>
         <span>
-          <img src={websiteIcon} alt="Webiste"></img>
+          <LinkIcon />
         </span>
         <a target="__blank" href={blog}>
           {blog ? blog : 'Not Availble'}
@@ -23,13 +23,13 @@ export const UserInformation = ({ location, twitter, blog, company }) => {
       </p>
       <p>
         <span>
-          <img src={twitterIcon} alt="Twitter Handle"></img>
+          <TwitterIcon />
         </span>
         <span>{twitter}</span>
       </p>
       <p>
         <span>
-          <img src={companyIcon} alt="Company"></img>
+          <CompanyIcon />
         </span>
         {company}
       </p>
