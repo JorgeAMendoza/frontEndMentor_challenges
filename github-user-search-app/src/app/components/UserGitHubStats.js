@@ -1,6 +1,8 @@
+import { UserGitHubStatsStyled } from './styles/UserGithubStats.styled';
+
 export const UserGithubStats = ({ repos, followers, following }) => {
   return (
-    <div>
+    <UserGitHubStatsStyled>
       <div>
         <h3>Repos</h3>
         <p>{repos}</p>
@@ -13,6 +15,6 @@ export const UserGithubStats = ({ repos, followers, following }) => {
         <h3>Following</h3>
         <p>{following}</p>
       </div>
-    </div>
+    </UserGitHubStatsStyled>
   );
 };
