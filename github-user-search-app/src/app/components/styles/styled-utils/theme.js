@@ -12,6 +12,7 @@ export const lightTheme = {
     hoverColor: '#222731',
   },
   searchBar: '#fefefe',
+  searchText: '#4B6A9B',
   errorText: '#f74646',
   searchName: '#2b3442',
   dateJoined: '#697c9a',
