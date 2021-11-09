@@ -45,10 +45,13 @@ export const darkTheme = {
     hoverColor: '#90a4df',
   },
   searchBar: '#1e2a47',
+  searchText: '#fff',
   errorText: '#f74646',
-  searchName: '#fff',
+
+  resultsBackground: '#1E2A47',
+  searchName: '#0079FF',
   dateJoined: '#fff',
-  userName: '#0079ff',
+  userName: '#fff',
   userBio: '#fff',
 
   userStats: {
