@@ -41,6 +41,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     display: block;
   }
 
+  input{
+    font-family: inherit;
+  }
+
   p,
   li,
   h1,
