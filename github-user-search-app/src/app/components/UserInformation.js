@@ -25,7 +25,7 @@ export const UserInformation = ({ location, twitter, blog, company }) => {
         <span>
           <TwitterIcon />
         </span>
-        <span>{twitter}</span>
+        {twitter}
       </p>
       <p>
         <span>

@@ -30,10 +30,11 @@ export const GitHubSearch = () => {
     <main>
       <Container>
         <SearchBar
+          autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
             if (!search) {
-              setErrorText('Please Enter Username');
+              setErrorText('Invalid Search');
               return;
             }
             setErrorText('');
@@ -52,7 +53,7 @@ export const GitHubSearch = () => {
           </StyledInput>
 
           <SendSearch>
-            <p>User Not Found</p>
+            <p>{errorText}</p>
             <SubmitButton>Search</SubmitButton>
           </SendSearch>
         </SearchBar>

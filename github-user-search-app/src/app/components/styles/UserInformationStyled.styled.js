@@ -1,8 +1,15 @@
 import styled from 'styled-components';
+import { device } from './styled-utils/device';
 
 export const UserInformationStyled = styled.div`
   grid-area: UserInformation;
   margin-top: 1.5rem;
+
+  @media ${device.tablet} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
   p {
     display: flex;
     gap: 1.2rem;

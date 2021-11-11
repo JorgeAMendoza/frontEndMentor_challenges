@@ -8,6 +8,7 @@ export const ThemeToggle = styled.button`
   text-transform: uppercase;
   letter-spacing: 3px;
   gap: 1rem;
+  font-weight: bold;
 
   &:hover {
     color: ${({ theme }) => theme.toggleButton.hoverColor};
