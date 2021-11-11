@@ -1,4 +1,5 @@
 import * as styled from 'styled-components';
+import { device } from './styled-utils/device';
 
 export const GlobalStyles = styled.createGlobalStyle`
   html {
@@ -21,6 +22,12 @@ export const GlobalStyles = styled.createGlobalStyle`
     min-height: 100vh;
     padding: 4rem 0;
     background-color: ${({ theme }) => theme.background};
+
+    @media ${device.tablet} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   a,

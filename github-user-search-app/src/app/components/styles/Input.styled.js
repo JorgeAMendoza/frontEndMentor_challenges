@@ -13,14 +13,11 @@ export const StyledInput = styled.label`
     border: none;
     background-color: ${({ theme }) => theme.searchBar};
     outline: none;
+    margin-left: 1rem;
 
     &,
     &::placeholder {
       color: ${({ theme }) => theme.searchText};
-    }
-
-    &:active {
-      background: transparent;
     }
   }
 `;
