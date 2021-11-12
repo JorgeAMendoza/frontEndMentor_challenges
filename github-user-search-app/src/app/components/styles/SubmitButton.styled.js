@@ -7,4 +7,8 @@ export const SubmitButton = styled.button`
   border: transparent;
   outline: none;
   border-radius: 10px;
+
+  &:hover {
+    opacity: 0.6;
+  }
 `;
