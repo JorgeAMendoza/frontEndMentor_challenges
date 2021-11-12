@@ -21,7 +21,12 @@ export const DisplayResult = ({ data }) => {
         <p>Joined {convertDate(data.created_at)}</p>
       </UserName>
 
-      <UserBio>{data.bio}</UserBio>
+      {/* <UserBio>{data.bio}</UserBio> */}
+      {data.bio ? (
+        <UserBio>{data.bio}</UserBio>
+      ) : (
+        <UserBio>This Profile has no bio.</UserBio>
+      )}
 
       <UserGithubStats
         repos={data.public_repos}
