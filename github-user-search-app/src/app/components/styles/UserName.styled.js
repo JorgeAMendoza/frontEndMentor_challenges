@@ -22,6 +22,7 @@ export const UserName = styled.div`
     color: ${({ theme }) => theme.dateJoined};
     grid-area: join-date;
     justify-self: end;
+    align-self: center;
     margin-top: 1.5rem;
 
     @media ${device.laptop} {
@@ -35,6 +36,6 @@ export const UserName = styled.div`
       'name join-date'
       'username username';
 
-    gap: 1.5rem;
+    gap: 1rem;
   }
 `;
