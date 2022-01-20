@@ -1,9 +1,19 @@
-export const Quantity = () => {
+interface QuantityProps {
+  numOfProduct: number;
+  increaseNumOfProduct: () => void;
+  decreaseNumOfProduct: () => void;
+}
+
+export const Quantity = ({
+  numOfProduct,
+  increaseNumOfProduct,
+  decreaseNumOfProduct,
+}: QuantityProps) => {
   return (
     <div>
-      <input type="number" />
-      <button>-</button>
-      <button>+</button>
+      <p>{numOfProduct}</p>
+      <button onClick={() => decreaseNumOfProduct()}>-</button>
+      <button onClick={() => increaseNumOfProduct()}>+</button>
     </div>
   );
 };

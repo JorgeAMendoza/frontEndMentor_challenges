@@ -1,9 +1,32 @@
+import { useReducer } from 'react';
 import { ImageCarousel } from './ImageCarousel/ImageCarousel';
 import { Price } from './ProductInfo/Price';
 import { Quantity } from './ProductInfo/Quantity';
 import { Cart } from '../Icons/Cart';
 
+interface ProductState {
+  quantity: number;
+}
+
+interface QuantiyActions {
+  type: 'INCREMENT' | 'DECREMENT';
+}
+
+const reducer = (state: ProductState, action: QuantiyActions) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { quantity: state.quantity + 1 };
+    case 'DECREMENT':
+      if (state.quantity === 0) return state;
+      else return { quantity: state.quantity - 1 };
+    default:
+      return state;
+  }
+};
+
 export const Product = () => {
+  const [state, dispatch] = useReducer(reducer, { quantity: 0 });
+
   return (
     <section>
       <ImageCarousel />
@@ -17,7 +40,11 @@ export const Product = () => {
         </p>
 
         <Price />
-        <Quantity />
+        <Quantity
+          numOfProduct={state.quantity}
+          increaseNumOfProduct={() => dispatch({ type: 'INCREMENT' })}
+          decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
+        />
         <button>
           <Cart />
           Add to Cart
