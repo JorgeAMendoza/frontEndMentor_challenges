@@ -5,7 +5,9 @@ import { getProductData } from './data/get-product-data';
 import { fetchedProductData } from './types/fetched-data';
 
 function App() {
-  const [productInfo, setProductInfo] = useState<fetchedProductData>();
+  const [productInfo, setProductInfo] = useState<fetchedProductData | null>(
+    null
+  );
 
   useEffect(() => {
     getProductInfo();
@@ -19,7 +21,8 @@ function App() {
   return (
     <>
       <Header />
-      <Product />
+      {/* for example sake, with woudl probably render a error modal if the fetch failed */}
+      {productInfo && <Product productInfo={productInfo} />}
     </>
   );
 }

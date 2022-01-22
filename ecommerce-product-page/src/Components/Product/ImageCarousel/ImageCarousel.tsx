@@ -1,12 +1,4 @@
-import { useReducer} from 'react';
-import ImageOne from '../../../assets/images/image-product-1.jpg';
-import ImageTwo from '../../../assets/images/image-product-2.jpg';
-import ImageThree from '../../../assets/images/image-product-3.jpg';
-import ImageFour from '../../../assets/images/image-product-4.jpg';
-import ImageOneThumb from '../../../assets/images/image-product-1-thumbnail.jpg';
-import ImageTwoThumb from '../../../assets/images/image-product-2-thumbnail.jpg';
-import ImageThreeThumb from '../../../assets/images/image-product-3-thumbnail.jpg';
-import ImageFourThumb from '../../../assets/images/image-product-4-thumbnail.jpg';
+import { useReducer } from 'react';
 import { NextIcon } from '../../Icons/NextIcon';
 import { PreviousIcon } from '../../Icons/PreviousIcon';
 
@@ -16,6 +8,11 @@ interface ImageAction {
 }
 interface imageIndex {
   index: number;
+}
+
+interface ImageCarouselProps {
+  heroImages: string[];
+  thumbnailImages: string[];
 }
 
 const reducer = (state: imageIndex, action: ImageAction) => {
@@ -33,15 +30,11 @@ const reducer = (state: imageIndex, action: ImageAction) => {
   }
 };
 
-export const ImageCarousel = () => {
+export const ImageCarousel = ({
+  heroImages,
+  thumbnailImages,
+}: ImageCarouselProps) => {
   const [state, dispatch] = useReducer(reducer, { index: 0 });
-  const heroImages: string[] = [ImageOne, ImageTwo, ImageThree, ImageFour];
-  const thumbnailImages: string[] = [
-    ImageOneThumb,
-    ImageTwoThumb,
-    ImageThreeThumb,
-    ImageFourThumb,
-  ];
 
   return (
     <div>
