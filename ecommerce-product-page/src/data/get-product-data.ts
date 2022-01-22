@@ -6,9 +6,10 @@ import productOneThumbnail from '../assets/images/image-product-1-thumbnail.jpg'
 import productTwoThumbnail from '../assets/images/image-product-2-thumbnail.jpg';
 import productThreeThumbnail from '../assets/images/image-product-3-thumbnail.jpg';
 import productFourThumbnail from '../assets/images/image-product-4-thumbnail.jpg';
+import { fetchedProductData } from '../types/fetched-data';
 
 export const getProductData = (): Promise<string> => {
-  const jsonData = {
+  const jsonData: fetchedProductData = {
     brandName: 'Sneaker Company',
     productName: 'Fall Limited Edition Sneakers',
     productDescription:
@@ -16,7 +17,7 @@ export const getProductData = (): Promise<string> => {
     price: {
       currentPrice: 125.0,
       suggestedPrice: 250.0,
-      currentDiscout: 50,
+      currentDiscount: 50,
     },
     heroImages: [
       productOneHero,
