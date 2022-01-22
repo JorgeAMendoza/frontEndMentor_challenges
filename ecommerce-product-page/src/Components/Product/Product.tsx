@@ -3,6 +3,7 @@ import { ImageCarousel } from './ImageCarousel/ImageCarousel';
 import { Price } from './ProductInfo/Price';
 import { Quantity } from './ProductInfo/Quantity';
 import { Cart } from '../Icons/Cart';
+import { fetchedProductData } from '../../types/fetched-data';
 
 interface ProductState {
   quantity: number;
@@ -10,6 +11,10 @@ interface ProductState {
 
 interface QuantiyActions {
   type: 'INCREMENT' | 'DECREMENT';
+}
+
+interface ProductProps {
+  productInfo: fetchedProductData;
 }
 
 const reducer = (state: ProductState, action: QuantiyActions) => {
@@ -24,12 +29,14 @@ const reducer = (state: ProductState, action: QuantiyActions) => {
   }
 };
 
-export const Product = () => {
+export const Product = ({ productInfo }: ProductProps) => {
   const [state, dispatch] = useReducer(reducer, { quantity: 0 });
-
   return (
     <section>
-      <ImageCarousel />
+      <ImageCarousel
+        heroImages={productInfo.heroImages}
+        thumbnailImages={productInfo.thumbnailImages}
+      />
       <div>
         <span>Sneaker Company</span>
         <h2>Fall Limited Edition Sneakers</h2>
