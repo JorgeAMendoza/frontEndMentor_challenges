@@ -4,8 +4,8 @@ export interface fetchedProductData {
   productDescription: string;
   price: {
     currentPrice: number;
-    suggestedPrice: number;
-    currentDiscount: number;
+    suggestedPrice: number | undefined;
+    currentDiscount: number | undefined;
   };
   heroImages: string[];
   thumbnailImages: string[];
