@@ -1,10 +1,15 @@
-export const Price = () => {
+interface PriceProps {
+  price: number;
+  discountPercent: number | undefined;
+  msrp: number | undefined;
+}
+
+export const Price = ({ price, discountPercent, msrp }: PriceProps) => {
   return (
     <div>
-      <p>$125.00</p>
-      <span>50%</span>
-      <span>$250.00</span>
+      <p>{price}</p>
+      <span>{discountPercent}</span>
+      <span>{msrp}</span>
     </div>
   );
 };
- 
