@@ -2,15 +2,14 @@ import { useContext } from 'react';
 import thumbnailOne from '../../../assets/images/image-product-1-thumbnail.jpg';
 import { Trash } from '../../Icons/Trash';
 import { CartContext } from '../../../utils/Context/cart-context';
-import { CartContextType } from '../../../types/cart-types';
+import { CartEmpty } from './CartEmpty';
 export const CartActive = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
+
+  const renderCart = cart.cartItems.length ? true : false;
   return (
     <>
-      <div>
-        <p>Cart</p>
-        <p>Cart is empty</p>
-      </div>
+      {/* 
 
       <div>
         <div>
@@ -22,7 +21,9 @@ export const CartActive = () => {
           <Trash />
         </div>
         <button>Checkout</button>
-      </div>
+      </div> */}
+
+      {renderCart ? <p>Items in cart</p> : <CartEmpty />}
     </>
   );
 };
