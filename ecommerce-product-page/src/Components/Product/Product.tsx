@@ -1,9 +1,11 @@
-import { useReducer } from 'react';
+import { useReducer, useContext } from 'react';
 import { ImageCarousel } from './ImageCarousel/ImageCarousel';
 import { Price } from './ProductInfo/Price';
 import { Quantity } from './ProductInfo/Quantity';
 import { Cart } from '../Icons/Cart';
 import { fetchedProductData } from '../../types/fetched-data';
+import { CartContext } from '../../utils/Context/cart-context';
+import { CartItem } from '../../types/cart-types';
 
 interface ProductState {
   quantity: number;
@@ -31,6 +33,32 @@ const reducer = (state: ProductState, action: QuantiyActions) => {
 
 export const Product = ({ productInfo }: ProductProps) => {
   const [state, dispatch] = useReducer(reducer, { quantity: 0 });
+  const { cart, setCart } = useContext(CartContext);
+
+  const insertItemToCart = () => {
+    if (state.quantity === 0) {
+      console.log('Not inserting into cart');
+      return;
+    }
+    console.log('Inserting new item into the cart');
+    const newCartItem: CartItem = {
+      productName: productInfo.productName,
+      productImage: productInfo.thumbnailImages[0],
+      price: productInfo.price.currentPrice,
+      quantity: state.quantity,
+      totalPrice: Math.floor(state.quantity * productInfo.price.currentPrice),
+    };
+
+    setCart(
+      Object.assign(
+        {},
+        {
+          totalCost: cart.totalCost + newCartItem.price * newCartItem.quantity,
+        },
+        { cartItems: cart.cartItems.concat(newCartItem) }
+      )
+    );
+  };
   return (
     <section>
       <ImageCarousel
@@ -52,7 +80,7 @@ export const Product = ({ productInfo }: ProductProps) => {
           increaseNumOfProduct={() => dispatch({ type: 'INCREMENT' })}
           decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
         />
-        <button>
+        <button onClick={() => insertItemToCart()}>
           <Cart />
           Add to Cart
         </button>
