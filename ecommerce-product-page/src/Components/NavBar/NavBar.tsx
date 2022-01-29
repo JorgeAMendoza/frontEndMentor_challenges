@@ -1,6 +1,6 @@
 export const NavBar = () => {
   return (
-    <nav>
+    <nav className="hidden absolute">
       <a href="/">Collections</a>
       <a href="/">Men</a>
       <a href="/">Women</a>

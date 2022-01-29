@@ -4,7 +4,7 @@ import { CartActive } from './Cart/CartActive';
 
 export const UserStatus = () => {
   return (
-    <div>
+    <div className="flex items-center gap-5 ml-auto">
       <Cart />
       <CartActive />
       <AccountMenu />
