@@ -1,6 +1,7 @@
 import { SetStateAction } from 'react';
 
 export interface CartItem {
+  productID: string;
   productImage: string;
   productName: string;
   price: number;
