@@ -10,6 +10,7 @@ import { fetchedProductData } from '../types/fetched-data';
 
 export const getProductData = (): Promise<string> => {
   const jsonData: fetchedProductData = {
+    productID: 'a631g',
     brandName: 'Sneaker Company',
     productName: 'Fall Limited Edition Sneakers',
     productDescription:

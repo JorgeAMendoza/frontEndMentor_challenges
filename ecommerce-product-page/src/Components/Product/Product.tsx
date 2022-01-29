@@ -12,7 +12,7 @@ interface ProductState {
 }
 
 interface QuantiyActions {
-  type: 'INCREMENT' | 'DECREMENT';
+  type: 'INCREMENT' | 'DECREMENT' | 'RESET';
 }
 
 interface ProductProps {
@@ -26,6 +26,8 @@ const reducer = (state: ProductState, action: QuantiyActions) => {
     case 'DECREMENT':
       if (state.quantity === 0) return state;
       else return { quantity: state.quantity - 1 };
+    case 'RESET':
+      return { quantity: 0 };
     default:
       return state;
   }
@@ -36,28 +38,61 @@ export const Product = ({ productInfo }: ProductProps) => {
   const { cart, setCart } = useContext(CartContext);
 
   const insertItemToCart = () => {
-    if (state.quantity === 0) {
-      console.log('Not inserting into cart');
-      return;
-    }
-    console.log('Inserting new item into the cart');
-    const newCartItem: CartItem = {
+    const existingItemIndex = cart.cartItems.findIndex(
+      (item) => item.productID === productInfo.productID
+    );
+
+    const baseCartItem = {
+      productID: productInfo.productID,
       productName: productInfo.productName,
       productImage: productInfo.thumbnailImages[0],
       price: productInfo.price.currentPrice,
-      quantity: state.quantity,
-      totalPrice: Math.floor(state.quantity * productInfo.price.currentPrice),
     };
 
-    setCart(
-      Object.assign(
-        {},
-        {
-          totalCost: cart.totalCost + newCartItem.price * newCartItem.quantity,
-        },
-        { cartItems: cart.cartItems.concat(newCartItem) }
-      )
-    );
+    if (existingItemIndex !== -1 && cart.cartItems.length > 0) {
+      const newQuanity =
+        cart.cartItems[existingItemIndex].quantity + state.quantity;
+      const newTotalPrice =
+        cart.cartItems[existingItemIndex].totalPrice +
+        state.quantity * productInfo.price.currentPrice;
+
+      const updatedCartItem: CartItem = Object.assign(
+        baseCartItem,
+        { quantity: newQuanity },
+        { totalPrice: newTotalPrice }
+      );
+
+      const newCartItems = cart.cartItems
+        .slice(0, existingItemIndex)
+        .concat(updatedCartItem, cart.cartItems.slice(existingItemIndex + 1));
+
+      const newTotalCost = cart.cartItems.reduce((sum, item) => {
+        return (sum += item.totalPrice);
+      }, 0);
+
+      setCart(
+        Object.assign({ totalCost: newTotalCost }, { cartItems: newCartItems })
+      );
+    } else {
+      const newCartItem: CartItem = Object.assign(
+        baseCartItem,
+        { quantity: state.quantity },
+        { totalPrice: productInfo.price.currentPrice * state.quantity }
+      );
+
+      setCart(
+        Object.assign(
+          {},
+          {
+            totalCost:
+              cart.totalCost + newCartItem.price * newCartItem.quantity,
+          },
+          { cartItems: cart.cartItems.concat(newCartItem) }
+        )
+      );
+    }
+
+    dispatch({ type: 'RESET' });
   };
   return (
     <section>
@@ -80,7 +115,10 @@ export const Product = ({ productInfo }: ProductProps) => {
           increaseNumOfProduct={() => dispatch({ type: 'INCREMENT' })}
           decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
         />
-        <button onClick={() => insertItemToCart()}>
+        <button
+          onClick={() => insertItemToCart()}
+          disabled={state.quantity > 0 ? false : true}
+        >
           <Cart />
           Add to Cart
         </button>

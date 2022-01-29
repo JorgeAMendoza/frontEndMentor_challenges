@@ -1,4 +1,5 @@
 export interface fetchedProductData {
+  productID: string;
   brandName: string;
   productName: string;
   productDescription: string;

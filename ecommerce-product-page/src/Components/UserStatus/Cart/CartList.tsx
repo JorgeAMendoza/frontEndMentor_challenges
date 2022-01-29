@@ -8,8 +8,8 @@ interface CartListProps {
 export const CartList = ({ cartItems }: CartListProps) => {
   return (
     <div>
-      {cartItems.map((item, index) => (
-        <CartItemDisplay key={index} item={item} />
+      {cartItems.map((item) => (
+        <CartItemDisplay key={item.productID} item={item} />
       ))}
     </div>
   );
