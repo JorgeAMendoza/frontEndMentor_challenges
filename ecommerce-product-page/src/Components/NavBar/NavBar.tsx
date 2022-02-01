@@ -1,11 +1,22 @@
-export const NavBar = () => {
+import { useMediaQuery } from 'react-responsive';
+import { NavBarDesktop } from './NavBarDesktop';
+import { NavBarMobile } from './NavBarMobile';
+
+interface NavBarProps {
+  showMobileNav: boolean;
+  toggleMobileNav: () => void;
+}
+
+export const NavBar = ({ showMobileNav, toggleMobileNav }: NavBarProps) => {
+  const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
+
   return (
-    <nav className="hidden absolute">
-      <a href="/">Collections</a>
-      <a href="/">Men</a>
-      <a href="/">Women</a>
-      <a href="/">About</a>
-      <a href="/">Contact</a>
-    </nav>
+    <div>
+      {isTablet ? (
+        <NavBarDesktop />
+      ) : (
+        showMobileNav && <NavBarMobile toggleMobileNav={toggleMobileNav} />
+      )}
+    </div>
   );
 };

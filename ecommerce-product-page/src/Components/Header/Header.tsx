@@ -2,18 +2,27 @@ import { NavBar } from '../NavBar/NavBar';
 import { UserStatus } from '../UserStatus/UserStatus';
 import SneakerLogo from '../../assets/images/logo.svg';
 import { MenuIcon } from '../Icons/MenuIcon';
+import { useState } from 'react';
 
 export const Header = () => {
+  const [mobileNav, setMobileNav] = useState(false);
   return (
     <header className="py-4">
       <div className="container flex items-center gap-4">
-        <div className="inline-block md:hidden">
+        <button
+          onClick={() => setMobileNav(!mobileNav)}
+          className="inline-block md:hidden mt-1"
+          aria-label="Show mobile navigation menu."
+        >
           <MenuIcon />
-        </div>
+        </button>
         <div className="justify-self-end">
           <img src={SneakerLogo} alt="Sneaker Logo" />
         </div>
-        <NavBar />
+        <NavBar
+          showMobileNav={mobileNav}
+          toggleMobileNav={() => setMobileNav(!mobileNav)}
+        />
         <UserStatus />
       </div>
     </header>
