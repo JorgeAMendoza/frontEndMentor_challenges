@@ -28,4 +28,17 @@ body::after {
     font-weight: bold;
     font-size: 1.6rem;
   }
+
+  /* Image Carousel Button */
+  .image-carousel-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+  }
 }

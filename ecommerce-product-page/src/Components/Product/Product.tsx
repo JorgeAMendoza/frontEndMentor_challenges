@@ -101,7 +101,7 @@ export const Product = ({ productInfo }: ProductProps) => {
         thumbnailImages={productInfo.thumbnailImages}
       />
       <div>
-        <span>{productInfo.brandName}</span>
+        <span className="font-bold ">{productInfo.brandName}</span>
         <h2>{productInfo.productName}</h2>
         <p>{productInfo.productDescription}</p>
 
