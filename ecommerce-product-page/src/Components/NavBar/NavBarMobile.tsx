@@ -6,7 +6,7 @@ interface NavBarMobileProps {
 
 export const NavBarMobile = ({ toggleMobileNav }: NavBarMobileProps) => {
   return (
-    <nav className="navbar fixed flex top-0 left-0 bg-transparent min-h-full min-w-full">
+    <nav className="navbar fixed flex top-0 left-0 bg-transparent min-h-full min-w-full z-10">
       <div className="bg-white grow">
         <div className="flex flex-col gap-4 ml-5 mt-5">
           <button className="mb-5" onClick={toggleMobileNav}>

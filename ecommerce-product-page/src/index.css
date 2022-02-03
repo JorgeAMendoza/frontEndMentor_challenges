@@ -41,4 +41,16 @@ body::after {
     height: 50px;
     transform: translateY(-50%);
   }
+
+  /* Quanity Buttons */
+  .quantity-button {
+    color: #ff7e1b;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  /* purchase button shadow */
+  .btn-add-to-cart {
+    box-shadow: 0 15px 10px rgb(255, 126, 27, 20%);
+  }
 }

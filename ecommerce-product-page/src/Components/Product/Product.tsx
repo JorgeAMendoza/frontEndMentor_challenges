@@ -95,15 +95,19 @@ export const Product = ({ productInfo }: ProductProps) => {
     dispatch({ type: 'RESET' });
   };
   return (
-    <section>
+    <section className="mb-10">
       <ImageCarousel
         heroImages={productInfo.heroImages}
         thumbnailImages={productInfo.thumbnailImages}
       />
-      <div>
-        <span className="font-bold ">{productInfo.brandName}</span>
-        <h2>{productInfo.productName}</h2>
-        <p>{productInfo.productDescription}</p>
+      <div className="container flex flex-col gap-4 pt-5">
+        <span className="font-bold text-orange tracking-widest uppercase text-xs">
+          {productInfo.brandName}
+        </span>
+        <h2 className="font-bold text-3xl">{productInfo.productName}</h2>
+        <p className="text-light-gray leading-6">
+          {productInfo.productDescription}
+        </p>
 
         <Price
           price={productInfo.price.currentPrice}
@@ -116,11 +120,12 @@ export const Product = ({ productInfo }: ProductProps) => {
           decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
         />
         <button
+          className="bg-orange text-white flex justify-center gap-4 font-bold px-10 py-5 rounded-lg btn-add-to-cart"
           onClick={() => insertItemToCart()}
           disabled={state.quantity > 0 ? false : true}
         >
-          <Cart />
-          Add to Cart
+          <Cart color="#fff" />
+          Add to cart
         </button>
       </div>
     </section>
