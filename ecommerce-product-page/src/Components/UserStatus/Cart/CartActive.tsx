@@ -7,7 +7,7 @@ export const CartActive = () => {
 
   const renderCart = cart.cartItems.length ? true : false;
   return (
-    <div className="hidden">
+    <div>
       {renderCart ? <CartList cartItems={cart.cartItems} /> : <CartEmpty />}
     </div>
   );
