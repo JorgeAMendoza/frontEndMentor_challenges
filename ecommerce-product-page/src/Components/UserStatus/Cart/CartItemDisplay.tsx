@@ -3,9 +3,10 @@ import { Trash } from '../../Icons/Trash';
 
 interface CartItemDisplayProps {
   item: CartItem;
+  deleteItem: () => void;
 }
 
-export const CartItemDisplay = ({ item }: CartItemDisplayProps) => {
+export const CartItemDisplay = ({ item, deleteItem }: CartItemDisplayProps) => {
   return (
     <div className="flex gap-3">
       <div className="w-[50px] rounded-md">
@@ -26,6 +27,7 @@ export const CartItemDisplay = ({ item }: CartItemDisplayProps) => {
         </p>
       </div>
       <button
+        onClick={deleteItem}
         className="ml-auto"
         aria-label={`Delete ${item.productName} from cart.`}
       >

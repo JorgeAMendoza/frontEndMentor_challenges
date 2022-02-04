@@ -71,7 +71,10 @@ export const Product = ({ productInfo }: ProductProps) => {
       }, 0);
 
       setCart(
-        Object.assign({ totalCost: newTotalCost }, { cartItems: newCartItems })
+        Object.assign(
+          { totalCost: cart.totalCost + newTotalCost },
+          { cartItems: newCartItems }
+        )
       );
     } else {
       const newCartItem: CartItem = Object.assign(
