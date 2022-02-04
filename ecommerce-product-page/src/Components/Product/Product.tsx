@@ -66,15 +66,12 @@ export const Product = ({ productInfo }: ProductProps) => {
         .slice(0, existingItemIndex)
         .concat(updatedCartItem, cart.cartItems.slice(existingItemIndex + 1));
 
-      const newTotalCost = cart.cartItems.reduce((sum, item) => {
+      const newTotalCost = newCartItems.reduce((sum, item) => {
         return (sum += item.totalPrice);
       }, 0);
 
       setCart(
-        Object.assign(
-          { totalCost: cart.totalCost + newTotalCost },
-          { cartItems: newCartItems }
-        )
+        Object.assign({ totalCost: newTotalCost }, { cartItems: newCartItems })
       );
     } else {
       const newCartItem: CartItem = Object.assign(
