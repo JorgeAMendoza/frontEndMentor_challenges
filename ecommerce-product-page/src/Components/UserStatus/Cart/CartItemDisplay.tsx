@@ -7,17 +7,28 @@ interface CartItemDisplayProps {
 
 export const CartItemDisplay = ({ item }: CartItemDisplayProps) => {
   return (
-    <div>
-      <div>
-        <img src={item.productImage} alt={`${item.productName} Thumbnail`} />
+    <div className="flex gap-3">
+      <div className="w-[50px] rounded-md">
+        <img
+          className="rounded-md"
+          src={item.productImage}
+          alt={`${item.productName} Thumbnail`}
+        />
       </div>
-      <div>
-        <p>{item.productName}</p>
-        <p>{`$${item.price} x ${item.quantity} ${
-          item.price * item.quantity
-        }`}</p>
+      <div className="flex flex-col justify-between">
+        <p className="text-light-gray">{item.productName}</p>
+        <p className="text-light-gray">
+          {`$${item.price}.00 x ${item.quantity}`}
+          <span className="font-bold text-black">
+            {' '}
+            {item.price * item.quantity}.00
+          </span>
+        </p>
       </div>
-      <button aria-label={`Delete ${item.productName} from cart.`}>
+      <button
+        className="ml-auto"
+        aria-label={`Delete ${item.productName} from cart.`}
+      >
         <Trash />
       </button>
     </div>

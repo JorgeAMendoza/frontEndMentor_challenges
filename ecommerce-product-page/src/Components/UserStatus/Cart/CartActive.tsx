@@ -7,8 +7,19 @@ export const CartActive = () => {
 
   const renderCart = cart.cartItems.length ? true : false;
   return (
-    <div>
-      {renderCart ? <CartList cartItems={cart.cartItems} /> : <CartEmpty />}
+    <div className="absolute top-20 left-0 z-10 w-screen px-2">
+      <div className="bg-white rounded-md py-4 min-h-[65vw]">
+        <p className="font-bold px-5 pb-5 border-b-2">Cart</p>
+        <div className="">
+          {renderCart ? (
+            <div>
+              <CartList cartItems={cart.cartItems} />
+            </div>
+          ) : (
+            <CartEmpty />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
