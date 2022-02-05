@@ -6,7 +6,7 @@ import { CartActive } from './Cart/CartActive';
 export const UserStatus = () => {
   const [showCart, setShowCart] = useState(false);
   return (
-    <div className="flex items-center gap-5 ml-auto">
+    <div className="flex items-center gap-5 ml-auto md:relative">
       <button aria-label="display cart" onClick={() => setShowCart(!showCart)}>
         <Cart />
       </button>
