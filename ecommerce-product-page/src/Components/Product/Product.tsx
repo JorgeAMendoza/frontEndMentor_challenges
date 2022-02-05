@@ -95,16 +95,16 @@ export const Product = ({ productInfo }: ProductProps) => {
     dispatch({ type: 'RESET' });
   };
   return (
-    <section className="mb-10">
+    <section className="container pb-10 xl:py-10 xl:px-20 xl:flex gap-32">
       <ImageCarousel
         heroImages={productInfo.heroImages}
         thumbnailImages={productInfo.thumbnailImages}
       />
-      <div className="container flex flex-col gap-4 pt-5">
-        <span className="font-bold text-orange tracking-widest uppercase text-xs">
+      <div className="container flex flex-col gap-4 pt-5 xl:self-center xl:gap-7">
+        <span className="font-bold text-orange tracking-widest uppercase text-xs lg:text-base">
           {productInfo.brandName}
         </span>
-        <h2 className="font-bold text-3xl">{productInfo.productName}</h2>
+        <h2 className="font-bold text-4xl">{productInfo.productName}</h2>
         <p className="text-light-gray leading-6">
           {productInfo.productDescription}
         </p>
@@ -114,19 +114,22 @@ export const Product = ({ productInfo }: ProductProps) => {
           discountPercent={productInfo.price.currentDiscount}
           msrp={productInfo.price.suggestedPrice}
         />
-        <Quantity
-          numOfProduct={state.quantity}
-          increaseNumOfProduct={() => dispatch({ type: 'INCREMENT' })}
-          decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
-        />
-        <button
-          className="bg-orange text-white flex justify-center gap-4 font-bold px-10 py-5 rounded-lg btn-add-to-cart"
-          onClick={() => insertItemToCart()}
-          disabled={state.quantity > 0 ? false : true}
-        >
-          <Cart color="#fff" />
-          Add to cart
-        </button>
+        <div className="flex gap-4 flex-col xl:flex-row">
+          <Quantity
+            numOfProduct={state.quantity}
+            increaseNumOfProduct={() => dispatch({ type: 'INCREMENT' })}
+            decreaseNumOfProduct={() => dispatch({ type: 'DECREMENT' })}
+          />
+
+          <button
+            className="bg-orange text-white flex justify-center gap-4 font-bold px-10 py-5 rounded-lg btn-add-to-cart xl:grow-[2]"
+            onClick={() => insertItemToCart()}
+            disabled={state.quantity > 0 ? false : true}
+          >
+            <Cart color="#fff" />
+            Add to cart
+          </button>
+        </div>
       </div>
     </section>
   );

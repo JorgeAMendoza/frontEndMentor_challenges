@@ -39,9 +39,13 @@ export const ImageCarousel = ({
   return (
     <div>
       <div className="relative">
-        <img src={heroImages[state.index]} alt="Hero" />
+        <img
+          className="xl:rounded-lg"
+          src={heroImages[state.index]}
+          alt="Hero"
+        />
         <button
-          className="absolute top-2/4 left-5 image-carousel-button"
+          className="absolute top-2/4 left-5 image-carousel-button xl:hidden"
           onClick={() =>
             dispatch({ type: 'PREVIOUS', payload: heroImages.length - 1 })
           }
@@ -49,7 +53,7 @@ export const ImageCarousel = ({
           <PreviousIcon />
         </button>
         <button
-          className="absolute top-2/4 right-5 image-carousel-button"
+          className="absolute top-2/4 right-5 image-carousel-button xl:hidden"
           onClick={() =>
             dispatch({ type: 'NEXT', payload: heroImages.length - 1 })
           }
@@ -58,15 +62,20 @@ export const ImageCarousel = ({
         </button>
       </div>
 
-      <div className="hidden">
-        <div>
+      <div className="hidden xl:block">
+        <div className="flex gap-6 rounded-lg mt-5">
           {thumbnailImages.map((thumbnail, index) => (
             <button
+              className=""
               key={thumbnail}
               data-index={index}
               onClick={() => dispatch({ type: 'CLICK', payload: index })}
             >
-              <img src={thumbnail} alt={`Thumbnail ${index}`} />
+              <img
+                src={thumbnail}
+                alt={`Thumbnail ${index}`}
+                className="rounded-lg"
+              />
             </button>
           ))}
         </div>
