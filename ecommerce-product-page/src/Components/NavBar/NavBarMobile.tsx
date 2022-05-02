@@ -8,7 +8,7 @@ export const NavBarMobile = ({ toggleMobileNav }: NavBarMobileProps) => {
   return (
     <nav className="navbar fixed flex top-0 left-0 bg-transparent min-h-full min-w-full z-20">
       <div className="bg-white grow">
-        <div className="flex flex-col gap-4 ml-5 mt-5">
+        <div className="flex flex-col gap-4 ml-7 mt-8">
           <button className="mb-5" onClick={toggleMobileNav}>
             <CloseMenu />
           </button>
