@@ -6,6 +6,7 @@ import { Cart } from '../Icons/Cart';
 import { fetchedProductData } from '../../types/fetched-data';
 import { CartContext } from '../../utils/Context/cart-context';
 import { CartItem } from '../../types/cart-types';
+import { useMediaQuery } from 'react-responsive';
 
 interface ProductState {
   quantity: number;
@@ -36,6 +37,8 @@ const reducer = (state: ProductState, action: QuantiyActions) => {
 export const Product = ({ productInfo }: ProductProps) => {
   const [state, dispatch] = useReducer(reducer, { quantity: 0 });
   const { cart, setCart } = useContext(CartContext);
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
+  console.log(isDesktop);
 
   const insertItemToCart = () => {
     const existingItemIndex = cart.cartItems.findIndex(
@@ -95,7 +98,11 @@ export const Product = ({ productInfo }: ProductProps) => {
     dispatch({ type: 'RESET' });
   };
   return (
-    <section className="container pb-10 xl:py-10 xl:px-20 xl:flex gap-32">
+    <section
+      className={`${
+        isDesktop ? 'container ' : ''
+      }pb-10 xl:py-24 xl:px-20 xl:flex gap-32`}
+    >
       <ImageCarousel
         heroImages={productInfo.heroImages}
         thumbnailImages={productInfo.thumbnailImages}
@@ -104,7 +111,7 @@ export const Product = ({ productInfo }: ProductProps) => {
         <span className="font-bold text-orange tracking-widest uppercase text-xs lg:text-base">
           {productInfo.brandName}
         </span>
-        <h2 className="font-bold text-4xl">{productInfo.productName}</h2>
+        <h2 className="font-bold text-5xl">{productInfo.productName}</h2>
         <p className="text-light-gray leading-6">
           {productInfo.productDescription}
         </p>

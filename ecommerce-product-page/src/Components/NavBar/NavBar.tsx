@@ -11,7 +11,7 @@ export const NavBar = ({ showMobileNav, toggleMobileNav }: NavBarProps) => {
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
 
   return (
-    <div>
+    <div className="z-10">
       {isTablet ? (
         <NavBarDesktop />
       ) : (

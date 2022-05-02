@@ -18,7 +18,7 @@ body::after {
 
 .container {
   width: 90%;
-  max-width: 85rem;
+  max-width: 100rem;
   margin: 0 auto;
 }
 

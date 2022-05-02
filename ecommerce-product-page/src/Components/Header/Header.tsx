@@ -7,8 +7,8 @@ import { useState } from 'react';
 export const Header = () => {
   const [mobileNav, setMobileNav] = useState(false);
   return (
-    <header className="py-4">
-      <div className="container flex items-center gap-4">
+    <header className="py-6">
+      <div className="container flex items-center gap-4 pb-1 xl:border-b-2 xl:pb-10">
         <button
           onClick={() => setMobileNav(!mobileNav)}
           className="inline-block md:hidden mt-1"
