@@ -1,10 +1,11 @@
-import React from 'react'
-import './App.css'
+import AdviceCard from './components/AdviceCard/AdviceCard'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      {/* this one is the entire card, or the container for ir, it should not have any styles on it, it should really just be used to flip the card over */}
+      <AdviceCard />
+      <AdviceCard />
     </div>
   )
 }
