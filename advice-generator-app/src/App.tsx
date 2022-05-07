@@ -1,6 +1,17 @@
 import AdviceCard from './components/AdviceCard/AdviceCard'
+import getAdvice from './api/get-advice'
+import { useEffect } from 'react'
 
 function App() {
+  useEffect(() => {
+    getAdviceText()
+  }, [])
+
+  const getAdviceText = async () => {
+    const adviceText = await getAdvice()
+    return adviceText
+  }
+
   return (
     <div>
       {/* this one is the entire card, or the container for ir, it should not have any styles on it, it should really just be used to flip the card over */}
