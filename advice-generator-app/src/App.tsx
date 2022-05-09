@@ -8,8 +8,8 @@ function App() {
   }, [])
 
   const getAdviceText = async () => {
-    const adviceText = await getAdvice()
-    return adviceText
+    const adviceData = await getAdvice()
+    return adviceData
   }
 
   return (
