@@ -7,12 +7,14 @@ interface AdviceCardProps {
   adviceNumber: number
   adviceText: string
   adviceCardType: 'front' | 'back'
+  changeAdvice: () => void
 }
 
 const AdviceCard = ({
   adviceNumber,
   adviceText,
   adviceCardType,
+  changeAdvice,
 }: AdviceCardProps) => {
   return (
     <div data-testid={adviceCardType}>
@@ -24,7 +26,7 @@ const AdviceCard = ({
         <img src={borderSVGMobile} alt="SVG Border" />
       </picture>
 
-      <button data-testid="newAdviceButton">
+      <button data-testid="newAdviceButton" onClick={changeAdvice}>
         <span>
           <img src={diceIcon} alt="Dice Icon" />
         </span>

@@ -1,29 +1,58 @@
 import AdviceCard from './components/AdviceCard/AdviceCard'
 import getAdvice from './api/get-advice'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import adviceCardData from './types/advice-card-data'
 
 function App() {
+  const [frontCard, setFrontCard] = useState<adviceCardData | null>()
+  const [backCard, setBackCard] = useState<adviceCardData | null>()
+  const [flipToBack, setFlipToBack] = useState(false)
+
   useEffect(() => {
-    getAdviceText()
+    setInitialAdvice()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const getAdviceText = async () => {
+  const getAdviceData = async () => {
     const adviceData = await getAdvice()
     return adviceData
   }
 
+  const setInitialAdvice = async () => {
+    const cardData = await getAdviceData()
+    setFrontCard(cardData)
+  }
+
+  const setCardData = async () => {
+    const cardData = await getAdviceData()
+    if (!frontCard) {
+      setFrontCard(cardData)
+      setFlipToBack(false)
+    } else {
+      setBackCard(cardData)
+      setFlipToBack(true)
+    }
+  }
+
+  const removePastData = () => {
+    // this function is called after the end of the transition event.
+    if (flipToBack) setFrontCard(null)
+    else setBackCard(null)
+  }
+
   return (
-    <div>
-      {/* this one is the entire card, or the container for ir, it should not have any styles on it, it should really just be used to flip the card over */}
+    <div onTransitionEnd={removePastData}>
       <AdviceCard
-        adviceNumber={1}
-        adviceText="Defeating a sandwhich, only makes it taster"
+        adviceNumber={frontCard ? frontCard.id : -1}
+        adviceText={frontCard ? frontCard.advice : ''}
         adviceCardType="front"
+        changeAdvice={() => setCardData()}
       />
       <AdviceCard
-        adviceNumber={90}
-        adviceText="Would you rather xD or would you rather squee"
+        adviceNumber={backCard ? backCard.id : -1}
+        adviceText={backCard ? backCard.advice : ''}
         adviceCardType="back"
+        changeAdvice={() => setCardData()}
       />
     </div>
   )
