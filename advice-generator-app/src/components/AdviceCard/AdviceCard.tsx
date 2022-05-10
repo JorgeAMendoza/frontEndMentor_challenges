@@ -1,7 +1,7 @@
 import borderSVGDesktop from '../../assets/images/pattern-divider-desktop.svg'
 import borderSVGMobile from '../../assets/images/pattern-divider-mobile.svg'
 import diceIcon from '../../assets/images/icon-dice.svg'
-import { device } from '../../utils/device'
+import { device } from '../../styles/utils/device'
 
 interface AdviceCardProps {
   adviceNumber: number
