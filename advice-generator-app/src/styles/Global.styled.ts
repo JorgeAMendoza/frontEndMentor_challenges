@@ -35,6 +35,13 @@ html {
   ul{
     list-style: none;
   }
+
+  button,a{
+    text-decoration:none;
+    border:none;
+    cursor: pointer;
+  }
+
   p,
   li,
   h1,

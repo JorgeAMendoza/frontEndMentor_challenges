@@ -2,6 +2,7 @@ import borderSVGDesktop from '../../assets/images/pattern-divider-desktop.svg'
 import borderSVGMobile from '../../assets/images/pattern-divider-mobile.svg'
 import diceIcon from '../../assets/images/icon-dice.svg'
 import { device } from '../../styles/utils/device'
+import AdviceCardStyled from '../../styles/AdviceCard/AdviceCard.styled'
 
 interface AdviceCardProps {
   adviceNumber: number
@@ -17,7 +18,7 @@ const AdviceCard = ({
   changeAdvice,
 }: AdviceCardProps) => {
   return (
-    <div data-testid={adviceCardType}>
+    <AdviceCardStyled data-testid={adviceCardType}>
       <h2>Advice #{adviceNumber}</h2>
       <h1>{`"${adviceText}"`}</h1>
 
@@ -31,7 +32,7 @@ const AdviceCard = ({
           <img src={diceIcon} alt="Dice Icon" />
         </span>
       </button>
-    </div>
+    </AdviceCardStyled>
   )
 }
 

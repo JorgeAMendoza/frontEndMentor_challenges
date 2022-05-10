@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-  width: 95%;
+  width: 94%;
   max-width: 140rem;
-  border: 1px solid black;
+  margin: 0 auto;
 `
 
 export default Container

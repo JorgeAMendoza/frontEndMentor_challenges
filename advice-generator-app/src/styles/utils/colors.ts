@@ -15,6 +15,7 @@ const colorStyles = {
   adviceIDText: colors.primary.neonGreen,
   adviceText: colors.primary.lightCyan,
   cardBackground: colors.neutral.darkGrayishBlue,
+  nextAdviceButtonBackground: colors.primary.neonGreen,
 }
 
 export default colorStyles

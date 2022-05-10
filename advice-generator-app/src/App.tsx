@@ -11,10 +11,10 @@ function App() {
   const [backCard, setBackCard] = useState<adviceCardData | null>()
   const [flipToBack, setFlipToBack] = useState(false)
 
-  // useEffect(() => {
-  //   setInitialAdvice()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
+  useEffect(() => {
+    setInitialAdvice()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const getAdviceData = async () => {
     const adviceData = await getAdvice()
