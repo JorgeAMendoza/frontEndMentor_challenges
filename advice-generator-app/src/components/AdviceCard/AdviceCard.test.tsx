@@ -13,6 +13,7 @@ describe('Advice card renders the correct props', () => {
         adviceNumber={testData.adviceNumber}
         adviceText={testData.adviceText}
         adviceCardType="front"
+        changeAdvice={() => console.log('test')}
       />
     )
     screen.getByText(`Advice #${testData.adviceNumber}`)
@@ -25,6 +26,7 @@ describe('Advice card renders the correct props', () => {
         adviceNumber={testData.adviceNumber}
         adviceText={testData.adviceText}
         adviceCardType="front"
+        changeAdvice={() => console.log('test')}
       />
     )
 

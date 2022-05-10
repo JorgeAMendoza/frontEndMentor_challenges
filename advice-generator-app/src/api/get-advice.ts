@@ -1,15 +1,11 @@
 import axios from 'axios'
-
-interface adviceDataReturnType {
-  id: number
-  advice: string
-}
+import adviceCardData from '../types/advice-card-data'
 
 let lastAdviceID = -1
 
-const getAdvice = async () => {
+const getAdvice = async (): Promise<adviceCardData> => {
   let repeatedAdviceID = true
-  const adviceReturnData: adviceDataReturnType = { id: -1, advice: '' }
+  const adviceReturnData: adviceCardData = { id: -1, advice: '' }
 
   while (repeatedAdviceID) {
     const adviceData = await axios.get('https://api.adviceslip.com/advice')
