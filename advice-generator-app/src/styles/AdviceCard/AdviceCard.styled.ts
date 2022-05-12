@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import colorStyles from '../utils/colors'
 const AdviceCardStyled = styled.div`
   background-color: ${colorStyles.cardBackground};
+  width: 100%;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,13 @@ const AdviceCardStyled = styled.div`
   padding: 4em 2em;
   text-align: center;
   position: relative;
-  min-height: 25rem;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  position: absolute;
+
+  &:nth-child(2) {
+    transform: rotateY(180deg);
+  }
 
   h2 {
     color: ${colorStyles.adviceIDText};

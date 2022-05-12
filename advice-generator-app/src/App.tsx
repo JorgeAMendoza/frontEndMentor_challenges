@@ -47,19 +47,21 @@ function App() {
     <>
       <GlobalStyles />
       <Container>
-        <CardHolder onTransitionEnd={removePastData}>
-          <AdviceCard
-            adviceNumber={frontCard ? frontCard.id : -1}
-            adviceText={frontCard ? frontCard.advice : ''}
-            adviceCardType="front"
-            changeAdvice={() => setCardData()}
-          />
-          <AdviceCard
-            adviceNumber={backCard ? backCard.id : -1}
-            adviceText={backCard ? backCard.advice : ''}
-            adviceCardType="back"
-            changeAdvice={() => setCardData()}
-          />
+        <CardHolder flipCard={flipToBack} onTransitionEnd={removePastData}>
+          <div>
+            <AdviceCard
+              adviceNumber={frontCard ? frontCard.id : -1}
+              adviceText={frontCard ? frontCard.advice : ''}
+              adviceCardType="front"
+              changeAdvice={() => setCardData()}
+            />
+            <AdviceCard
+              adviceNumber={backCard ? backCard.id : -1}
+              adviceText={backCard ? backCard.advice : ''}
+              adviceCardType="back"
+              changeAdvice={() => setCardData()}
+            />
+          </div>
         </CardHolder>
       </Container>
     </>

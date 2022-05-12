@@ -23,6 +23,10 @@ html {
     display:flex;
     align-items: center;
     justify-content: center;
+
+    #root{
+      width:100%;
+    }
   } 
   img,svg {
     max-width: 100%;
