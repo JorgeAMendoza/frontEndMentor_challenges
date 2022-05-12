@@ -8,8 +8,8 @@ const AdviceCardStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
-  padding: 4em 2em;
+  gap: 3.5rem;
+  padding: 4.5em 2.5em;
   text-align: center;
   position: relative;
   -webkit-backface-visibility: hidden; /* Safari */
@@ -22,7 +22,7 @@ const AdviceCardStyled = styled.div`
 
   h2 {
     color: ${colorStyles.adviceIDText};
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 5px;
   }

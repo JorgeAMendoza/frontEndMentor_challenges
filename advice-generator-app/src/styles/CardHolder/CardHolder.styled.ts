@@ -7,7 +7,7 @@ interface CardHolderStyleProps {
 const CardHolder = styled.main<CardHolderStyleProps>`
   background-color: transparent;
   perspective: 1000px;
-  min-height: 25rem;
+  min-height: 35rem;
   > div {
     position: relative;
     width: 100%;
