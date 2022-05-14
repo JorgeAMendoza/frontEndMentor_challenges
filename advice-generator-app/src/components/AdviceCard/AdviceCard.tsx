@@ -18,7 +18,7 @@ const AdviceCard = ({
   changeAdvice,
 }: AdviceCardProps) => {
   return (
-    <AdviceCardStyled data-testid={adviceCardType}>
+    <AdviceCardStyled data-test={`advice-card-${adviceCardType}`}>
       <h2>Advice #{adviceNumber}</h2>
       <h1>{`"${adviceText}"`}</h1>
 
@@ -27,7 +27,7 @@ const AdviceCard = ({
         <img src={borderSVGMobile} alt="SVG Border" />
       </picture>
 
-      <button data-testid="newAdviceButton" onClick={changeAdvice}>
+      <button data-test={`new-advice-button-${adviceCardType}`} onClick={changeAdvice}>
         <span>
           <img src={diceIcon} alt="Dice Icon" />
         </span>

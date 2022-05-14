@@ -38,7 +38,6 @@ function App() {
   }
 
   const removePastData = () => {
-    // this function is called after the end of the transition event.
     if (flipToBack) setFrontCard(null)
     else setBackCard(null)
   }
@@ -47,7 +46,11 @@ function App() {
     <>
       <GlobalStyles />
       <Container>
-        <CardHolder flipCard={flipToBack} onTransitionEnd={removePastData}>
+        <CardHolder
+          flipCard={flipToBack}
+          onTransitionEnd={removePastData}
+          data-test="advice-card"
+        >
           <div>
             <AdviceCard
               adviceNumber={frontCard ? frontCard.id : -1}
